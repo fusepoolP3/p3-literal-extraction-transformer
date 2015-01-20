@@ -1,0 +1,4524 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix unescothes: <http://skos.um.es/unescothes/> .
+
+unescothes:C00826 a skos:Concept;
+   skos:prefLabel "Countercultures"@en;
+   skos:prefLabel "Contre-culture"@fr;
+   skos:prefLabel "Contracultura"@es;
+   skos:prefLabel "Контркультуры"@ru;
+   skos:note "Cultural system which develops in conflict with the prevailing culture."@en;
+   skos:note "Sistema cultural que se desarrolla en oposición a la cultura mayoritaria."@es;
+   skos:note "Système culturel qui se développe en s'opposant à la culture de la majorité."@fr;
+   skos:note "Культурная система, развивающаяся в конфронтации к доминирующей культуре."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00922;
+   skos:related unescothes:C00867;
+   skos:related unescothes:C00875;
+   skos:related unescothes:C03883.
+
+unescothes:C00827 a skos:Concept;
+   skos:prefLabel "Country programming"@en;
+   skos:prefLabel "Programmation par pays"@fr;
+   skos:prefLabel "Programación por país"@es;
+   skos:prefLabel "Составление национальных программ"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01030.
+
+unescothes:C00828 a skos:Concept;
+   skos:prefLabel "Country reports"@en;
+   skos:prefLabel "Rapport national"@fr;
+   skos:prefLabel "Informe nacional"@es;
+   skos:prefLabel "Обзоры по странам"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C02577;
+   skos:related unescothes:C03132.
+
+unescothes:C00829 a skos:Concept;
+   skos:prefLabel "Courts"@en;
+   skos:prefLabel "Tribunal"@fr;
+   skos:prefLabel "Tribunal"@es;
+   skos:prefLabel "Суды"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Criminal courts"@en;
+   skos:altLabel "Judiciary"@en;
+   skos:altLabel "Supreme courts"@en;
+   skos:altLabel "Tribunals"@en;
+   skos:altLabel "Corte de justicia"@es;
+   skos:altLabel "Corte suprema"@es;
+   skos:altLabel "Magistratura"@es;
+   skos:altLabel "Tribunal criminal"@es;
+   skos:altLabel "Cour criminelle"@fr;
+   skos:altLabel "Cour suprême"@fr;
+   skos:altLabel "Magistrature"@fr;
+   skos:altLabel "Tribunal criminel"@fr;
+   skos:altLabel "Tribunaux"@fr;
+   skos:altLabel "Уголовные суды"@ru;
+   skos:altLabel "Судебная практика"@ru;
+   skos:altLabel "Верховные суды"@ru;
+   skos:altLabel "Трибуналы"@ru;
+   skos:broader unescothes:C00040;
+   skos:related unescothes:C00045;
+   skos:related unescothes:C02229;
+   skos:related unescothes:C02258;
+   skos:related unescothes:C03049.
+
+unescothes:C00830 a skos:Concept;
+   skos:prefLabel "Craft workers"@en;
+   skos:prefLabel "Artisan"@fr;
+   skos:prefLabel "Artesano"@es;
+   skos:prefLabel "Мастера народных и художественных промыслов"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Craftsmen"@en;
+   skos:altLabel "Homme de métier"@fr;
+   skos:altLabel "Ремесленники народных и художественных промыслов"@ru;
+   skos:broader unescothes:C03653;
+   skos:related unescothes:C01760;
+   skos:related unescothes:C01761;
+   skos:related unescothes:C03672.
+
+unescothes:C00831 a skos:Concept;
+   skos:prefLabel "Creative thinking"@en;
+   skos:prefLabel "Pensée créatrice"@fr;
+   skos:prefLabel "Inventiva"@es;
+   skos:prefLabel "Творческое мышление"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C04060;
+   skos:related unescothes:C00833;
+   skos:altLabel "Imaginación constructiva"@es;
+   skos:altLabel "Imaginación creativa"@es;
+   skos:altLabel "Imagination constructive"@fr;
+   skos:altLabel "Imagination créatrice"@fr.
+
+unescothes:C00832 a skos:Concept;
+   skos:prefLabel "Creative writing"@en;
+   skos:prefLabel "Écriture créative"@fr;
+   skos:prefLabel "Escritura creativa"@es;
+   skos:prefLabel "Письменное творчество"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C04381;
+   skos:related unescothes:C00833;
+   skos:related unescothes:C01511;
+   skos:related unescothes:C02321;
+   skos:related unescothes:C02596;
+   skos:altLabel "Creación literaria"@es;
+   skos:altLabel "Création littéraire"@fr.
+
+unescothes:C00833 a skos:Concept;
+   skos:prefLabel "Creativity"@en;
+   skos:prefLabel "Créativité"@fr;
+   skos:prefLabel "Creatividad"@es;
+   skos:prefLabel "Творчество"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01918;
+   skos:related unescothes:C00264;
+   skos:related unescothes:C00831;
+   skos:related unescothes:C00832;
+   skos:related unescothes:C00866;
+   skos:related unescothes:C03926;
+   skos:related unescothes:C04258;
+   skos:altLabel "Genio"@es.
+
+unescothes:C00834 a skos:Concept;
+   skos:prefLabel "Credit"@en;
+   skos:prefLabel "Crédit"@fr;
+   skos:prefLabel "Crédito"@es;
+   skos:prefLabel "Кредит"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01537;
+   skos:narrower unescothes:C02505;
+   skos:related unescothes:C00339;
+   skos:related unescothes:C00981;
+   skos:related unescothes:C02329;
+   skos:related unescothes:C02573;
+   skos:altLabel "Préstamo bancario"@es.
+
+unescothes:C00835 a skos:Concept;
+   skos:prefLabel "Credit courses"@en;
+   skos:prefLabel "Cours par unités capitalisables"@fr;
+   skos:prefLabel "Curso con créditos"@es;
+   skos:prefLabel "Зачетные курсы"@ru;
+   skos:note "Course work in higher education measured by a credit system whereby credit hours are assigned to a course defined by the number of hours per week in class and the number of weeks in the session."@en;
+   skos:note "Curso de enseñanza superior medido por un sistema de unidades según el cual a cada asignatura le corresponden más o menos unidades en función del número de horas lectivas."@es;
+   skos:note "Cours, au niveau de l'enseignement supérieur, mesuré par un système d'unités et selon lequel des unités sont attribuées à un cours en fonction du nombre d'heures d'enseignement par semaine et du nombre de semaines dans la session."@fr;
+   skos:note "Отражает объем работы над каждым курсом высшего учебного заведения, измеряемой системой кредитов (зачетных единиц), определяемой количеством часов в неделю и количеством недель в семестре."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01219;
+   skos:altLabel "Cours à unités"@fr.
+
+unescothes:C00836 a skos:Concept;
+   skos:prefLabel "Creoles"@en;
+   skos:prefLabel "Créole"@fr;
+   skos:prefLabel "Criollo"@es;
+   skos:prefLabel "Креольские языки"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Pidgins"@en;
+   skos:altLabel "Пиджины"@ru;
+   skos:broader unescothes:C01037.
+
+unescothes:C00837 a skos:Concept;
+   skos:prefLabel "Crime"@en;
+   skos:prefLabel "Criminalité"@fr;
+   skos:prefLabel "Crimen"@es;
+   skos:prefLabel "Преступления"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Criminality"@en;
+   skos:altLabel "Criminals"@en;
+   skos:altLabel "Criminal"@es;
+   skos:altLabel "Criminalidad"@es;
+   skos:altLabel "Crime"@fr;
+   skos:altLabel "Criminel"@fr;
+   skos:altLabel "Преступность"@ru;
+   skos:altLabel "Преступники"@ru;
+   skos:narrower unescothes:C00570;
+   skos:narrower unescothes:C00813;
+   skos:narrower unescothes:C01118;
+   skos:narrower unescothes:C01415;
+   skos:narrower unescothes:C01824;
+   skos:narrower unescothes:C01863;
+   skos:narrower unescothes:C03625;
+   skos:narrower unescothes:C04030;
+   skos:narrower unescothes:C04080;
+   skos:related unescothes:C00040;
+   skos:related unescothes:C00838;
+   skos:related unescothes:C00839;
+   skos:related unescothes:C00840;
+   skos:related unescothes:C02230;
+   skos:related unescothes:C02937;
+   skos:related unescothes:C03004;
+   skos:related unescothes:C03036;
+   skos:related unescothes:C03149;
+   skos:related unescothes:C03707;
+   skos:related unescothes:C04278;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00838 a skos:Concept;
+   skos:prefLabel "Crime prevention"@en;
+   skos:prefLabel "Prévention du crime"@fr;
+   skos:prefLabel "Prevención del crimen"@es;
+   skos:prefLabel "Профилактика преступлений"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03036;
+   skos:related unescothes:C00837;
+   skos:related unescothes:C00995;
+   skos:related unescothes:C02937.
+
+unescothes:C00839 a skos:Concept;
+   skos:prefLabel "Criminal law"@en;
+   skos:prefLabel "Droit pénal"@fr;
+   skos:prefLabel "Derecho penal"@es;
+   skos:prefLabel "Уголовное право"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03212;
+   skos:related unescothes:C00837;
+   skos:related unescothes:C00840;
+   skos:related unescothes:C02937;
+   skos:related unescothes:C03036.
+
+unescothes:C00840 a skos:Concept;
+   skos:prefLabel "Criminology"@en;
+   skos:prefLabel "Criminologie"@fr;
+   skos:prefLabel "Criminología"@es;
+   skos:prefLabel "Криминология"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:related unescothes:C00837;
+   skos:related unescothes:C00839;
+   skos:related unescothes:C00995;
+   skos:related unescothes:C01588;
+   skos:related unescothes:C02230;
+   skos:related unescothes:C03036;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00841 a skos:Concept;
+   skos:prefLabel "Croatia"@en;
+   skos:prefLabel "Croatie"@fr;
+   skos:prefLabel "Croacia"@es;
+   skos:prefLabel "Хорватия"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01139;
+   skos:broader unescothes:C02470;
+   skos:related unescothes:C04401.
+
+unescothes:C00842 a skos:Concept;
+   skos:prefLabel "Croatian"@en;
+   skos:prefLabel "Croate"@fr;
+   skos:prefLabel "Croata"@es;
+   skos:prefLabel "Хорватский язык"@ru;
+   skos:note "Use for works on the language of the Croats treated as a separate language. For works on the language(s) of the Serbs, Croats and Bosnians treated together as a single language, use Serbocroatian."@en;
+   skos:note "Utilizar para las obras sobre la lengua propia de los croatas. Para las obras sobre la lengua de los serbios, los croatas o los bosnios como entidad, utilizar 'serbocroata'."@es;
+   skos:note "Utiliser pour les ouvrages traitant de la langue propre aux croates. Pour les travaux traitant de la langue des serbes, des croates et des bosniaques en tant qu'entité, utiliser 'serbocroate'."@fr;
+   skos:note "Используется по отношению к работам на языке хорватов, рассматривающемся в качестве самостоятельного языка. По отношению к работам на языке сербов, хорватов и боснийцев, являющемся общим для этих народов, используйте термин 'Сербскохорватский язык'."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03661;
+   skos:altLabel "Croato"@es.
+
+unescothes:C00843 a skos:Concept;
+   skos:prefLabel "Crops"@en;
+   skos:prefLabel "Cultures agricoles"@fr;
+   skos:prefLabel "Cultivos"@es;
+   skos:prefLabel "Сельскохозяйственные культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00105;
+   skos:narrower unescothes:C00551;
+   skos:related unescothes:C00848;
+   skos:related unescothes:C02999.
+
+unescothes:C00844 a skos:Concept;
+   skos:prefLabel "Cross cultural analysis"@en;
+   skos:prefLabel "Analyse transculturelle"@fr;
+   skos:prefLabel "Análisis transcultural"@es;
+   skos:prefLabel "Сравнительный анализ культур"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00915;
+   skos:related unescothes:C00376;
+   skos:related unescothes:C00721;
+   skos:related unescothes:C00921;
+   skos:related unescothes:C02605.
+
+unescothes:C00845 a skos:Concept;
+   skos:prefLabel "Cross national analysis"@en;
+   skos:prefLabel "Analyse transnationale"@fr;
+   skos:prefLabel "Análisis transnacional"@es;
+   skos:prefLabel "Сравнительный национальный анализ"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03558;
+   skos:related unescothes:C00721.
+
+unescothes:C00846 a skos:Concept;
+   skos:prefLabel "Crystallography"@en;
+   skos:prefLabel "Cristallographie"@fr;
+   skos:prefLabel "Cristalografía"@es;
+   skos:prefLabel "Кристаллография"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:related unescothes:C02489;
+   skos:related unescothes:C02517;
+   skos:related unescothes:C02540;
+   skos:related unescothes:C02986;
+   skos:related unescothes:C02994;
+   skos:related unescothes:C03267;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00847 a skos:Concept;
+   skos:prefLabel "Cuba"@en;
+   skos:prefLabel "Cuba"@fr;
+   skos:prefLabel "Cuba"@es;
+   skos:prefLabel "Куба"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00512;
+   skos:broader unescothes:C00639;
+   skos:broader unescothes:C02221;
+   skos:broader unescothes:C03671.
+
+unescothes:C00848 a skos:Concept;
+   skos:prefLabel "Cultivation"@en;
+   skos:prefLabel "Culture du sol"@fr;
+   skos:prefLabel "Cultivo"@es;
+   skos:prefLabel "Культивация"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cropping systems"@en;
+   skos:altLabel "Cultivation systems"@en;
+   skos:altLabel "Farming systems"@en;
+   skos:altLabel "Sistema de cultivo"@es;
+   skos:altLabel "Sistema de explotación agrícola"@es;
+   skos:altLabel "Sistema de producción agrícola"@es;
+   skos:altLabel "Système cultural"@fr;
+   skos:altLabel "Système d'exploitation agricole"@fr;
+   skos:altLabel "Système de culture"@fr;
+   skos:altLabel "Système de production agricole"@fr;
+   skos:altLabel "Системы земледелия"@ru;
+   skos:altLabel "Системы культивации"@ru;
+   skos:altLabel "Сельскохозяйственные приемы"@ru;
+   skos:broader unescothes:C00116;
+   skos:narrower unescothes:C01120;
+   skos:narrower unescothes:C01571;
+   skos:narrower unescothes:C01766;
+   skos:narrower unescothes:C03630;
+   skos:related unescothes:C00096;
+   skos:related unescothes:C00112;
+   skos:related unescothes:C00114;
+   skos:related unescothes:C00843;
+   skos:related unescothes:C02113;
+   skos:related unescothes:C02956;
+   skos:related unescothes:C04317.
+
+unescothes:C00849 a skos:Concept;
+   skos:prefLabel "Cults"@en;
+   skos:prefLabel "Culte"@fr;
+   skos:prefLabel "Culto"@es;
+   skos:prefLabel "Культы"@ru;
+   skos:note "A particular form of religious worship; devotion to a particular person or thing."@en;
+   skos:note "Forma particular de práctica religiosa que implica una devoción a una persona particular o a una cosa"@es;
+   skos:note "Forme particulière de pratique religieuse; dévotion à une personne particulière ou à une chose."@fr;
+   skos:note "Особая форма религиозного почитания; поклонение конкретному лицу или предмету."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03324;
+   skos:related unescothes:C03424;
+   skos:related unescothes:C04273.
+
+unescothes:C00850 a skos:Concept;
+   skos:prefLabel "Cultural action"@en;
+   skos:prefLabel "Action culturelle"@fr;
+   skos:prefLabel "Acción cultural"@es;
+   skos:prefLabel "Культурная акция"@ru;
+   skos:note "Efforts tending to develop culture in the broadest meaning of the term, with reference to community development, freedom of expression and free choice of life style."@en;
+   skos:note "Esfuerzos encaminados a desarrollar la cultura, en el sentido amplio del término, teniendo en cuenta el desarrollo comunitario, la libertad de expresión y la libre elección de un estilo de vida."@es;
+   skos:note "Effort tendant à développer la culture au sens large du terme, ayant en vue le développement communautaire, la liberté d'expression et la liberté de choix d'un mode de vie."@fr;
+   skos:note "Усилия, направленные на развитие культуры в самом широком смысле, учитывающие развитие сообщества, свободу выражать собственные мысли и свободу выбирать образ жизни."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Socio-cultural action"@en;
+   skos:altLabel "Acción sociocultural"@es;
+   skos:altLabel "Action socioculturelle"@fr;
+   skos:altLabel "Социально-культурная акция"@ru;
+   skos:narrower unescothes:C00851;
+   skos:narrower unescothes:C00856;
+   skos:related unescothes:C00868;
+   skos:related unescothes:C00900;
+   skos:related unescothes:C00999;
+   skos:related unescothes:C01075;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00851 a skos:Concept;
+   skos:prefLabel "Cultural activities"@en;
+   skos:prefLabel "Activité culturelle"@fr;
+   skos:prefLabel "Actividad cultural"@es;
+   skos:prefLabel "Культурная деятельность"@ru;
+   skos:note "All types of activities tending to enhance cultural life through cultural animation and cultural values promotion. Use more specific descriptor where appropriate."@en;
+   skos:note "Todo género de actividades encaminadas a mejorar la vida cultural a través de la animación cultural y de la promoción de los valores culturales. Utilizar un descriptor más preciso cuando sea necesario."@es;
+   skos:note "Tout type d'activités visant l'épanouissement de la vie culturelle au moyen de l'animation culturelle et de la promotion des valeurs culturelles. Utiliser un descripteur plus précis quand c'est pertinent."@fr;
+   skos:note "Все виды деятельности, усиливающие насыщенность культурной жизни путем проведения культурно-массовых мероприятий и распространения культурных ценностей. В необходимых случаях используйте более точный дескриптор."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Socio-cultural activities"@en;
+   skos:altLabel "Actividad sociocultural"@es;
+   skos:altLabel "Activité socio-culturelle"@fr;
+   skos:altLabel "Социально-культурная деятельность"@ru;
+   skos:broader unescothes:C00850;
+   skos:related unescothes:C00856;
+   skos:related unescothes:C00877;
+   skos:related unescothes:C00895;
+   skos:related unescothes:C00903;
+   skos:related unescothes:C00923;
+   skos:related unescothes:C01075;
+   skos:related unescothes:C02267;
+   skos:related unescothes:C02285;
+   skos:related unescothes:C02630;
+   skos:related unescothes:C02942;
+   skos:related unescothes:C03508.
+
+unescothes:C00852 a skos:Concept;
+   skos:prefLabel "Cultural administration"@en;
+   skos:prefLabel "Administration culturelle"@fr;
+   skos:prefLabel "Administración cultural"@es;
+   skos:prefLabel "Руководство в области культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:narrower unescothes:C00894;
+   skos:narrower unescothes:C00896;
+   skos:narrower unescothes:C00902;
+   skos:related unescothes:C00860;
+   skos:related unescothes:C00880;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00853 a skos:Concept;
+   skos:prefLabel "Cultural agents"@en;
+   skos:prefLabel "Agent culturel"@fr;
+   skos:prefLabel "Agente cultural"@es;
+   skos:prefLabel "Кадры сферы культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cultural animators"@en;
+   skos:altLabel "Cultural workers"@en;
+   skos:altLabel "Animador cultural"@es;
+   skos:altLabel "Animador sociocultural"@es;
+   skos:altLabel "Trabajador cultural"@es;
+   skos:altLabel "Animateur culturel"@fr;
+   skos:altLabel "Animateur socioculturel"@fr;
+   skos:altLabel "Travailleur culturel"@fr;
+   skos:altLabel "Культурные аниматоры"@ru;
+   skos:altLabel "Работники культуры"@ru;
+   skos:broader unescothes:C00904.
+
+unescothes:C00854 a skos:Concept;
+   skos:prefLabel "Cultural agents training"@en;
+   skos:prefLabel "Formation des agents culturels"@fr;
+   skos:prefLabel "Formación de agentes culturales"@es;
+   skos:prefLabel "Подготовка кадров для сферы культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00905;
+   skos:related unescothes:C00856.
+
+unescothes:C00855 a skos:Concept;
+   skos:prefLabel "Cultural agreements"@en;
+   skos:prefLabel "Accord culturel"@fr;
+   skos:prefLabel "Acuerdo cultural"@es;
+   skos:prefLabel "Соглашения в области культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00864;
+   skos:related unescothes:C00878;
+   skos:related unescothes:C00894;
+   skos:related unescothes:C02073.
+
+unescothes:C00856 a skos:Concept;
+   skos:prefLabel "Cultural animation"@en;
+   skos:prefLabel "Animation culturelle"@fr;
+   skos:prefLabel "Animación cultural"@es;
+   skos:prefLabel "Культурная анимация"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00850;
+   skos:related unescothes:C00851;
+   skos:related unescothes:C00854;
+   skos:related unescothes:C00895;
+   skos:related unescothes:C00903;
+   skos:related unescothes:C01075.
+
+unescothes:C00857 a skos:Concept;
+   skos:prefLabel "Cultural anthropology"@en;
+   skos:prefLabel "Anthropologie culturelle"@fr;
+   skos:prefLabel "Antropología cultural"@es;
+   skos:prefLabel "Культурная антропология"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cultural and social anthropology"@en;
+   skos:altLabel "Antropología social y cultural"@es;
+   skos:altLabel "Antropología sociocultural"@es;
+   skos:altLabel "Anthropologie culturelle et sociale"@fr;
+   skos:altLabel "Anthropologie socioculturelle"@fr;
+   skos:altLabel "Культурная и социальная антропология"@ru;
+   skos:related unescothes:C00179;
+   skos:related unescothes:C00180;
+   skos:related unescothes:C00211;
+   skos:related unescothes:C00941;
+   skos:related unescothes:C01426;
+   skos:related unescothes:C01429;
+   skos:related unescothes:C01430;
+   skos:related unescothes:C01431;
+   skos:related unescothes:C01561;
+   skos:related unescothes:C01849;
+   skos:related unescothes:C03740;
+   skos:related unescothes:C04095;
+   skos:related unescothes:C04099;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00858 a skos:Concept;
+   skos:prefLabel "Cultural behaviour"@en;
+   skos:prefLabel "Comportement culturel"@fr;
+   skos:prefLabel "Comportamiento cultural"@es;
+   skos:prefLabel "Культурное поведение"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cultural patterns"@en;
+   skos:altLabel "Культурные схемы"@ru;
+   skos:broader unescothes:C00924;
+   skos:narrower unescothes:C00903;
+   skos:related unescothes:C00863;
+   skos:related unescothes:C00891;
+   skos:related unescothes:C02267;
+   skos:related unescothes:C04068.
+
+unescothes:C00859 a skos:Concept;
+   skos:prefLabel "Cultural budgets"@en;
+   skos:prefLabel "Budget culturel"@fr;
+   skos:prefLabel "Presupuesto cultural"@es;
+   skos:prefLabel "Бюджетные средства, выделяемые на развитие культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00882;
+   skos:related unescothes:C00865.
+
+unescothes:C00860 a skos:Concept;
+   skos:prefLabel "Cultural centres"@en;
+   skos:prefLabel "Centre culturel"@fr;
+   skos:prefLabel "Centro cultural"@es;
+   skos:prefLabel "Культурные центры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Arts centres"@en;
+   skos:altLabel "Centro artístico"@es;
+   skos:altLabel "Centre d'arts"@fr;
+   skos:altLabel "Центры искусств"@ru;
+   skos:broader unescothes:C00880;
+   skos:related unescothes:C00711;
+   skos:related unescothes:C00852;
+   skos:related unescothes:C00902;
+   skos:related unescothes:C02452;
+   skos:related unescothes:C03382.
+
+unescothes:C00861 a skos:Concept;
+   skos:prefLabel "Cultural change"@en;
+   skos:prefLabel "Changement culturel"@fr;
+   skos:prefLabel "Cambio cultural"@es;
+   skos:prefLabel "Культурные изменения"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cultural mutation"@en;
+   skos:altLabel "Mutación cultural"@es;
+   skos:altLabel "Transformación cultural"@es;
+   skos:altLabel "Mutation culturelle"@fr;
+   skos:altLabel "Transformation culturelle"@fr;
+   skos:altLabel "Культурная мутация"@ru;
+   skos:narrower unescothes:C00613;
+   skos:narrower unescothes:C00872;
+   skos:narrower unescothes:C00890;
+   skos:narrower unescothes:C00917;
+   skos:related unescothes:C00026;
+   skos:related unescothes:C00862;
+   skos:related unescothes:C00891;
+   skos:related unescothes:C00926;
+   skos:related unescothes:C01062;
+   skos:related unescothes:C02563;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00862 a skos:Concept;
+   skos:prefLabel "Cultural conditions"@en;
+   skos:prefLabel "Conditions culturelles"@fr;
+   skos:prefLabel "Condiciones culturales"@es;
+   skos:prefLabel "Культурные условия"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cultural situation"@en;
+   skos:altLabel "Contexto cultural"@es;
+   skos:altLabel "Situación cultural"@es;
+   skos:altLabel "Situation culturelle"@fr;
+   skos:altLabel "Культурная ситуация"@ru;
+   skos:narrower unescothes:C00875;
+   skos:narrower unescothes:C00881;
+   skos:narrower unescothes:C00895;
+   skos:related unescothes:C00613;
+   skos:related unescothes:C00861;
+   skos:related unescothes:C00867;
+   skos:related unescothes:C00868;
+   skos:related unescothes:C00869;
+   skos:related unescothes:C00892;
+   skos:related unescothes:C00900;
+   skos:related unescothes:C00919;
+   skos:related unescothes:C00922;
+   skos:related unescothes:C00926;
+   skos:related unescothes:C02668;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00863 a skos:Concept;
+   skos:prefLabel "Cultural conflicts"@en;
+   skos:prefLabel "Conflit culturel"@fr;
+   skos:prefLabel "Conflicto cultural"@es;
+   skos:prefLabel "Культурные конфликты"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00891;
+   skos:related unescothes:C00858;
+   skos:related unescothes:C00897;
+   skos:related unescothes:C00914;
+   skos:related unescothes:C00917;
+   skos:related unescothes:C01431;
+   skos:altLabel "Conflicto sociocultural"@es;
+   skos:altLabel "Enfrentamiento cultural"@es.
+
+unescothes:C00864 a skos:Concept;
+   skos:prefLabel "Cultural cooperation"@en;
+   skos:prefLabel "Coopération culturelle"@fr;
+   skos:prefLabel "Cooperación cultural"@es;
+   skos:prefLabel "Сотрудничество в области культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00908;
+   skos:narrower unescothes:C00855;
+   skos:narrower unescothes:C00878;
+   skos:narrower unescothes:C02043;
+   skos:related unescothes:C00914;
+   skos:related unescothes:C01216;
+   skos:altLabel "Cooperación sociocultural"@es.
+
+unescothes:C00865 a skos:Concept;
+   skos:prefLabel "Cultural costs"@en;
+   skos:prefLabel "Coût culturel"@fr;
+   skos:prefLabel "Costes culturales"@es;
+   skos:prefLabel "Культурные издержки"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cultural expenditure"@en;
+   skos:altLabel "Gastos culturales"@es;
+   skos:altLabel "Dépense culturelle"@fr;
+   skos:altLabel "Расходы на культуру"@ru;
+   skos:broader unescothes:C00882;
+   skos:related unescothes:C00859.
+
+unescothes:C00866 a skos:Concept;
+   skos:prefLabel "Cultural creation"@en;
+   skos:prefLabel "Création culturelle"@fr;
+   skos:prefLabel "Creación cultural"@es;
+   skos:prefLabel "Произведение культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:related unescothes:C00264;
+   skos:related unescothes:C00833;
+   skos:related unescothes:C00890;
+   skos:related unescothes:C00926;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00867 a skos:Concept;
+   skos:prefLabel "Cultural crises"@en;
+   skos:prefLabel "Crise culturelle"@fr;
+   skos:prefLabel "Crisis cultural"@es;
+   skos:prefLabel "Кризисы культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00613;
+   skos:related unescothes:C00826;
+   skos:related unescothes:C00862;
+   skos:related unescothes:C00917;
+   skos:related unescothes:C01062.
+
+unescothes:C00868 a skos:Concept;
+   skos:prefLabel "Cultural development"@en;
+   skos:prefLabel "Développement culturel"@fr;
+   skos:prefLabel "Desarrollo cultural"@es;
+   skos:prefLabel "Культурное развитие"@ru;
+   skos:note "Process of development or progress in the cultural life of a community."@en;
+   skos:note "Proceso de desarrollo o progreso en la vida cultural de una comunidad."@es;
+   skos:note "Processus de développement ou de progrès dans la vie culturelle d'une communauté."@fr;
+   skos:note "Процесс развития или прогресс в культурной жизни сообщества."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00908;
+   skos:related unescothes:C00850;
+   skos:related unescothes:C00862.
+
+unescothes:C00869 a skos:Concept;
+   skos:prefLabel "Cultural differentiation"@en;
+   skos:prefLabel "Différenciation culturelle"@fr;
+   skos:prefLabel "Diferenciación cultural"@es;
+   skos:prefLabel "Культурная дифференциация"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:narrower unescothes:C00870;
+   skos:narrower unescothes:C00874;
+   skos:narrower unescothes:C00888;
+   skos:narrower unescothes:C00897;
+   skos:related unescothes:C00862;
+   skos:related unescothes:C00871;
+   skos:related unescothes:C00926;
+   skos:related unescothes:C01095;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00870 a skos:Concept;
+   skos:prefLabel "Cultural discrimination"@en;
+   skos:prefLabel "Discrimination culturelle"@fr;
+   skos:prefLabel "Discriminación cultural"@es;
+   skos:prefLabel "Культурная дискриминация"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00869;
+   skos:related unescothes:C00888;
+   skos:related unescothes:C00918.
+
+unescothes:C00871 a skos:Concept;
+   skos:prefLabel "Cultural diversity"@en;
+   skos:prefLabel "Diversité culturelle"@fr;
+   skos:prefLabel "Diversidad cultural"@es;
+   skos:prefLabel "Культурное разнообразие"@ru;
+   skos:note "Coexistence within society of culturally differentiated groups which maintain separate ways of life."@en;
+   skos:note "Coexistencia, en una sociedad, de grupos culturalmente diferenciados que mantienen modos de vida separados."@es;
+   skos:note "Coexistence, dans une société, de groupes culturellement différenciés qui maintiennent des modes de vie séparés."@fr;
+   skos:note "Сосуществование в одном обществе культурно дифференцированных групп, поддерживающих различные образы жизни."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cultural pluralism"@en;
+   skos:altLabel "Pluralismo cultural"@es;
+   skos:altLabel "Pluralisme culturel"@fr;
+   skos:altLabel "Культурный плюрализм"@ru;
+   skos:broader unescothes:C00922;
+   skos:narrower unescothes:C00376;
+   skos:narrower unescothes:C02605;
+   skos:related unescothes:C00869;
+   skos:related unescothes:C00885;
+   skos:related unescothes:C00908;
+   skos:related unescothes:C02049;
+   skos:related unescothes:C02050.
+
+unescothes:C00872 a skos:Concept;
+   skos:prefLabel "Cultural dynamics"@en;
+   skos:prefLabel "Dynamique culturelle"@fr;
+   skos:prefLabel "Dinámica cultural"@es;
+   skos:prefLabel "Культурная динамика"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00861;
+   skos:related unescothes:C00891;
+   skos:related unescothes:C01738.
+
+unescothes:C00873 a skos:Concept;
+   skos:prefLabel "Cultural education"@en;
+   skos:prefLabel "Éducation culturelle"@fr;
+   skos:prefLabel "Educación cultural"@es;
+   skos:prefLabel "Образование в области культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:narrower unescothes:C00067;
+   skos:narrower unescothes:C00251;
+   skos:narrower unescothes:C01103;
+   skos:narrower unescothes:C01761;
+   skos:narrower unescothes:C02645;
+   skos:narrower unescothes:C03808;
+   skos:related unescothes:C00267;
+   skos:related unescothes:C00905;
+   skos:related unescothes:C00923;
+   skos:related unescothes:C01075;
+   skos:related unescothes:C02050;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00874 a skos:Concept;
+   skos:prefLabel "Cultural elite"@en;
+   skos:prefLabel "Élite culturelle"@fr;
+   skos:prefLabel "Élite cultural"@es;
+   skos:prefLabel "Культурная элита"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00869;
+   skos:related unescothes:C00888;
+   skos:related unescothes:C01095;
+   skos:related unescothes:C01331;
+   skos:related unescothes:C02047.
+
+unescothes:C00875 a skos:Concept;
+   skos:prefLabel "Cultural environment"@en;
+   skos:prefLabel "Environnement culturel"@fr;
+   skos:prefLabel "Medio cultural"@es;
+   skos:prefLabel "Культурная среда"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00862;
+   skos:related unescothes:C00376;
+   skos:related unescothes:C00826;
+   skos:related unescothes:C00881;
+   skos:related unescothes:C00895;
+   skos:related unescothes:C00899;
+   skos:related unescothes:C00919;
+   skos:related unescothes:C00922;
+   skos:related unescothes:C00929;
+   skos:related unescothes:C01847;
+   skos:related unescothes:C02423;
+   skos:related unescothes:C02605;
+   skos:related unescothes:C03883;
+   skos:related unescothes:C04368;
+   skos:altLabel "Entorno cultural"@es.
+
+unescothes:C00876 a skos:Concept;
+   skos:prefLabel "Cultural equipment"@en;
+   skos:prefLabel "Équipement culturel"@fr;
+   skos:prefLabel "Equipamiento cultural"@es;
+   skos:prefLabel "Оборудование для сферы культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00880.
+
+unescothes:C00877 a skos:Concept;
+   skos:prefLabel "Cultural events"@en;
+   skos:prefLabel "Manifestation culturelle"@fr;
+   skos:prefLabel "Manifestaciones culturales"@es;
+   skos:prefLabel "Культурные события"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C02267;
+   skos:narrower unescothes:C01508;
+   skos:related unescothes:C00174;
+   skos:related unescothes:C00851;
+   skos:related unescothes:C01375;
+   skos:related unescothes:C01517;
+   skos:related unescothes:C02318;
+   skos:related unescothes:C04180.
+
+unescothes:C00878 a skos:Concept;
+   skos:prefLabel "Cultural exchange"@en;
+   skos:prefLabel "Échange culturel"@fr;
+   skos:prefLabel "Intercambio cultural"@es;
+   skos:prefLabel "Культурный обмен"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00864;
+   skos:related unescothes:C00855;
+   skos:related unescothes:C00914;
+   skos:related unescothes:C01458;
+   skos:related unescothes:C02043;
+   skos:related unescothes:C02049;
+   skos:related unescothes:C03170.
+
+unescothes:C00879 a skos:Concept;
+   skos:prefLabel "Cultural exhibitions"@en;
+   skos:prefLabel "Exposition culturelle"@fr;
+   skos:prefLabel "Exposición cultural"@es;
+   skos:prefLabel "Культурные выставки"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Art exhibitions"@en;
+   skos:altLabel "Exposición de arte"@es;
+   skos:altLabel "Exposition d'art"@fr;
+   skos:altLabel "Художественные выставки"@ru;
+   skos:broader unescothes:C01461;
+   skos:related unescothes:C00258;
+   skos:related unescothes:C00267;
+   skos:related unescothes:C00911;
+   skos:related unescothes:C04132.
+
+unescothes:C00880 a skos:Concept;
+   skos:prefLabel "Cultural facilities"@en;
+   skos:prefLabel "Installation culturelle"@fr;
+   skos:prefLabel "Instalación cultural"@es;
+   skos:prefLabel "Материально-техническая база сферы культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00916;
+   skos:narrower unescothes:C00860;
+   skos:narrower unescothes:C00876;
+   skos:related unescothes:C00852;
+   skos:related unescothes:C00887;
+   skos:related unescothes:C03298.
+
+unescothes:C00881 a skos:Concept;
+   skos:prefLabel "Cultural factors"@en;
+   skos:prefLabel "Facteur culturel"@fr;
+   skos:prefLabel "Factor cultural"@es;
+   skos:prefLabel "Культурные факторы"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00862;
+   skos:broader unescothes:C00908;
+   skos:related unescothes:C00875;
+   skos:related unescothes:C00886.
+
+unescothes:C00882 a skos:Concept;
+   skos:prefLabel "Cultural finance"@en;
+   skos:prefLabel "Finances culturelles"@fr;
+   skos:prefLabel "Finanzas culturales"@es;
+   skos:prefLabel "Финансы в области культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cultural financing"@en;
+   skos:altLabel "Cultural subsidies"@en;
+   skos:altLabel "Financiación de la cultura"@es;
+   skos:altLabel "Financiamiento de la cultura"@es;
+   skos:altLabel "Subvención cultural"@es;
+   skos:altLabel "Financement de la culture"@fr;
+   skos:altLabel "Subvention culturelle"@fr;
+   skos:altLabel "Финансирование в области культуры"@ru;
+   skos:altLabel "Дотации на культуру"@ru;
+   skos:broader unescothes:C01183;
+   skos:narrower unescothes:C00859;
+   skos:narrower unescothes:C00865;
+   skos:narrower unescothes:C02923.
+
+unescothes:C00883 a skos:Concept;
+   skos:prefLabel "Cultural heritage"@en;
+   skos:prefLabel "Patrimoine culturel"@fr;
+   skos:prefLabel "Patrimonio cultural"@es;
+   skos:prefLabel "Культурное наследие"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "World heritage"@en;
+   skos:altLabel "Patrimonio mundial"@es;
+   skos:altLabel "Héritage culturel"@fr;
+   skos:altLabel "Patrimoine mondial"@fr;
+   skos:altLabel "Всемирное наследие"@ru;
+   skos:narrower unescothes:C00910;
+   skos:narrower unescothes:C01087;
+   skos:narrower unescothes:C01955;
+   skos:related unescothes:C00893;
+   skos:related unescothes:C00899;
+   skos:related unescothes:C00911;
+   skos:related unescothes:C00912;
+   skos:related unescothes:C00913;
+   skos:related unescothes:C00916;
+   skos:related unescothes:C02686;
+   skos:related unescothes:C03468;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00884 a skos:Concept;
+   skos:prefLabel "Cultural history"@en;
+   skos:prefLabel "Histoire culturelle"@fr;
+   skos:prefLabel "Historia cultural"@es;
+   skos:prefLabel "История культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00926;
+   skos:related unescothes:C00254;
+   skos:related unescothes:C00921.
+
+unescothes:C00885 a skos:Concept;
+   skos:prefLabel "Cultural identity"@en;
+   skos:prefLabel "Identité culturelle"@fr;
+   skos:prefLabel "Identidad cultural"@es;
+   skos:prefLabel "Культурная идентичность"@ru;
+   skos:note "Denotes the correspondence which exists between a community (national, ethnic, linguistic, etc.) and its cultural life, as well as the right of each community to its own culture."@en;
+   skos:note "Correspondencia que existe entre una comunidad (nacional, étnica, lingüística, etc.) y su vida cultural, así como el derecho de cada comunidad a mantener su propia cultura."@es;
+   skos:note "Désigne la correspondance qui existe entre une communauté (nationale, ethnique, linguistique, etc.) et sa vie culturelle, aussi bien que le droit de chaque communauté au maintien de sa propre culture."@fr;
+   skos:note "Указывает на связь, существующую между сообществом (национальным, этническим, языковым и т.д.) и его культурной жизнью, а также на право каждого сообщества иметь свою собственную культурную жизнь."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cultural alienation"@en;
+   skos:altLabel "Cultural identification"@en;
+   skos:altLabel "Ethnic identity"@en;
+   skos:altLabel "Alienación cultural"@es;
+   skos:altLabel "Identidad étnica"@es;
+   skos:altLabel "Identificación cultural"@es;
+   skos:altLabel "Aliénation culturelle"@fr;
+   skos:altLabel "Identification culturelle"@fr;
+   skos:altLabel "Identité ethnique"@fr;
+   skos:altLabel "Культурное отчуждение"@ru;
+   skos:altLabel "Культурное определение"@ru;
+   skos:altLabel "Этническая идентичность"@ru;
+   skos:narrower unescothes:C00026;
+   skos:narrower unescothes:C00899;
+   skos:related unescothes:C00656;
+   skos:related unescothes:C00871;
+   skos:related unescothes:C00918;
+   skos:related unescothes:C00926;
+   skos:related unescothes:C01195;
+   skos:related unescothes:C01352;
+   skos:related unescothes:C01431;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00886 a skos:Concept;
+   skos:prefLabel "Cultural indicators"@en;
+   skos:prefLabel "Indicateur culturel"@fr;
+   skos:prefLabel "Indicadores culturales"@es;
+   skos:prefLabel "Культурные индикаторы"@ru;
+   skos:note "Numerical data used as benchmarks in the formulation and monitoring of cultural policy."@en;
+   skos:note "Datos numéricos empleados en la formulación y la supervisión de las políticas culturales."@es;
+   skos:note "Données numériques utilisées dans la formulation et le suivi des politiques culturelles."@fr;
+   skos:note "Цифровые показатели, используемые в качестве ориентиров при разработке и реализации политики в области культуры."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00908;
+   skos:related unescothes:C00881;
+   skos:related unescothes:C00900;
+   skos:related unescothes:C00915;
+   skos:related unescothes:C00920;
+   skos:related unescothes:C04068.
+
+unescothes:C00887 a skos:Concept;
+   skos:prefLabel "Cultural industry"@en;
+   skos:prefLabel "Industrie culturelle"@fr;
+   skos:prefLabel "Industria cultural"@es;
+   skos:prefLabel "Индустрия культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Creative industries"@en;
+   skos:altLabel "Cultural goods"@en;
+   skos:altLabel "Cultural productions"@en;
+   skos:altLabel "Cultural services"@en;
+   skos:altLabel "Bienes culturales"@es;
+   skos:altLabel "Industria de la cultura"@es;
+   skos:altLabel "Producción cultural"@es;
+   skos:altLabel "Producto cultural"@es;
+   skos:altLabel "Servicio cultural"@es;
+   skos:altLabel "Biens culturels"@fr;
+   skos:altLabel "Industrie créatrice"@fr;
+   skos:altLabel "Production culturelle"@fr;
+   skos:altLabel "Produit culturel"@fr;
+   skos:altLabel "Service culturel"@fr;
+   skos:altLabel "Творческие отрасли"@ru;
+   skos:altLabel "Культурные товары"@ru;
+   skos:altLabel "Культурные производства"@ru;
+   skos:altLabel "Услуги в области культуры"@ru;
+   skos:broader unescothes:C00916;
+   skos:related unescothes:C00454;
+   skos:related unescothes:C00880;
+   skos:related unescothes:C01183;
+   skos:related unescothes:C01375;
+   skos:related unescothes:C01518;
+   skos:related unescothes:C02942;
+   skos:related unescothes:C03226;
+   skos:related unescothes:C03619.
+
+unescothes:C00888 a skos:Concept;
+   skos:prefLabel "Cultural inequality"@en;
+   skos:prefLabel "Inégalité culturelle"@fr;
+   skos:prefLabel "Desigualdad cultural"@es;
+   skos:prefLabel "Культурное неравенство"@ru;
+   skos:note "Disparity of levels of culture and access to it within a given society."@en;
+   skos:note "Disparidad en los niveles de cultura y de acceso a la misma en una sociedad determinada."@es;
+   skos:note "Disparité des niveaux de culture et inégalité des chances d'y accéder dans une société donnée."@fr;
+   skos:note "Разные уровни развития культуры и доступа к ней в рамках одного общества."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00869;
+   skos:related unescothes:C00870;
+   skos:related unescothes:C00874;
+   skos:related unescothes:C00999.
+
+unescothes:C00889 a skos:Concept;
+   skos:prefLabel "Cultural information"@en;
+   skos:prefLabel "Information culturelle"@fr;
+   skos:prefLabel "Información cultural"@es;
+   skos:prefLabel "Культурная информация"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01977;
+   skos:related unescothes:C00926.
+
+unescothes:C00890 a skos:Concept;
+   skos:prefLabel "Cultural innovations"@en;
+   skos:prefLabel "Innovation culturelle"@fr;
+   skos:prefLabel "Innovación cultural"@es;
+   skos:prefLabel "Культурные инновации"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00861;
+   skos:related unescothes:C00866.
+
+unescothes:C00891 a skos:Concept;
+   skos:prefLabel "Cultural interaction"@en;
+   skos:prefLabel "Interaction culturelle"@fr;
+   skos:prefLabel "Interacción cultural"@es;
+   skos:prefLabel "Культурное взаимодействие"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cultural contact"@en;
+   skos:altLabel "Cultural influence"@en;
+   skos:altLabel "Contacto cultural"@es;
+   skos:altLabel "Contacto intercultural"@es;
+   skos:altLabel "Influencia cultural"@es;
+   skos:altLabel "Contact interculturel"@fr;
+   skos:altLabel "Influence culturelle"@fr;
+   skos:altLabel "Культурный контакт"@ru;
+   skos:altLabel "Культурное влияние"@ru;
+   skos:narrower unescothes:C00863;
+   skos:narrower unescothes:C00892;
+   skos:related unescothes:C00026;
+   skos:related unescothes:C00858;
+   skos:related unescothes:C00861;
+   skos:related unescothes:C00872;
+   skos:related unescothes:C00914;
+   skos:related unescothes:C02049;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00892 a skos:Concept;
+   skos:prefLabel "Cultural isolation"@en;
+   skos:prefLabel "Isolement culturel"@fr;
+   skos:prefLabel "Aislamiento cultural"@es;
+   skos:prefLabel "Культурная изоляция"@ru;
+   skos:note "Relative lack of participation in the cultural system."@en;
+   skos:note "Relativa falta de integración en el sistema cultural"@es;
+   skos:note "Manque relatif d'intégration au système culturel."@fr;
+   skos:note "Относительный дефицит участия в культурной системе."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00891;
+   skos:related unescothes:C00862;
+   skos:related unescothes:C00897;
+   skos:related unescothes:C00903.
+
+unescothes:C00893 a skos:Concept;
+   skos:prefLabel "Cultural landscapes"@en;
+   skos:prefLabel "Paysage culturel"@fr;
+   skos:prefLabel "Paisaje cultural"@es;
+   skos:prefLabel "Культурные ландшафты"@ru;
+   skos:note "Illustrative of the evolution of human society and settlement over time, under the influence of the physical constraints/opportunities of the natural environment and of successive social, economic and cultural forces."@en;
+   skos:note "Paisaje ilustrativo de la evolución de la sociedad humana y de sus asentamientos a través del tiempo, bajo la influencia de tensiones o coyunturas del entorno natural y de las realidades sociales, económicas y culturales."@es;
+   skos:note "Illustre l'évolution de la société humaine et de ses installations à travers le temps, sous l'influence des contraintes ou des conjonctures favorables de l'environnement naturel et des réalités sociales, économiques et culturelles"@fr;
+   skos:note "Демонстрируют эволюцию человеческого общества и населенных пунктов в течение времени под стимулирующим/сдерживающим воздействием физических факторов природной среды, а также социальных, экономических и культурных сил."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C02199;
+   skos:narrower unescothes:C03468;
+   skos:related unescothes:C00883;
+   skos:related unescothes:C02201;
+   skos:related unescothes:C02686.
+
+unescothes:C00894 a skos:Concept;
+   skos:prefLabel "Cultural legislation"@en;
+   skos:prefLabel "Législation culturelle"@fr;
+   skos:prefLabel "Legislación cultural"@es;
+   skos:prefLabel "Законодательство в области культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00852;
+   skos:related unescothes:C00855.
+
+unescothes:C00895 a skos:Concept;
+   skos:prefLabel "Cultural life"@en;
+   skos:prefLabel "Vie culturelle"@fr;
+   skos:prefLabel "Vida cultural"@es;
+   skos:prefLabel "Культурная жизнь"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00862;
+   skos:narrower unescothes:C01449;
+   skos:narrower unescothes:C02295;
+   skos:related unescothes:C00851;
+   skos:related unescothes:C00856;
+   skos:related unescothes:C00875;
+   skos:related unescothes:C00903;
+   skos:related unescothes:C00919;
+   skos:related unescothes:C00924;
+   skos:related unescothes:C03235.
+
+unescothes:C00896 a skos:Concept;
+   skos:prefLabel "Cultural management"@en;
+   skos:prefLabel "Gestion culturelle"@fr;
+   skos:prefLabel "Gestión cultural"@es;
+   skos:prefLabel "Управление сферой культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00852;
+   skos:related unescothes:C04043.
+
+unescothes:C00897 a skos:Concept;
+   skos:prefLabel "Cultural minorities"@en;
+   skos:prefLabel "Minorité culturelle"@fr;
+   skos:prefLabel "Minoría cultural"@es;
+   skos:prefLabel "Культурные меньшинства"@ru;
+   skos:note "Group of persons belonging to a culture different from that of the majority of the society in which they live."@en;
+   skos:note "Grupo de personas pertenecientes a una cultura diferente a la de la mayoría de la sociedad en la que viven."@es;
+   skos:note "Groupe de personnes vivant dans une société donnée et appartenant à une culture différente de celle de la majorité."@fr;
+   skos:note "Группа людей, чья культура отличается от культуры большинства в обществе, где они проживают."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Minority cultures"@en;
+   skos:altLabel "Cultura minoritaria"@es;
+   skos:altLabel "Culture minoritaire"@fr;
+   skos:altLabel "Культуры меньшинств"@ru;
+   skos:broader unescothes:C00869;
+   skos:related unescothes:C00863;
+   skos:related unescothes:C00892;
+   skos:related unescothes:C00918;
+   skos:related unescothes:C01095;
+   skos:related unescothes:C02546.
+
+unescothes:C00898 a skos:Concept;
+   skos:prefLabel "Cultural models"@en;
+   skos:prefLabel "Modèle culturel"@fr;
+   skos:prefLabel "Modelo cultural"@es;
+   skos:prefLabel "Модели культур"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00915;
+   skos:related unescothes:C00907;
+   skos:related unescothes:C00920;
+   skos:related unescothes:C03645;
+   skos:altLabel "Unificación cultural"@es;
+   skos:altLabel "Unification culturelle"@fr.
+
+unescothes:C00899 a skos:Concept;
+   skos:prefLabel "Cultural nationalism"@en;
+   skos:prefLabel "Nationalisme culturel"@fr;
+   skos:prefLabel "Nacionalismo cultural"@es;
+   skos:prefLabel "Культурный национализм"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00885;
+   skos:narrower unescothes:C02670;
+   skos:related unescothes:C00875;
+   skos:related unescothes:C00883;
+   skos:related unescothes:C01431;
+   skos:related unescothes:C02668;
+   skos:related unescothes:C02678;
+   skos:related unescothes:C02680.
+
+unescothes:C00900 a skos:Concept;
+   skos:prefLabel "Cultural needs"@en;
+   skos:prefLabel "Besoin culturel"@fr;
+   skos:prefLabel "Necesidad cultural"@es;
+   skos:prefLabel "Культурные потребности"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cultural demand"@en;
+   skos:altLabel "Demanda cultural"@es;
+   skos:altLabel "Demande culturelle"@fr;
+   skos:altLabel "Спрос на культуру"@ru;
+   skos:broader unescothes:C01183;
+   skos:related unescothes:C00850;
+   skos:related unescothes:C00862;
+   skos:related unescothes:C00886;
+   skos:related unescothes:C00901;
+   skos:related unescothes:C00924;
+   skos:related unescothes:C00999.
+
+unescothes:C00901 a skos:Concept;
+   skos:prefLabel "Cultural objectives"@en;
+   skos:prefLabel "Objectif culturel"@fr;
+   skos:prefLabel "Objetivo cultural"@es;
+   skos:prefLabel "Культурные задачи"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cultural aims"@en;
+   skos:altLabel "Finalidad cultural"@es;
+   skos:altLabel "Propósito cultural"@es;
+   skos:altLabel "But culturel"@fr;
+   skos:altLabel "Культурные цели"@ru;
+   skos:broader unescothes:C00908;
+   skos:related unescothes:C00900.
+
+unescothes:C00902 a skos:Concept;
+   skos:prefLabel "Cultural organizations"@en;
+   skos:prefLabel "Organisation culturelle"@fr;
+   skos:prefLabel "Organización cultural"@es;
+   skos:prefLabel "Организации сферы культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cultural associations"@en;
+   skos:altLabel "Cultural foundations"@en;
+   skos:altLabel "Cultural institutions"@en;
+   skos:altLabel "Asociación cultural"@es;
+   skos:altLabel "Fundación cultural"@es;
+   skos:altLabel "Institución cultural"@es;
+   skos:altLabel "Association culturelle"@fr;
+   skos:altLabel "Fondation culturelle"@fr;
+   skos:altLabel "Institution culturelle"@fr;
+   skos:altLabel "Культурные объединения"@ru;
+   skos:altLabel "Культурные фонды"@ru;
+   skos:altLabel "Институты культуры"@ru;
+   skos:broader unescothes:C00852;
+   skos:related unescothes:C00860.
+
+unescothes:C00903 a skos:Concept;
+   skos:prefLabel "Cultural participation"@en;
+   skos:prefLabel "Participation culturelle"@fr;
+   skos:prefLabel "Participación cultural"@es;
+   skos:prefLabel "Участие в культурной жизни"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cultural attendance"@en;
+   skos:altLabel "Implicación cultural"@es;
+   skos:altLabel "Fréquentation culturelle"@fr;
+   skos:altLabel "Посещаемость культурных мероприятий"@ru;
+   skos:broader unescothes:C00858;
+   skos:related unescothes:C00600;
+   skos:related unescothes:C00851;
+   skos:related unescothes:C00856;
+   skos:related unescothes:C00892;
+   skos:related unescothes:C00895;
+   skos:related unescothes:C02623.
+
+unescothes:C00904 a skos:Concept;
+   skos:prefLabel "Cultural personnel"@en;
+   skos:prefLabel "Personnel culturel"@fr;
+   skos:prefLabel "Personal cultural"@es;
+   skos:prefLabel "Персонал организаций сферы культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cultural administrators"@en;
+   skos:altLabel "Administradores culturales"@es;
+   skos:altLabel "Administrateur culturel"@fr;
+   skos:altLabel "Руководители в области культуры"@ru;
+   skos:narrower unescothes:C00853;
+   skos:narrower unescothes:C02635;
+   skos:related unescothes:C00214;
+   skos:related unescothes:C00215;
+   skos:related unescothes:C00266;
+   skos:related unescothes:C00308;
+   skos:related unescothes:C00692;
+   skos:related unescothes:C00905;
+   skos:related unescothes:C00916;
+   skos:related unescothes:C04379;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00905 a skos:Concept;
+   skos:prefLabel "Cultural personnel training"@en;
+   skos:prefLabel "Formation du personnel culturel"@fr;
+   skos:prefLabel "Formación de personal cultural"@es;
+   skos:prefLabel "Подготовка персонала для организаций сферы культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C04267;
+   skos:narrower unescothes:C00854;
+   skos:narrower unescothes:C02641;
+   skos:related unescothes:C00873;
+   skos:related unescothes:C00904;
+   skos:related unescothes:C01522;
+   skos:related unescothes:C04160.
+
+unescothes:C00906 a skos:Concept;
+   skos:prefLabel "Cultural philosophy"@en;
+   skos:prefLabel "Philosophie culturelle"@fr;
+   skos:prefLabel "Filosofía cultural"@es;
+   skos:prefLabel "Культурная философия"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Concept of culture"@en;
+   skos:altLabel "Concepto de cultura"@es;
+   skos:altLabel "Concept de culture"@fr;
+   skos:altLabel "Концепция культуры"@ru;
+   skos:broader unescothes:C00926;
+   skos:related unescothes:C00925.
+
+unescothes:C00907 a skos:Concept;
+   skos:prefLabel "Cultural planning"@en;
+   skos:prefLabel "Planification culturelle"@fr;
+   skos:prefLabel "Planificación cultural"@es;
+   skos:prefLabel "Планирование в области культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cultural plans"@en;
+   skos:altLabel "Plan cultural"@es;
+   skos:altLabel "Plan culturel"@fr;
+   skos:altLabel "Планы в области культуры"@ru;
+   skos:narrower unescothes:C00909;
+   skos:narrower unescothes:C00920;
+   skos:narrower unescothes:C01183;
+   skos:related unescothes:C00898;
+   skos:related unescothes:C00908;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00908 a skos:Concept;
+   skos:prefLabel "Cultural policy"@en;
+   skos:prefLabel "Politique culturelle"@fr;
+   skos:prefLabel "Política cultural"@es;
+   skos:prefLabel "Политика в области культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:narrower unescothes:C00864;
+   skos:narrower unescothes:C00868;
+   skos:narrower unescothes:C00881;
+   skos:narrower unescothes:C00886;
+   skos:narrower unescothes:C00901;
+   skos:narrower unescothes:C00914;
+   skos:narrower unescothes:C00999;
+   skos:narrower unescothes:C01075;
+   skos:related unescothes:C00871;
+   skos:related unescothes:C00907;
+   skos:related unescothes:C00909;
+   skos:related unescothes:C01029;
+   skos:related unescothes:C02211;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00909 a skos:Concept;
+   skos:prefLabel "Cultural programmes"@en;
+   skos:prefLabel "Programme culturel"@fr;
+   skos:prefLabel "Programa cultural"@es;
+   skos:prefLabel "Культурные программы"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cultural projects"@en;
+   skos:altLabel "Proyecto cultural"@es;
+   skos:altLabel "Projet culturel"@fr;
+   skos:altLabel "Проекты в области культуры"@ru;
+   skos:broader unescothes:C00907;
+   skos:related unescothes:C00908;
+   skos:related unescothes:C01030.
+
+unescothes:C00910 a skos:Concept;
+   skos:prefLabel "Cultural property"@en;
+   skos:prefLabel "Bien culturel"@fr;
+   skos:prefLabel "Bien cultural"@es;
+   skos:prefLabel "Культурная собственность"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00883;
+   skos:narrower unescothes:C02602;
+   skos:related unescothes:C00265;
+   skos:related unescothes:C00804;
+   skos:related unescothes:C00911;
+   skos:related unescothes:C00913;
+   skos:related unescothes:C00916;
+   skos:related unescothes:C02319;
+   skos:related unescothes:C02581;
+   skos:related unescothes:C04373;
+   skos:altLabel "Propiedad cultural"@es.
+
+unescothes:C00911 a skos:Concept;
+   skos:prefLabel "Cultural property presentation"@en;
+   skos:prefLabel "Mise en valeur des biens culturels"@fr;
+   skos:prefLabel "Presentación de los bienes culturales"@es;
+   skos:prefLabel "Представление культурной собственности"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:related unescothes:C00249;
+   skos:related unescothes:C00252;
+   skos:related unescothes:C00258;
+   skos:related unescothes:C00879;
+   skos:related unescothes:C00883;
+   skos:related unescothes:C00910;
+   skos:related unescothes:C00923;
+   skos:related unescothes:C01955;
+   skos:related unescothes:C04132;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00912 a skos:Concept;
+   skos:prefLabel "Cultural property preservation"@en;
+   skos:prefLabel "Sauvegarde des biens culturels"@fr;
+   skos:prefLabel "Conservación de los bienes culturales"@es;
+   skos:prefLabel "Охрана культурной собственности"@ru;
+   skos:note "Refers to the conservation, preservation and restoration of cultural property, as well as to its protection against vandalism, theft and removal from country of origin."@en;
+   skos:note "Se refiere a la conservación, la preservación y la restauración de bienes culturales, así como a la protección de éstos contra el vandalismo, el robo y la transferencia ilícita fuera de sus países de origen."@es;
+   skos:note "Fait référence à la conservation, la préservation et la restauration des biens culturels ainsi qu'à la protection de ceux-ci contre le vandalisme, le vol et le transfert illicite hors de leur pays d'origine."@fr;
+   skos:note "Относится к консервации, сохранению и реставрации объектов культуры, а также защите от вандализма, похищения или вывоза из страны происхождения."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Conservation of cultural property"@en;
+   skos:altLabel "Cultural heritage preservation"@en;
+   skos:altLabel "Protection of cultural property"@en;
+   skos:altLabel "Conservación de la propiedad cultural"@es;
+   skos:altLabel "Conservación del patrimonio cultural"@es;
+   skos:altLabel "Protección de la propiedad cultural"@es;
+   skos:altLabel "Protección de los bienes culturales"@es;
+   skos:altLabel "Restauración de la propiedad cultural"@es;
+   skos:altLabel "Restauración de los bienes culturales"@es;
+   skos:altLabel "Conservation des biens culturels"@fr;
+   skos:altLabel "Préservation du patrimoine culturel"@fr;
+   skos:altLabel "Protection des biens culturels"@fr;
+   skos:altLabel "Сохранение культурной собственности"@ru;
+   skos:altLabel "Охрана культурного наследия"@ru;
+   skos:altLabel "Защита культурной собственности"@ru;
+   skos:narrower unescothes:C00773;
+   skos:narrower unescothes:C01084;
+   skos:narrower unescothes:C03120;
+   skos:narrower unescothes:C03121;
+   skos:narrower unescothes:C03390;
+   skos:related unescothes:C00883;
+   skos:related unescothes:C00913;
+   skos:related unescothes:C01955;
+   skos:related unescothes:C04231;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00913 a skos:Concept;
+   skos:prefLabel "Cultural property restitution"@en;
+   skos:prefLabel "Restitution des biens culturels"@fr;
+   skos:prefLabel "Restitución de los bienes culturales"@es;
+   skos:prefLabel "Реституция культурной собственности"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cultural property traffic"@en;
+   skos:altLabel "Restitución de bienes"@es;
+   skos:altLabel "Tráfico ilícito de bienes culturales"@es;
+   skos:altLabel "Trafic illicite des biens culturels"@fr;
+   skos:altLabel "Торговля культурной собственностью"@ru;
+   skos:related unescothes:C00883;
+   skos:related unescothes:C00910;
+   skos:related unescothes:C00912;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00914 a skos:Concept;
+   skos:prefLabel "Cultural relations"@en;
+   skos:prefLabel "Relations culturelles"@fr;
+   skos:prefLabel "Relaciones culturales"@es;
+   skos:prefLabel "Культурные взаимоотношения"@ru;
+   skos:note "Relations at both the international and intergroup level. Use more specific descriptor where appropriate."@en;
+   skos:note "Se refiere tanto a las relaciones internacionales como a las relaciones entre grupos. Utilizar un descriptor más preciso cuando sea necesario."@es;
+   skos:note "Se réfère tant aux relations internationales qu'aux relations intergroupes. Utiliser un descripteur plus précis quand c'est pertinent."@fr;
+   skos:note "Отношения как на международном, так и межгрупповом уровнях. В необходимых случаях используйте более точный дескриптор."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00908;
+   skos:related unescothes:C00863;
+   skos:related unescothes:C00864;
+   skos:related unescothes:C00878;
+   skos:related unescothes:C00891;
+   skos:related unescothes:C02049;
+   skos:related unescothes:C02056.
+
+unescothes:C00915 a skos:Concept;
+   skos:prefLabel "Cultural research"@en;
+   skos:prefLabel "Recherche culturelle"@fr;
+   skos:prefLabel "Investigación cultural"@es;
+   skos:prefLabel "Исследования в области культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:narrower unescothes:C00844;
+   skos:narrower unescothes:C00898;
+   skos:narrower unescothes:C00921;
+   skos:related unescothes:C00886;
+   skos:related unescothes:C00920;
+   skos:related unescothes:C00926;
+   skos:related unescothes:C03711;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00916 a skos:Concept;
+   skos:prefLabel "Cultural resources"@en;
+   skos:prefLabel "Ressources culturelles"@fr;
+   skos:prefLabel "Recursos culturales"@es;
+   skos:prefLabel "Культурные ресурсы"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:narrower unescothes:C00880;
+   skos:narrower unescothes:C00887;
+   skos:related unescothes:C00883;
+   skos:related unescothes:C00904;
+   skos:related unescothes:C00910;
+   skos:related unescothes:C01183;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00917 a skos:Concept;
+   skos:prefLabel "Cultural revolution"@en;
+   skos:prefLabel "Révolution culturelle"@fr;
+   skos:prefLabel "Revolución cultural"@es;
+   skos:prefLabel "Культурная революция"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00861;
+   skos:related unescothes:C00863;
+   skos:related unescothes:C00867.
+
+unescothes:C00918 a skos:Concept;
+   skos:prefLabel "Cultural rights"@en;
+   skos:prefLabel "Droits culturels"@fr;
+   skos:prefLabel "Derechos culturales"@es;
+   skos:prefLabel "Права в области культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Access to culture"@en;
+   skos:altLabel "Cultural freedom"@en;
+   skos:altLabel "Cultural liberty"@en;
+   skos:altLabel "Right to cultural identity"@en;
+   skos:altLabel "Right to culture"@en;
+   skos:altLabel "Acceso a la cultura"@es;
+   skos:altLabel "Derecho a la cultura"@es;
+   skos:altLabel "Derecho a la identidad cultural"@es;
+   skos:altLabel "Accès à la culture"@fr;
+   skos:altLabel "Droit à l'identité culturelle"@fr;
+   skos:altLabel "Droit à la culture"@fr;
+   skos:altLabel "Liberté culturelle"@fr;
+   skos:altLabel "Доступ к культуре"@ru;
+   skos:altLabel "Культурная свобода"@ru;
+   skos:altLabel "Свобода в области культуры"@ru;
+   skos:altLabel "Право на культурную идентичность"@ru;
+   skos:altLabel "Право на культуру"@ru;
+   skos:related unescothes:C00870;
+   skos:related unescothes:C00885;
+   skos:related unescothes:C00897;
+   skos:related unescothes:C01857;
+   skos:related unescothes:C02304;
+   skos:related unescothes:C03402;
+   skos:related unescothes:C03408;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00919 a skos:Concept;
+   skos:prefLabel "Cultural sociology"@en;
+   skos:prefLabel "Sociologie culturelle"@fr;
+   skos:prefLabel "Sociología cultural"@es;
+   skos:prefLabel "Культурная социология"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00926;
+   skos:related unescothes:C00862;
+   skos:related unescothes:C00875;
+   skos:related unescothes:C00895.
+
+unescothes:C00920 a skos:Concept;
+   skos:prefLabel "Cultural statistics"@en;
+   skos:prefLabel "Statistique culturelle"@fr;
+   skos:prefLabel "Estadísticas culturales"@es;
+   skos:prefLabel "Статистика в области культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00907;
+   skos:narrower unescothes:C04068;
+   skos:related unescothes:C00886;
+   skos:related unescothes:C00898;
+   skos:related unescothes:C00915;
+   skos:related unescothes:C01183;
+   skos:related unescothes:C02020;
+   skos:related unescothes:C02640;
+   skos:related unescothes:C03836.
+
+unescothes:C00921 a skos:Concept;
+   skos:prefLabel "Cultural studies"@en;
+   skos:prefLabel "Études culturelles"@fr;
+   skos:prefLabel "Estudios culturales"@es;
+   skos:prefLabel "Изучение культур"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00915;
+   skos:related unescothes:C00073;
+   skos:related unescothes:C00144;
+   skos:related unescothes:C00152;
+   skos:related unescothes:C00199;
+   skos:related unescothes:C00234;
+   skos:related unescothes:C00273;
+   skos:related unescothes:C00513;
+   skos:related unescothes:C00545;
+   skos:related unescothes:C00787;
+   skos:related unescothes:C00844;
+   skos:related unescothes:C00884;
+   skos:related unescothes:C01438;
+   skos:related unescothes:C02223;
+   skos:related unescothes:C02668;
+   skos:related unescothes:C02752;
+   skos:related unescothes:C02806.
+
+unescothes:C00922 a skos:Concept;
+   skos:prefLabel "Cultural systems"@en;
+   skos:prefLabel "Système culturel"@fr;
+   skos:prefLabel "Sistema cultural"@es;
+   skos:prefLabel "Культурные системы"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cultural types"@en;
+   skos:altLabel "Tipo cultural"@es;
+   skos:altLabel "Type culturel"@fr;
+   skos:altLabel "Культурные типы"@ru;
+   skos:narrower unescothes:C00787;
+   skos:narrower unescothes:C00826;
+   skos:narrower unescothes:C00871;
+   skos:narrower unescothes:C00928;
+   skos:narrower unescothes:C00929;
+   skos:narrower unescothes:C00930;
+   skos:narrower unescothes:C01062;
+   skos:narrower unescothes:C01095;
+   skos:narrower unescothes:C02423;
+   skos:narrower unescothes:C03549;
+   skos:narrower unescothes:C03883;
+   skos:narrower unescothes:C04095;
+   skos:narrower unescothes:C04185;
+   skos:narrower unescothes:C04368;
+   skos:related unescothes:C00862;
+   skos:related unescothes:C00875;
+   skos:related unescothes:C00926;
+   skos:related unescothes:C02668;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00923 a skos:Concept;
+   skos:prefLabel "Cultural tourism"@en;
+   skos:prefLabel "Tourisme culturel"@fr;
+   skos:prefLabel "Turismo cultural"@es;
+   skos:prefLabel "Культурный туризм"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C04082;
+   skos:related unescothes:C00851;
+   skos:related unescothes:C00873;
+   skos:related unescothes:C00911;
+   skos:related unescothes:C01075;
+   skos:related unescothes:C02266.
+
+unescothes:C00924 a skos:Concept;
+   skos:prefLabel "Cultural users"@en;
+   skos:prefLabel "Utilisateur culturel"@fr;
+   skos:prefLabel "Usuario cultural"@es;
+   skos:prefLabel "Люди, пользующиеся благами культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Audiences"@en;
+   skos:altLabel "Cultural consumers"@en;
+   skos:altLabel "Cultural consumption"@en;
+   skos:altLabel "Spectators"@en;
+   skos:altLabel "Audiencia"@es;
+   skos:altLabel "Consumidor cultural"@es;
+   skos:altLabel "Consumo cultural"@es;
+   skos:altLabel "Audience"@fr;
+   skos:altLabel "Consommateur culturel"@fr;
+   skos:altLabel "Consommation culturelle"@fr;
+   skos:altLabel "Spectateur"@fr;
+   skos:altLabel "Аудитории"@ru;
+   skos:altLabel "Люди, потребляющие блага культуры"@ru;
+   skos:altLabel "Потребление культурных благ"@ru;
+   skos:altLabel "Посетители зрелищных мероприятий"@ru;
+   skos:narrower unescothes:C00858;
+   skos:related unescothes:C00296;
+   skos:related unescothes:C00298;
+   skos:related unescothes:C00299;
+   skos:related unescothes:C00707;
+   skos:related unescothes:C00895;
+   skos:related unescothes:C00900;
+   skos:related unescothes:C02289;
+   skos:related unescothes:C03255;
+   skos:related unescothes:C04007;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00925 a skos:Concept;
+   skos:prefLabel "Cultural values"@en;
+   skos:prefLabel "Valeur culturelle"@fr;
+   skos:prefLabel "Valor cultural"@es;
+   skos:prefLabel "Культурные ценности"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C02037;
+   skos:related unescothes:C00906;
+   skos:related unescothes:C01195;
+   skos:related unescothes:C01206;
+   skos:related unescothes:C04230.
+
+unescothes:C00926 a skos:Concept;
+   skos:prefLabel "Culture"@en;
+   skos:prefLabel "Culture"@fr;
+   skos:prefLabel "Cultura"@es;
+   skos:prefLabel "Культура"@ru;
+   skos:note "Use more specific descriptor."@en;
+   skos:note "Utilizar un descriptor más preciso."@es;
+   skos:note "Utiliser un descripteur plus précis."@fr;
+   skos:note "В необходимых случаях используйте более точный дескриптор."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:narrower unescothes:C00612;
+   skos:narrower unescothes:C00884;
+   skos:narrower unescothes:C00906;
+   skos:narrower unescothes:C00919;
+   skos:related unescothes:C00861;
+   skos:related unescothes:C00862;
+   skos:related unescothes:C00866;
+   skos:related unescothes:C00869;
+   skos:related unescothes:C00885;
+   skos:related unescothes:C00889;
+   skos:related unescothes:C00915;
+   skos:related unescothes:C00922;
+   skos:related unescothes:C02668;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00927 a skos:Concept;
+   skos:prefLabel "Culture and development"@en;
+   skos:prefLabel "Culture et développement"@fr;
+   skos:prefLabel "Cultura y desarrollo"@es;
+   skos:prefLabel "Культура и развитие"@ru;
+   skos:note "Cultural dimension of the development process."@en;
+   skos:note "Dimensión cultural del proceso de desarrollo."@es;
+   skos:note "Dimension culturelle du processus de développement."@fr;
+   skos:note "Культурная составляющая процесса развития."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01183;
+   skos:related unescothes:C01027;
+   skos:related unescothes:C01148;
+   skos:related unescothes:C01352;
+   skos:related unescothes:C02040.
+
+unescothes:C00928 a skos:Concept;
+   skos:prefLabel "Culture of peace"@en;
+   skos:prefLabel "Culture de paix"@fr;
+   skos:prefLabel "Cultura de paz"@es;
+   skos:prefLabel "Культура мира"@ru;
+   skos:note "A culture that promotes lifeways, patterns of belief, values and behaviour that foster peace-building and accompanying institutional arrangements."@en;
+   skos:note "Cultura que preconiza modos de vida, convicciones, valores y comportamientos que alentan la consolidación de la paz adecuándose a los acuerdos internacionales."@es;
+   skos:note "Une culture qui préconise des modes de vie, des convictions, des valeurs et des comportements qui encouragent la consolidation de la paix, orientant en ce sens les accords internationaux."@fr;
+   skos:note "Культура, способствующая развитию определенного образа жизни, системы взглядов, убеждений и моделей поведения, нацеленных на становление мира и соответствующих общественных институтов."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00922;
+   skos:related unescothes:C01845;
+   skos:related unescothes:C01858;
+   skos:related unescothes:C02083;
+   skos:related unescothes:C02916;
+   skos:related unescothes:C02926;
+   skos:related unescothes:C02928;
+   skos:related unescothes:C04076.
+
+unescothes:C00929 a skos:Concept;
+   skos:prefLabel "Culture of poverty"@en;
+   skos:prefLabel "Culture de la pauvreté"@fr;
+   skos:prefLabel "Cultura de la pobreza"@es;
+   skos:prefLabel "Культура малоимущих"@ru;
+   skos:note "A set of values, beliefs, attitudes and behaviour patterns which result from persistent marginalization and exclusion, and characterize the cultural milieu of the poor."@en;
+   skos:note "Se refiere a un conjunto de valores, de creencias y de tipos de comportamiento generados por la marginación, la exclusión y las características del medio cultural de los pobres."@es;
+   skos:note "Se réfère à un ensemble de valeurs, de croyances et de types de comportements générés par la marginalisation et l'exclusion et caractéristiques du milieu culturel des pauvres."@fr;
+   skos:note "Набор нравственных ценностей, представлений, отношений и моделей поведения, являющихся следствием постоянной маргинализации и изоляции и характеризующие культурную среду малоимущих."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00922;
+   skos:related unescothes:C00875;
+   skos:related unescothes:C03102;
+   skos:related unescothes:C04368.
+
+unescothes:C00930 a skos:Concept;
+   skos:prefLabel "Culture of work"@en;
+   skos:prefLabel "Culture du travail"@fr;
+   skos:prefLabel "Cultura del trabajo"@es;
+   skos:prefLabel "Культура труда"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Culture of enterprise"@en;
+   skos:altLabel "Cultura de empresa"@es;
+   skos:altLabel "Culture d'entreprise"@fr;
+   skos:altLabel "Культура предпринимательства"@ru;
+   skos:broader unescothes:C00922;
+   skos:related unescothes:C02791;
+   skos:related unescothes:C02794;
+   skos:related unescothes:C04369;
+   skos:related unescothes:C04370.
+
+unescothes:C00931 a skos:Concept;
+   skos:prefLabel "Curaçao"@en;
+   skos:prefLabel "Curaçao"@fr;
+   skos:prefLabel "Curazao"@es;
+   skos:note "Use for events after 10 October 2010. For earlier events use Netherlands Antilles."@en;
+   skos:note "S'applique aux événements survenus après le 10 octobre 2010. Pour les événements antérieurs, utiliser Antilles néerlandaises."@fr;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00512;
+   skos:broader unescothes:C03671;
+   skos:related unescothes:C02704.
+
+unescothes:C00932 a skos:Concept;
+   skos:prefLabel "Currencies"@en;
+   skos:prefLabel "Monnaie"@fr;
+   skos:prefLabel "Moneda"@es;
+   skos:prefLabel "Валюты"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01527;
+   skos:related unescothes:C00933;
+   skos:related unescothes:C01581;
+   skos:related unescothes:C02077;
+   skos:related unescothes:C02572;
+   skos:related unescothes:C02573.
+
+unescothes:C00933 a skos:Concept;
+   skos:prefLabel "Currency devaluation"@en;
+   skos:prefLabel "Dévaluation de la monnaie"@fr;
+   skos:prefLabel "Devaluación monetaria"@es;
+   skos:prefLabel "Девальвация валюты"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C02572;
+   skos:related unescothes:C00328;
+   skos:related unescothes:C00932.
+
+unescothes:C00934 a skos:Concept;
+   skos:prefLabel "Curriculum"@en;
+   skos:prefLabel "Curriculum"@fr;
+   skos:prefLabel "Plan de estudios"@es;
+   skos:prefLabel "Учебный план"@ru;
+   skos:note "Use to mean the subjects taught, the time allotted to each, and the sequence."@en;
+   skos:note "Utilizar para referirse a las asignaturas impartidas, al tiempo dedicado a cada una y a su integración en un programa."@es;
+   skos:note "Utiliser pour signifier les matières enseignées, le temps alloué à chacune, leur enchaînement dans un programme."@fr;
+   skos:note "Преподаваемые предметы, выделяемое на них время и последовательность изучения."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Course content"@en;
+   skos:altLabel "Curriculum content"@en;
+   skos:altLabel "Programme of study"@en;
+   skos:altLabel "Syllabus"@en;
+   skos:altLabel "Contenido del curso"@es;
+   skos:altLabel "Plan del curso"@es;
+   skos:altLabel "Programa de estudios"@es;
+   skos:altLabel "Programa del curso"@es;
+   skos:altLabel "Contenu du cours"@fr;
+   skos:altLabel "Contenu du curriculum"@fr;
+   skos:altLabel "Programme d'étude"@fr;
+   skos:altLabel "Syllabus"@fr;
+   skos:altLabel "Содержание курса"@ru;
+   skos:altLabel "Содержание учебного плана"@ru;
+   skos:altLabel "План занятий"@ru;
+   skos:altLabel "Учебная программа"@ru;
+   skos:narrower unescothes:C00807;
+   skos:narrower unescothes:C01476;
+   skos:narrower unescothes:C02039;
+   skos:narrower unescothes:C02564;
+   skos:narrower unescothes:C03117;
+   skos:narrower unescothes:C03134;
+   skos:narrower unescothes:C03580;
+   skos:narrower unescothes:C04192;
+   skos:narrower unescothes:C04264;
+   skos:related unescothes:C00139;
+   skos:related unescothes:C01219;
+   skos:related unescothes:C02035;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00935 a skos:Concept;
+   skos:prefLabel "Curriculum development"@en;
+   skos:prefLabel "Développement du curriculum"@fr;
+   skos:prefLabel "Elaboración del programa educativo"@es;
+   skos:prefLabel "Развитие учебного плана"@ru;
+   skos:note "Systematic process of producing new curricula or improving existing ones; involves setting out aims, content, methods, evaluation procedures."@en;
+   skos:note "Proceso sistemático de producción de nuevos programas educativos o de revisión de programas existentes. Implica la definición de objetivos, contenidos, métodos y procedimientos de evaluación."@es;
+   skos:note "Processus systématique de production de nouveaux programmes éducatifs ou de révision des programmes existants; implique l'élaboration d'objectifs, de contenus, de méthodes, de procédures d'évaluation."@fr;
+   skos:note "Систематический процесс разработки новых или улучшения существующих учебных планов; включает постановку задач, определение содержания, методик и оценочных процедур."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Curriculum design"@en;
+   skos:altLabel "Curriculum improvement"@en;
+   skos:altLabel "Curriculum innovation"@en;
+   skos:altLabel "Curriculum planning"@en;
+   skos:altLabel "Curriculum reform"@en;
+   skos:altLabel "Curriculum reorganization"@en;
+   skos:altLabel "Definición del programa educativo"@es;
+   skos:altLabel "Elaboración de los programas de enseñanza"@es;
+   skos:altLabel "Reforma del programa educativo"@es;
+   skos:altLabel "Construction d'un curriculum"@fr;
+   skos:altLabel "Élaboration des programmes d'enseignement"@fr;
+   skos:altLabel "Enrichissement du curriculum"@fr;
+   skos:altLabel "Réforme du curriculum"@fr;
+   skos:altLabel "Составление учебного плана"@ru;
+   skos:altLabel "Улучшение учебного плана"@ru;
+   skos:altLabel "Инновации в учебном плане"@ru;
+   skos:altLabel "Разработка учебного плана"@ru;
+   skos:altLabel "Реформа учебного плана"@ru;
+   skos:altLabel "Реорганизация учебного плана"@ru;
+   skos:broader unescothes:C01222;
+   skos:related unescothes:C00938;
+   skos:related unescothes:C01245;
+   skos:related unescothes:C01277.
+
+unescothes:C00936 a skos:Concept;
+   skos:prefLabel "Curriculum evaluation"@en;
+   skos:prefLabel "Évaluation du curriculum"@fr;
+   skos:prefLabel "Evaluación del currículo"@es;
+   skos:prefLabel "Оценка учебного плана"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01227;
+   skos:related unescothes:C00938;
+   skos:related unescothes:C01278;
+   skos:altLabel "Valoración del currículo"@es.
+
+unescothes:C00937 a skos:Concept;
+   skos:prefLabel "Curriculum guides"@en;
+   skos:prefLabel "Programme des cours (fascicules)"@fr;
+   skos:prefLabel "Guía de estudios"@es;
+   skos:prefLabel "Рекомендации по составлению учебных планов"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01273;
+   skos:related unescothes:C02270;
+   skos:related unescothes:C03968;
+   skos:altLabel "Programme imprimé"@fr.
+
+unescothes:C00938 a skos:Concept;
+   skos:prefLabel "Curriculum research"@en;
+   skos:prefLabel "Recherche sur le curriculum"@fr;
+   skos:prefLabel "Investigación sobre el currículo"@es;
+   skos:prefLabel "Исследования в области разработки учебных планов"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01279;
+   skos:related unescothes:C00935;
+   skos:related unescothes:C00936;
+   skos:related unescothes:C00939.
+
+unescothes:C00939 a skos:Concept;
+   skos:prefLabel "Curriculum study centres"@en;
+   skos:prefLabel "Centre d'études sur le curriculum"@fr;
+   skos:prefLabel "Centro de estudios del currículo"@es;
+   skos:prefLabel "Центры изучения учебных планов"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03382;
+   skos:related unescothes:C00938.
+
+unescothes:C00940 a skos:Concept;
+   skos:prefLabel "Customary law"@en;
+   skos:prefLabel "Droit coutumier"@fr;
+   skos:prefLabel "Derecho consuetudinario"@es;
+   skos:prefLabel "Обычное право"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Common law"@en;
+   skos:altLabel "Common law"@es;
+   skos:altLabel "Common law"@fr;
+   skos:altLabel "Общее право"@ru;
+   skos:broader unescothes:C02229.
+
+unescothes:C00941 a skos:Concept;
+   skos:prefLabel "Customs and traditions"@en;
+   skos:prefLabel "Coutumes et traditions"@fr;
+   skos:prefLabel "Costumbres y tradiciones"@es;
+   skos:prefLabel "Обычаи и традиции"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Traditions"@en;
+   skos:altLabel "Tradición"@es;
+   skos:altLabel "Tradition"@fr;
+   skos:altLabel "Традиции"@ru;
+   skos:broader unescothes:C02037;
+   skos:narrower unescothes:C01494;
+   skos:narrower unescothes:C01499;
+   skos:narrower unescothes:C01566;
+   skos:narrower unescothes:C01875;
+   skos:narrower unescothes:C02421;
+   skos:narrower unescothes:C03424;
+   skos:related unescothes:C00637;
+   skos:related unescothes:C00857;
+   skos:related unescothes:C01430;
+   skos:related unescothes:C01508;
+   skos:related unescothes:C01561;
+   skos:related unescothes:C02853;
+   skos:related unescothes:C04095.
+
+unescothes:C00942 a skos:Concept;
+   skos:prefLabel "Customs policy"@en;
+   skos:prefLabel "Politique douanière"@fr;
+   skos:prefLabel "Política arancelaria"@es;
+   skos:prefLabel "Таможенная политика"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Customs duties"@en;
+   skos:altLabel "Derecho de aduana"@es;
+   skos:altLabel "Política aduanera"@es;
+   skos:altLabel "Droit de douane"@fr;
+   skos:altLabel "Таможенные платежи"@ru;
+   skos:broader unescothes:C01527;
+   skos:narrower unescothes:C03932;
+   skos:related unescothes:C01166;
+   skos:related unescothes:C03182.
+
+unescothes:C00943 a skos:Concept;
+   skos:prefLabel "Customs unions"@en;
+   skos:prefLabel "Union douanière"@fr;
+   skos:prefLabel "Unión aduanera"@es;
+   skos:prefLabel "Таможенные союзы"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01162;
+   skos:related unescothes:C00677;
+   skos:related unescothes:C01602;
+   skos:related unescothes:C03932.
+
+unescothes:C00944 a skos:Concept;
+   skos:prefLabel "Cybernetics"@en;
+   skos:prefLabel "Cybernétique"@fr;
+   skos:prefLabel "Cibernética"@es;
+   skos:prefLabel "Кибернетика"@ru;
+   skos:note "The science of control and communication, specifically the interaction between automatic control and people."@en;
+   skos:note "Ciencia del control de sistemas y de la comunicación. Desde una óptica más específica se refiere a la interacción entre el control automático y el hombre."@es;
+   skos:note "La science du contrôle des systèmes et de la communication, de manière plus spécifique, l'interaction entre le contrôle automatique et l'homme."@fr;
+   skos:note "Наука управления и передачи информации, особенно в области взаимодействия человека и средств автоматического управления."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00750;
+   skos:related unescothes:C00261;
+   skos:related unescothes:C00309;
+   skos:related unescothes:C00553;
+   skos:related unescothes:C00984;
+   skos:related unescothes:C01321;
+   skos:related unescothes:C01996;
+   skos:related unescothes:C02706;
+   skos:related unescothes:C02924;
+   skos:related unescothes:C03433;
+   skos:related unescothes:C03916.
+
+unescothes:C00945 a skos:Concept;
+   skos:prefLabel "Cyberspace law"@en;
+   skos:prefLabel "Droit du cyberespace"@fr;
+   skos:prefLabel "Derecho del ciberespacio"@es;
+   skos:prefLabel "Право в области киберпространства"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C02075;
+   skos:related unescothes:C00684;
+   skos:related unescothes:C00690;
+   skos:related unescothes:C00742;
+   skos:related unescothes:C01702.
+
+unescothes:C00946 a skos:Concept;
+   skos:prefLabel "Cyclones"@en;
+   skos:prefLabel "Cyclone"@fr;
+   skos:prefLabel "Ciclón"@es;
+   skos:prefLabel "Циклоны"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Hurricanes"@en;
+   skos:altLabel "Tropical cyclones"@en;
+   skos:altLabel "Typhoons"@en;
+   skos:altLabel "Ciclón tropical"@es;
+   skos:altLabel "Huracán"@es;
+   skos:altLabel "Tifón"@es;
+   skos:altLabel "Torbellino"@es;
+   skos:altLabel "Tornado"@es;
+   skos:altLabel "Cyclone tropical"@fr;
+   skos:altLabel "Ouragan"@fr;
+   skos:altLabel "Tornade"@fr;
+   skos:altLabel "Typhon"@fr;
+   skos:altLabel "Ураганы"@ru;
+   skos:altLabel "Тропические циклоны"@ru;
+   skos:altLabel "Тайфуны"@ru;
+   skos:broader unescothes:C04330;
+   skos:related unescothes:C02684;
+   skos:related unescothes:C03846.
+
+unescothes:C00947 a skos:Concept;
+   skos:prefLabel "Cyprus"@en;
+   skos:prefLabel "Chypre"@fr;
+   skos:prefLabel "Chipre"@es;
+   skos:prefLabel "Кипр"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01441;
+   skos:broader unescothes:C02470;
+   skos:broader unescothes:C02522;
+   skos:broader unescothes:C04321.
+
+unescothes:C00948 a skos:Concept;
+   skos:prefLabel "Czech"@en;
+   skos:prefLabel "Tchèque"@fr;
+   skos:prefLabel "Checo"@es;
+   skos:prefLabel "Чешский язык"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03661.
+
+unescothes:C00949 a skos:Concept;
+   skos:prefLabel "Czech Republic"@en;
+   skos:prefLabel "République tchèque"@fr;
+   skos:prefLabel "República Checa"@es;
+   skos:prefLabel "Чешская Республика"@ru;
+   skos:note "Use for events after 1992."@en;
+   skos:note "Se aplica a los eventos posteriores a 1992."@es;
+   skos:note "S'applique aux événements survenus après 1992."@fr;
+   skos:note "Используется по отношению к событиям, происходившим после 1992 г."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01139;
+   skos:broader unescothes:C01441;
+   skos:broader unescothes:C02816;
+   skos:altLabel "Chequia"@es;
+   skos:altLabel "Tchéquie"@fr.
+
+unescothes:C00950 a skos:Concept;
+   skos:prefLabel "Czechoslovakia"@en;
+   skos:prefLabel "Tchécoslovaquie"@fr;
+   skos:prefLabel "Checoslovaquia"@es;
+   skos:prefLabel "Чехословакия"@ru;
+   skos:note "Use for events before 1992."@en;
+   skos:note "Se aplica a los eventos anteriores a 1992."@es;
+   skos:note "S'applique aux événements survenus avant 1992."@fr;
+   skos:note "Используется по отношению к событиям, происходившим до 1992 г."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00639;
+   skos:broader unescothes:C01139.
+
+unescothes:C00951 a skos:Concept;
+   skos:prefLabel "Dairy industry"@en;
+   skos:prefLabel "Industrie laitière"@fr;
+   skos:prefLabel "Industria lechera"@es;
+   skos:prefLabel "Молочная промышленность"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01567;
+   skos:related unescothes:C00952;
+   skos:related unescothes:C02536.
+
+unescothes:C00952 a skos:Concept;
+   skos:prefLabel "Dairy products"@en;
+   skos:prefLabel "Produit laitier"@fr;
+   skos:prefLabel "Producto lácteo"@es;
+   skos:prefLabel "Молочная продукция"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00168;
+   skos:narrower unescothes:C02536;
+   skos:related unescothes:C00951.
+
+unescothes:C00953 a skos:Concept;
+   skos:prefLabel "Damage"@en;
+   skos:prefLabel "Dégât"@fr;
+   skos:prefLabel "Daño"@es;
+   skos:prefLabel "Ущерб"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01068;
+   skos:related unescothes:C00023;
+   skos:related unescothes:C01067;
+   skos:related unescothes:C02381;
+   skos:related unescothes:C02684;
+   skos:altLabel "Daños y perjuicios"@es;
+   skos:altLabel "Avarie"@fr;
+   skos:altLabel "Dommage"@fr.
+
+unescothes:C00954 a skos:Concept;
+   skos:prefLabel "Dams"@en;
+   skos:prefLabel "Barrage"@fr;
+   skos:prefLabel "Presa"@es;
+   skos:prefLabel "Дамбы"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01878;
+   skos:related unescothes:C01447;
+   skos:related unescothes:C01552;
+   skos:related unescothes:C01882;
+   skos:related unescothes:C01883;
+   skos:related unescothes:C04305.
+
+unescothes:C00955 a skos:Concept;
+   skos:prefLabel "Dance"@en;
+   skos:prefLabel "Danse"@fr;
+   skos:prefLabel "Danza"@es;
+   skos:prefLabel "Танец"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Choreography"@en;
+   skos:altLabel "Baile"@es;
+   skos:altLabel "Coreografía"@es;
+   skos:altLabel "Chorégraphie"@fr;
+   skos:altLabel "Хореография"@ru;
+   skos:narrower unescothes:C00331;
+   skos:narrower unescothes:C02559;
+   skos:narrower unescothes:C04096;
+   skos:related unescothes:C00956;
+   skos:related unescothes:C02603;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00956 a skos:Concept;
+   skos:prefLabel "Dancers"@en;
+   skos:prefLabel "Danseur"@fr;
+   skos:prefLabel "Bailarín"@es;
+   skos:prefLabel "Танцовщики"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Choreographers"@en;
+   skos:altLabel "Coreógrafo"@es;
+   skos:altLabel "Chorégraphe"@fr;
+   skos:altLabel "Хореографы"@ru;
+   skos:broader unescothes:C02941;
+   skos:related unescothes:C00331;
+   skos:related unescothes:C00955.
+
+unescothes:C00957 a skos:Concept;
+   skos:prefLabel "Dangerous materials"@en;
+   skos:prefLabel "Substance dangereuse"@fr;
+   skos:prefLabel "Sustancia peligrosa"@es;
+   skos:prefLabel "Опасные материалы"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Dangerous goods"@en;
+   skos:altLabel "Explosives"@en;
+   skos:altLabel "Harmful substances"@en;
+   skos:altLabel "Hazardous materials"@en;
+   skos:altLabel "Poisons"@en;
+   skos:altLabel "Toxic substances"@en;
+   skos:altLabel "Explosivo"@es;
+   skos:altLabel "Material peligroso"@es;
+   skos:altLabel "Producto peligroso"@es;
+   skos:altLabel "Sustancia nociva"@es;
+   skos:altLabel "Sustancia tóxica"@es;
+   skos:altLabel "Veneno"@es;
+   skos:altLabel "Explosif"@fr;
+   skos:altLabel "Matière dangereuse"@fr;
+   skos:altLabel "Poison"@fr;
+   skos:altLabel "Produit dangereux"@fr;
+   skos:altLabel "Substance nocive"@fr;
+   skos:altLabel "Substance toxique"@fr;
+   skos:altLabel "Опасные товары"@ru;
+   skos:altLabel "Взрывчатые вещества"@ru;
+   skos:altLabel "Вредные вещества"@ru;
+   skos:altLabel "Вредные материалы"@ru;
+   skos:altLabel "Яды"@ru;
+   skos:altLabel "Токсичные вещества"@ru;
+   skos:related unescothes:C00023;
+   skos:related unescothes:C00566;
+   skos:related unescothes:C00567;
+   skos:related unescothes:C02190;
+   skos:related unescothes:C02788;
+   skos:related unescothes:C03064;
+   skos:related unescothes:C03262;
+   skos:related unescothes:C04085;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00958 a skos:Concept;
+   skos:prefLabel "Danish"@en;
+   skos:prefLabel "Danois"@fr;
+   skos:prefLabel "Danés"@es;
+   skos:prefLabel "Датский язык"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01689.
+
+unescothes:C00959 a skos:Concept;
+   skos:prefLabel "Dari"@en;
+   skos:prefLabel "Dari"@fr;
+   skos:prefLabel "Dari"@es;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Afghan Persian"@en;
+   skos:broader unescothes:C02107.
+
+unescothes:C00960 a skos:Concept;
+   skos:prefLabel "Data analysis"@en;
+   skos:prefLabel "Analyse de données"@fr;
+   skos:prefLabel "Análisis de datos"@es;
+   skos:prefLabel "Анализ данных"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00965;
+   skos:related unescothes:C00962;
+   skos:related unescothes:C01347;
+   skos:related unescothes:C03558;
+   skos:related unescothes:C03841.
+
+unescothes:C00961 a skos:Concept;
+   skos:prefLabel "Data centres"@en;
+   skos:prefLabel "Centre de données"@fr;
+   skos:prefLabel "Centro de datos"@es;
+   skos:prefLabel "Центры данных"@ru;
+   skos:note "An organization handling and providing mainly numerical data usually without evaluation."@en;
+   skos:note "Organismo que maneja y ofrece esencialmente datos numéricos, generalmente sin elementos de evaluación."@es;
+   skos:note "Un organisme qui traite et fournit essentiellement des données numériques, généralement sans éléments d'évaluation."@fr;
+   skos:note "Организация, обрабатывающая и представляющая в основном цифровые данные, как правило, без аналитической оценки."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01993;
+   skos:related unescothes:C00624;
+   skos:related unescothes:C01990.
+
+unescothes:C00962 a skos:Concept;
+   skos:prefLabel "Data collection"@en;
+   skos:prefLabel "Recueil de données"@fr;
+   skos:prefLabel "Recopilación de datos"@es;
+   skos:prefLabel "Сбор данных"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Data acquisition"@en;
+   skos:altLabel "Data compilation"@en;
+   skos:altLabel "Compilación de datos"@es;
+   skos:altLabel "Recogida de datos"@es;
+   skos:altLabel "Acquisition de données"@fr;
+   skos:altLabel "Compilation de données"@fr;
+   skos:altLabel "Поступление данных"@ru;
+   skos:altLabel "Компиляция данных"@ru;
+   skos:broader unescothes:C00965;
+   skos:related unescothes:C00960;
+   skos:related unescothes:C01992;
+   skos:related unescothes:C03076;
+   skos:related unescothes:C03243;
+   skos:related unescothes:C03836;
+   skos:related unescothes:C03903.
+
+unescothes:C00963 a skos:Concept;
+   skos:prefLabel "Data exchange"@en;
+   skos:prefLabel "Échange des données"@fr;
+   skos:prefLabel "Intercambio de datos"@es;
+   skos:prefLabel "Обмен данными"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00965;
+   skos:related unescothes:C00964;
+   skos:related unescothes:C04121.
+
+unescothes:C00964 a skos:Concept;
+   skos:prefLabel "Data formats"@en;
+   skos:prefLabel "Format des données"@fr;
+   skos:prefLabel "Formato de datos"@es;
+   skos:prefLabel "Форматы данных"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Data layout"@en;
+   skos:altLabel "Configuración de datos"@es;
+   skos:altLabel "Disposición de datos"@es;
+   skos:altLabel "Disposition des données"@fr;
+   skos:altLabel "Modèle des données"@fr;
+   skos:altLabel "Представление данных"@ru;
+   skos:broader unescothes:C01514;
+   skos:related unescothes:C00963.
+
+unescothes:C00965 a skos:Concept;
+   skos:prefLabel "Data processing"@en;
+   skos:prefLabel "Traitement des données"@fr;
+   skos:prefLabel "Procesamiento de datos"@es;
+   skos:prefLabel "Обработка данных"@ru;
+   skos:note "Systematic handling, manipulation, and computation of data, always involving the use of computers. Do not confuse with 'information processing'."@en;
+   skos:note "Tratamiento sistemático, manipulación y cálculo de datos mediante el empleo de ordenadores. No confundir con 'tratamiento de la información'."@es;
+   skos:note "Traitement systématique, manipulation et calcul de données, impliquant toujours l'utilisation d'ordinateurs. Ne pas confondre avec le 'traitement de l'information'."@fr;
+   skos:note "Систематическая работа с данными, в т.ч. их компиляция, всегда с использованием компьютеров. Не путать с термином 'Обработка информации'."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Data handling"@en;
+   skos:altLabel "EDP"@en;
+   skos:altLabel "Electronic data processing"@en;
+   skos:altLabel "Remote data processing"@en;
+   skos:altLabel "Signal processing and detection"@en;
+   skos:altLabel "Teleprocessing"@en;
+   skos:altLabel "Cálculo de datos"@es;
+   skos:altLabel "Elaboración de datos"@es;
+   skos:altLabel "Manipulación de datos"@es;
+   skos:altLabel "PED"@es;
+   skos:altLabel "Tratamiento de datos"@es;
+   skos:altLabel "Tratamiento electrónico de datos"@es;
+   skos:altLabel "Exploitation des données"@fr;
+   skos:altLabel "Maniement des données"@fr;
+   skos:altLabel "TED"@fr;
+   skos:altLabel "Télétraitement"@fr;
+   skos:altLabel "Traitement des données à distance"@fr;
+   skos:altLabel "Traitement électronique des données"@fr;
+   skos:altLabel "Traitement et détection du signal"@fr;
+   skos:altLabel "Работа с данными"@ru;
+   skos:altLabel "ЭОД - электронная обработка данных"@ru;
+   skos:altLabel "Электронная обработка данных"@ru;
+   skos:altLabel "Дистанционная обработка данных"@ru;
+   skos:altLabel "Установление и обработка сигнала"@ru;
+   skos:altLabel "Телеобработка"@ru;
+   skos:narrower unescothes:C00960;
+   skos:narrower unescothes:C00962;
+   skos:narrower unescothes:C00963;
+   skos:narrower unescothes:C01049;
+   skos:narrower unescothes:C01347;
+   skos:related unescothes:C00750;
+   skos:related unescothes:C00757;
+   skos:related unescothes:C00967;
+   skos:related unescothes:C01985;
+   skos:related unescothes:C03259;
+   skos:related unescothes:C04358;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00966 a skos:Concept;
+   skos:prefLabel "Data protection"@en;
+   skos:prefLabel "Protection des données"@fr;
+   skos:prefLabel "Protección de datos"@es;
+   skos:prefLabel "Защита данных"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Computer crime"@en;
+   skos:altLabel "Computer security"@en;
+   skos:altLabel "Data privacy"@en;
+   skos:altLabel "Data security"@en;
+   skos:altLabel "Cibercrimen"@es;
+   skos:altLabel "Confidencialidad de datos"@es;
+   skos:altLabel "Crimen informático"@es;
+   skos:altLabel "Criminalidad informática"@es;
+   skos:altLabel "Delincuencia informática"@es;
+   skos:altLabel "Delito informático"@es;
+   skos:altLabel "Privacidad de los datos"@es;
+   skos:altLabel "Seguridad de los datos"@es;
+   skos:altLabel "Confidentialité des données"@fr;
+   skos:altLabel "Criminalité informatique"@fr;
+   skos:altLabel "Cybercrime"@fr;
+   skos:altLabel "Délinquance informatique"@fr;
+   skos:altLabel "Délit informatique"@fr;
+   skos:altLabel "Sécurité des données"@fr;
+   skos:altLabel "Компьютерные преступления"@ru;
+   skos:altLabel "Компьютерная безопасность"@ru;
+   skos:altLabel "Конфиденциальность данных"@ru;
+   skos:altLabel "Обеспечение секретности данных"@ru;
+   skos:broader unescothes:C00690;
+   skos:related unescothes:C00020;
+   skos:related unescothes:C00742;
+   skos:related unescothes:C03413.
+
+unescothes:C00967 a skos:Concept;
+   skos:prefLabel "Data transmission"@en;
+   skos:prefLabel "Transmission des données"@fr;
+   skos:prefLabel "Transmisión de datos"@es;
+   skos:prefLabel "Передача данных"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03997;
+   skos:narrower unescothes:C04121;
+   skos:related unescothes:C00965;
+   skos:related unescothes:C01497;
+   skos:related unescothes:C03999;
+   skos:altLabel "Transferencia de datos"@es.
+
+unescothes:C00968 a skos:Concept;
+   skos:prefLabel "Databases"@en;
+   skos:prefLabel "Base de données"@fr;
+   skos:prefLabel "Base de datos"@es;
+   skos:prefLabel "Базы данных"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Databanks"@en;
+   skos:altLabel "Banco de datos"@es;
+   skos:altLabel "Banque de données"@fr;
+   skos:altLabel "Банки данных"@ru;
+   skos:narrower unescothes:C00368;
+   skos:narrower unescothes:C01628;
+   skos:related unescothes:C01514;
+   skos:related unescothes:C01931;
+   skos:related unescothes:C01986;
+   skos:related unescothes:C02344;
+   skos:related unescothes:C02738;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00969 a skos:Concept;
+   skos:prefLabel "Dating"@en;
+   skos:prefLabel "Datation"@fr;
+   skos:prefLabel "Fechado"@es;
+   skos:prefLabel "Датирование"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00594;
+   skos:narrower unescothes:C00206;
+   skos:narrower unescothes:C03265;
+   skos:related unescothes:C04067;
+   skos:related unescothes:C04069;
+   skos:altLabel "Datado"@es.
+
+unescothes:C00970 a skos:Concept;
+   skos:prefLabel "Day nurseries"@en;
+   skos:prefLabel "Crèche"@fr;
+   skos:prefLabel "Guardería infantil"@es;
+   skos:prefLabel "Дневные сады"@ru;
+   skos:note "Centres where young children may be left to be cared for, while the parents are at work or study; may include health and family services."@en;
+   skos:note "Centro donde se cuida a los párvulos mientras sus padres están en el trabajo o estudian. Puede incluír servicios de salud y de asistencia familiar."@es;
+   skos:note "Centre où des petits enfants peuvent être pris en charge pendant que leurs parents sont au travail ou étudient; peut inclure des services de soins et d'aide familiale."@fr;
+   skos:note "Центры присмотра за маленькими детьми, чьи родители работают или учатся; могут оказывать услуги здравоохранения и воспитания."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Daycare"@en;
+   skos:altLabel "Family daycare"@en;
+   skos:altLabel "Guardería familial"@es;
+   skos:altLabel "Garde de jour"@fr;
+   skos:altLabel "Garde en famille"@fr;
+   skos:altLabel "Garderie"@fr;
+   skos:altLabel "Детские учреждения"@ru;
+   skos:altLabel "Присмотр за детьми"@ru;
+   skos:broader unescothes:C00571;
+   skos:related unescothes:C00578;
+   skos:related unescothes:C01128;
+   skos:related unescothes:C02777;
+   skos:related unescothes:C03116.
+
+unescothes:C00971 a skos:Concept;
+   skos:prefLabel "Dead languages"@en;
+   skos:prefLabel "Langue morte"@fr;
+   skos:prefLabel "Lengua muerta"@es;
+   skos:prefLabel "Мертвые языки"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C02212;
+   skos:related unescothes:C01728;
+   skos:related unescothes:C02220.
+
+unescothes:C00972 a skos:Concept;
+   skos:prefLabel "Dead Sea"@en;
+   skos:prefLabel "Mer Morte"@fr;
+   skos:prefLabel "Mar Muerto"@es;
+   skos:prefLabel "Мертвое море"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03576.
+
+unescothes:C00973 a skos:Concept;
+   skos:prefLabel "Deaf"@en;
+   skos:prefLabel "Sourd"@fr;
+   skos:prefLabel "Sordo"@es;
+   skos:prefLabel "Глухие"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Hearing impaired"@en;
+   skos:altLabel "Deficiente auditivo"@es;
+   skos:altLabel "Déficient auditif"@fr;
+   skos:altLabel "Handicapé auditif"@fr;
+   skos:altLabel "Malentendant"@fr;
+   skos:altLabel "Слабослышащие"@ru;
+   skos:broader unescothes:C02992;
+   skos:related unescothes:C00976;
+   skos:related unescothes:C01200;
+   skos:related unescothes:C03639.
+
+unescothes:C00974 a skos:Concept;
+   skos:prefLabel "Deaf and dumb"@en;
+   skos:prefLabel "Sourd-muet"@fr;
+   skos:prefLabel "Sordomudo"@es;
+   skos:prefLabel "Глухонемые"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C02612;
+   skos:related unescothes:C00975;
+   skos:related unescothes:C02992;
+   skos:related unescothes:C03639.
+
+unescothes:C00975 a skos:Concept;
+   skos:prefLabel "Deaf dumbness"@en;
+   skos:prefLabel "Surdimutité"@fr;
+   skos:prefLabel "Sordomudez"@es;
+   skos:prefLabel "Глухонемота"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00976;
+   skos:related unescothes:C00974;
+   skos:related unescothes:C01200.
+
+unescothes:C00976 a skos:Concept;
+   skos:prefLabel "Deafness"@en;
+   skos:prefLabel "Surdité"@fr;
+   skos:prefLabel "Sordera"@es;
+   skos:prefLabel "Глухота"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01054;
+   skos:narrower unescothes:C00975;
+   skos:related unescothes:C00973;
+   skos:related unescothes:C01200;
+   skos:related unescothes:C03611.
+
+unescothes:C00977 a skos:Concept;
+   skos:prefLabel "Death"@en;
+   skos:prefLabel "Mort"@fr;
+   skos:prefLabel "Muerte"@es;
+   skos:prefLabel "Смерть"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Causes of death"@en;
+   skos:altLabel "Deceso"@es;
+   skos:altLabel "Defunción"@es;
+   skos:altLabel "Fallecimiento"@es;
+   skos:altLabel "Cause de décès"@fr;
+   skos:altLabel "Причины смерти"@ru;
+   skos:broader unescothes:C02292;
+   skos:related unescothes:C00081;
+   skos:related unescothes:C00413;
+   skos:related unescothes:C01442;
+   skos:related unescothes:C01824;
+   skos:related unescothes:C02591;
+   skos:related unescothes:C03892.
+
+unescothes:C00978 a skos:Concept;
+   skos:prefLabel "Death penalty"@en;
+   skos:prefLabel "Peine de mort"@fr;
+   skos:prefLabel "Pena de muerte"@es;
+   skos:prefLabel "Смертная казнь"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Capital punishment"@en;
+   skos:altLabel "Pena capital"@es;
+   skos:altLabel "Peine capitale"@fr;
+   skos:altLabel "Высшая мера наказания"@ru;
+   skos:broader unescothes:C02937.
+
+unescothes:C00979 a skos:Concept;
+   skos:prefLabel "Debt relief"@en;
+   skos:prefLabel "Allègement de la dette"@fr;
+   skos:prefLabel "Alivio de la deuda"@es;
+   skos:prefLabel "Помощь в решении проблемы внешней задолженности"@ru;
+   skos:note "Use with respect to a country's external public debt."@en;
+   skos:note "Se refiere a la deuda pública exterior de un país."@es;
+   skos:note "S'applique à la dette publique extérieure d'un pays."@fr;
+   skos:note "Используется по отношению к внешнему государственному долгу страны."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Debt for equity swap"@en;
+   skos:altLabel "Debt for nature swap"@en;
+   skos:altLabel "Debt refinancing"@en;
+   skos:altLabel "Debt renegotiation"@en;
+   skos:altLabel "Debt reorganization"@en;
+   skos:altLabel "Debt rescheduling"@en;
+   skos:altLabel "Aligeramiento de la deuda"@es;
+   skos:altLabel "Conversión de la deuda"@es;
+   skos:altLabel "Rebaja de la deuda"@es;
+   skos:altLabel "Refinanciación de la deuda"@es;
+   skos:altLabel "Renegociación de la deuda"@es;
+   skos:altLabel "Reorganización de la deuda"@es;
+   skos:altLabel "Conversion de la dette"@fr;
+   skos:altLabel "Échange dette-nature"@fr;
+   skos:altLabel "Rééchelonnement de la dette"@fr;
+   skos:altLabel "Refinancement de la dette"@fr;
+   skos:altLabel "Renégociation de la dette"@fr;
+   skos:altLabel "Долги в обмен на акции (принцип решения проблемы задолженности)"@ru;
+   skos:altLabel "Долги в обмен на природные ресурсы (принцип решения проблемы задолженности)"@ru;
+   skos:altLabel "Рефинансирование долга"@ru;
+   skos:altLabel "Пересмотр долга"@ru;
+   skos:altLabel "Реорганизация долга"@ru;
+   skos:altLabel "Пересмотр сроков выплаты долга"@ru;
+   skos:broader unescothes:C01475;
+   skos:related unescothes:C00980.
+
+unescothes:C00980 a skos:Concept;
+   skos:prefLabel "Debt service"@en;
+   skos:prefLabel "Service de la dette"@fr;
+   skos:prefLabel "Servicio de la deuda"@es;
+   skos:prefLabel "Обслуживание долговых обязательств"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Debt reimbursement"@en;
+   skos:altLabel "Debt repayment"@en;
+   skos:altLabel "Condonación de una deuda"@es;
+   skos:altLabel "Devolución de una deuda"@es;
+   skos:altLabel "Pago de una deuda"@es;
+   skos:altLabel "Acquittement d'une dette"@fr;
+   skos:altLabel "Règlement d'une dette"@fr;
+   skos:altLabel "Remboursement d'une dette"@fr;
+   skos:altLabel "Возвращение долга"@ru;
+   skos:altLabel "Выплата долга"@ru;
+   skos:broader unescothes:C01475;
+   skos:related unescothes:C00979.
+
+unescothes:C00981 a skos:Concept;
+   skos:prefLabel "Debts"@en;
+   skos:prefLabel "Dette"@fr;
+   skos:prefLabel "Deuda"@es;
+   skos:prefLabel "Долги"@ru;
+   skos:note "Use more specific descriptor where appropriate."@en;
+   skos:note "Utilizar un descriptor más preciso cuando sea necesario."@es;
+   skos:note "Utiliser un terme plus précis quand c'est pertinent."@fr;
+   skos:note "В необходимых случаях используйте более точный дескриптор."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Liabilities (economic)"@en;
+   skos:altLabel "Obligations"@fr;
+   skos:altLabel "Passif"@fr;
+   skos:altLabel "Денежные обязательства (экономические)"@ru;
+   skos:broader unescothes:C01534;
+   skos:related unescothes:C00834;
+   skos:related unescothes:C01475;
+   skos:related unescothes:C01535;
+   skos:related unescothes:C01537;
+   skos:related unescothes:C02329;
+   skos:related unescothes:C03205.
+
+unescothes:C00982 a skos:Concept;
+   skos:prefLabel "Decentralization"@en;
+   skos:prefLabel "Décentralisation"@fr;
+   skos:prefLabel "Descentralización"@es;
+   skos:prefLabel "Децентрализация"@ru;
+   skos:note "Dispersion or distribution of functions and powers from a central authority to a local authority or community."@en;
+   skos:note "Dispersión o distribución de funciones y poderes de una autoridad central a una autoridad local o una comunidad."@es;
+   skos:note "Déconcentration ou distribution des fonctions et pouvoirs d'une autorité centrale à une autorité locale ou à une communauté."@fr;
+   skos:note "Передача или распределение функций и полномочий от центрального властного органа к местному ведомству или сообществу."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00994;
+   skos:related unescothes:C00548;
+   skos:related unescothes:C02332.
+
+unescothes:C00983 a skos:Concept;
+   skos:prefLabel "Deciphering"@en;
+   skos:prefLabel "Déchiffrement"@fr;
+   skos:prefLabel "Desciframiento"@es;
+   skos:prefLabel "Дешифровка"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C02303;
+   skos:related unescothes:C00155;
+   skos:related unescothes:C01404;
+   skos:related unescothes:C04112;
+   skos:altLabel "Desencriptado"@es.
+
+unescothes:C00984 a skos:Concept;
+   skos:prefLabel "Decision making"@en;
+   skos:prefLabel "Prise de décision"@fr;
+   skos:prefLabel "Toma de decisiones"@es;
+   skos:prefLabel "Принятие решений"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C02375;
+   skos:related unescothes:C00944;
+   skos:related unescothes:C00985;
+   skos:related unescothes:C01444;
+   skos:related unescothes:C01579;
+   skos:related unescothes:C03160;
+   skos:related unescothes:C03277;
+   skos:related unescothes:C03290;
+   skos:related unescothes:C03916;
+   skos:related unescothes:C04229;
+   skos:altLabel "Processus décisionnel"@fr.
+
+unescothes:C00985 a skos:Concept;
+   skos:prefLabel "Decision theory"@en;
+   skos:prefLabel "Théorie de la décision"@fr;
+   skos:prefLabel "Teoría de la decisión"@es;
+   skos:prefLabel "Теория решений"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Statistical decision"@en;
+   skos:altLabel "Decisión estadística"@es;
+   skos:altLabel "Décision statistique"@fr;
+   skos:altLabel "Статистическое решение"@ru;
+   skos:broader unescothes:C02841;
+   skos:related unescothes:C00984;
+   skos:related unescothes:C01644;
+   skos:related unescothes:C03274.
+
+unescothes:C00986 a skos:Concept;
+   skos:prefLabel "Decolonization"@en;
+   skos:prefLabel "Décolonisation"@fr;
+   skos:prefLabel "Descolonización"@es;
+   skos:prefLabel "Деколонизация"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00660;
+   skos:related unescothes:C00661;
+   skos:related unescothes:C00662;
+   skos:related unescothes:C02717;
+   skos:related unescothes:C03595.
+
+unescothes:C00987 a skos:Concept;
+   skos:prefLabel "Decorative arts"@en;
+   skos:prefLabel "Arts décoratifs"@fr;
+   skos:prefLabel "Artes decorativas"@es;
+   skos:prefLabel "Декоративно-прикладное искусство"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:narrower unescothes:C01635;
+   skos:narrower unescothes:C02059;
+   skos:related unescothes:C01538;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C00988 a skos:Concept;
+   skos:prefLabel "Deep sea"@en;
+   skos:prefLabel "Haute mer"@fr;
+   skos:prefLabel "Alta mar"@es;
+   skos:prefLabel "Открытое море"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C02989;
+   skos:altLabel "Mar adentro"@es.
+
+unescothes:C00989 a skos:Concept;
+   skos:prefLabel "Deep sea diving"@en;
+   skos:prefLabel "Plongée sous-marine"@fr;
+   skos:prefLabel "Submarinismo"@es;
+   skos:prefLabel "Глубоководное погружение"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C04177;
+   skos:related unescothes:C01079;
+   skos:altLabel "Buceo"@es.
+
+unescothes:C00990 a skos:Concept;
+   skos:prefLabel "Defence"@en;
+   skos:prefLabel "Défense"@fr;
+   skos:prefLabel "Defensa"@es;
+   skos:prefLabel "Оборона"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Civil defence"@en;
+   skos:altLabel "Military defence"@en;
+   skos:altLabel "Defensa civil"@es;
+   skos:altLabel "Defensa militar"@es;
+   skos:altLabel "Défence militaire"@fr;
+   skos:altLabel "Défense civile"@fr;
+   skos:altLabel "Гражданская оборона"@ru;
+   skos:altLabel "Военная оборона"@ru;
+   skos:broader unescothes:C03834;
+   skos:narrower unescothes:C00246;
+   skos:narrower unescothes:C00247;
+   skos:related unescothes:C00241;
+   skos:related unescothes:C02531.
+
+unescothes:C00991 a skos:Concept;
+   skos:prefLabel "Deforestation"@en;
+   skos:prefLabel "Déboisement"@fr;
+   skos:prefLabel "Deforestación"@es;
+   skos:prefLabel "Сведение лесов"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01591;
+   skos:related unescothes:C00096;
+   skos:related unescothes:C01383;
+   skos:related unescothes:C03750.
+
+unescothes:C00992 a skos:Concept;
+   skos:prefLabel "Degrees"@en;
+   skos:prefLabel "Grade"@fr;
+   skos:prefLabel "Título académico"@es;
+   skos:prefLabel "Ученые степени"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Academic degrees"@en;
+   skos:altLabel "University degrees"@en;
+   skos:altLabel "Diploma universitario"@es;
+   skos:altLabel "Título de licenciatura"@es;
+   skos:altLabel "Título universitario"@es;
+   skos:altLabel "Diplôme universitaire"@fr;
+   skos:altLabel "Grade universitaire"@fr;
+   skos:altLabel "Академические степени"@ru;
+   skos:altLabel "Университетские степени"@ru;
+   skos:broader unescothes:C01274;
+   skos:narrower unescothes:C00323;
+   skos:narrower unescothes:C01082;
+   skos:narrower unescothes:C02426;
+   skos:related unescothes:C01051;
+   skos:related unescothes:C01409;
+   skos:related unescothes:C03954.
+
+unescothes:C00993 a skos:Concept;
+   skos:prefLabel "Dehydration"@en;
+   skos:prefLabel "Déshydratation"@fr;
+   skos:prefLabel "Deshidratación"@es;
+   skos:prefLabel "Дегидратация"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00565;
+   skos:related unescothes:C01446.
+
+unescothes:C00994 a skos:Concept;
+   skos:prefLabel "Delegation of authority"@en;
+   skos:prefLabel "Délégation d'autorité"@fr;
+   skos:prefLabel "Delegación de autoridad"@es;
+   skos:prefLabel "Перераспределение полномочий"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C02375;
+   skos:narrower unescothes:C00548;
+   skos:narrower unescothes:C00982;
+   skos:related unescothes:C02238.
+
+unescothes:C00995 a skos:Concept;
+   skos:prefLabel "Delinquency"@en;
+   skos:prefLabel "Délinquance"@fr;
+   skos:prefLabel "Delincuencia"@es;
+   skos:prefLabel "Правонарушения"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03707;
+   skos:narrower unescothes:C02147;
+   skos:related unescothes:C00838;
+   skos:related unescothes:C00840;
+   skos:related unescothes:C02230;
+   skos:related unescothes:C02358;
+   skos:related unescothes:C02937;
+   skos:related unescothes:C03036.
+
+unescothes:C00996 a skos:Concept;
+   skos:prefLabel "Deltas"@en;
+   skos:prefLabel "Delta"@fr;
+   skos:prefLabel "Delta"@es;
+   skos:prefLabel "Дельты"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00646;
+   skos:related unescothes:C03429.
+
+unescothes:C00997 a skos:Concept;
+   skos:prefLabel "Democracy"@en;
+   skos:prefLabel "Démocratie"@fr;
+   skos:prefLabel "Democracia"@es;
+   skos:prefLabel "Демократия"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03060;
+   skos:narrower unescothes:C02913;
+   skos:related unescothes:C00708;
+   skos:related unescothes:C00998;
+   skos:related unescothes:C01038;
+   skos:related unescothes:C01857;
+   skos:related unescothes:C01860;
+   skos:related unescothes:C02916;
+   skos:related unescothes:C03444.
+
+unescothes:C00998 a skos:Concept;
+   skos:prefLabel "Democratization"@en;
+   skos:prefLabel "Démocratisation"@fr;
+   skos:prefLabel "Democratización"@es;
+   skos:prefLabel "Демократизация"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03684;
+   skos:related unescothes:C00997;
+   skos:related unescothes:C00999;
+   skos:related unescothes:C01000;
+   skos:related unescothes:C01716;
+   skos:related unescothes:C02916.
+
+unescothes:C00999 a skos:Concept;
+   skos:prefLabel "Democratization of culture"@en;
+   skos:prefLabel "Démocratisation de la culture"@fr;
+   skos:prefLabel "Democratización de la cultura"@es;
+   skos:prefLabel "Демократизация культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00908;
+   skos:related unescothes:C00850;
+   skos:related unescothes:C00888;
+   skos:related unescothes:C00900;
+   skos:related unescothes:C00998;
+   skos:related unescothes:C01075.
+
+unescothes:C01000 a skos:Concept;
+   skos:prefLabel "Democratization of education"@en;
+   skos:prefLabel "Démocratisation de l'éducation"@fr;
+   skos:prefLabel "Democratización de la educación"@es;
+   skos:prefLabel "Демократизация образования"@ru;
+   skos:note "Policy of ensuring equality of educational opportunity in order to achieve universal education."@en;
+   skos:note "Politica encaminada a asegurar la igualdad de las oportunidades educativas con el fin de cumplir el objetivo de una educación para todos."@es;
+   skos:note "Politique visant à assurer l'égalité des chances en éducation afin de réaliser l'objectif de l'éducation pour tous."@fr;
+   skos:note "Политика, обеспечивающая равные возможности получения образования в целях достижения всеобщего образования населения."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03402;
+   skos:related unescothes:C00998;
+   skos:related unescothes:C01258;
+   skos:related unescothes:C01267;
+   skos:related unescothes:C01277;
+   skos:related unescothes:C04186.
+
+unescothes:C01001 a skos:Concept;
+   skos:prefLabel "Demographic statistics"@en;
+   skos:prefLabel "Statistique démographique"@fr;
+   skos:prefLabel "Estadísticas demográficas"@es;
+   skos:prefLabel "Демографическая статистика"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Population data"@en;
+   skos:altLabel "Population statistics"@en;
+   skos:altLabel "Vital statistics"@en;
+   skos:altLabel "Cálculos demográficos"@es;
+   skos:altLabel "Datos demográficos"@es;
+   skos:altLabel "Estadísticas de población"@es;
+   skos:altLabel "Información demográfica"@es;
+   skos:altLabel "Donnée démographique"@fr;
+   skos:altLabel "Information démographique"@fr;
+   skos:altLabel "Statistique de l'état civil"@fr;
+   skos:altLabel "Statistique de population"@fr;
+   skos:altLabel "Показатели народонаселения"@ru;
+   skos:altLabel "Статистика населения"@ru;
+   skos:altLabel "Статистика естественного движения населения"@ru;
+   skos:broader unescothes:C03087;
+   skos:related unescothes:C03076;
+   skos:related unescothes:C03836.
+
+unescothes:C01002 a skos:Concept;
+   skos:prefLabel "Demography"@en;
+   skos:prefLabel "Démographie"@fr;
+   skos:prefLabel "Demografía"@es;
+   skos:prefLabel "Демография"@ru;
+   skos:note "Use for theoretical works dealing with human populations, concerned with their size, structure, distribution, growth and migration."@en;
+   skos:note "Estudios teóricos sobre las poblaciones humanas desde el punto de vista de su dimensión, estructura, distribución, crecimiento y migración."@es;
+   skos:note "S'emploie pour désigner des travaux théoriques sur les populations humaines du point de vue de leurs dimension, structure, distribution, croissance et migration."@fr;
+   skos:note "Используется по отношению к научным трудам в области народонаселения, освещающих, в частности, численность, структуру, территориальное распределение, рост и миграцию населения."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:narrower unescothes:C03079;
+   skos:narrower unescothes:C03087;
+   skos:related unescothes:C02526;
+   skos:related unescothes:C03075;
+   skos:related unescothes:C03719;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C01003 a skos:Concept;
+   skos:prefLabel "Demonstrations (educational)"@en;
+   skos:prefLabel "Démonstration pédagogique"@fr;
+   skos:prefLabel "Demostración pedagógica"@es;
+   skos:prefLabel "Демонстрации (учебные)"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03972;
+   skos:related unescothes:C01470.
+
+unescothes:C01004 a skos:Concept;
+   skos:prefLabel "Denmark"@en;
+   skos:prefLabel "Danemark"@fr;
+   skos:prefLabel "Dinamarca"@es;
+   skos:prefLabel "Дания"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01300;
+   skos:broader unescothes:C01441;
+   skos:broader unescothes:C02757;
+   skos:broader unescothes:C02816;
+   skos:broader unescothes:C03501;
+   skos:related unescothes:C01492;
+   skos:related unescothes:C01731.
+
+unescothes:C01005 a skos:Concept;
+   skos:prefLabel "Denominational schools"@en;
+   skos:prefLabel "École confessionnelle"@fr;
+   skos:prefLabel "Escuela confesional"@es;
+   skos:prefLabel "Школы для учащихся одного вероисповедания"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Catholic schools"@en;
+   skos:altLabel "Koranic schools"@en;
+   skos:altLabel "Escuela católica"@es;
+   skos:altLabel "Escuela coránica"@es;
+   skos:altLabel "École catholique"@fr;
+   skos:altLabel "École coranique"@fr;
+   skos:altLabel "Католические школы"@ru;
+   skos:altLabel "Мусульманские школы"@ru;
+   skos:broader unescothes:C03531;
+   skos:related unescothes:C00596;
+   skos:related unescothes:C03152;
+   skos:related unescothes:C03333.
+
+unescothes:C01006 a skos:Concept;
+   skos:prefLabel "Dentistry"@en;
+   skos:prefLabel "Odontologie"@fr;
+   skos:prefLabel "Odontología"@es;
+   skos:prefLabel "Стоматология"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C02464.
+
+unescothes:C01007 a skos:Concept;
+   skos:prefLabel "Deontology"@en;
+   skos:prefLabel "Déontologie"@fr;
+   skos:prefLabel "Deontología"@es;
+   skos:prefLabel "Деонтология"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Professional ethics"@en;
+   skos:altLabel "Professional standards"@en;
+   skos:altLabel "Código deontológico"@es;
+   skos:altLabel "Código ético"@es;
+   skos:altLabel "Ética profesional"@es;
+   skos:altLabel "Moral profesional"@es;
+   skos:altLabel "Norma ética"@es;
+   skos:altLabel "Norma profesional"@es;
+   skos:altLabel "Code d'éthique"@fr;
+   skos:altLabel "Code de déontologie"@fr;
+   skos:altLabel "Éthique professionnelle"@fr;
+   skos:altLabel "Norme éthique"@fr;
+   skos:altLabel "Norme professionnelle"@fr;
+   skos:altLabel "Standard professionnel"@fr;
+   skos:altLabel "Профессиональная этика"@ru;
+   skos:altLabel "Профессиональные требования"@ru;
+   skos:broader unescothes:C01421;
+   skos:related unescothes:C00388;
+   skos:related unescothes:C00684;
+   skos:related unescothes:C01422;
+   skos:related unescothes:C02457;
+   skos:related unescothes:C02795;
+   skos:related unescothes:C02796;
+   skos:related unescothes:C03127.
+
+unescothes:C01008 a skos:Concept;
+   skos:prefLabel "Dependence"@en;
+   skos:prefLabel "Dépendance économique"@fr;
+   skos:prefLabel "Dependencia"@es;
+   skos:prefLabel "Зависимость"@ru;
+   skos:note "Situation in which a country's economy is subordinated to the development of another country's economy."@en;
+   skos:note "Situación según la cual la economía de un país depende del desarrollo económico de otro país."@es;
+   skos:note "Situation selon laquelle l'économie d'un pays dépend du développement économique d'un autre pays."@fr;
+   skos:note "Ситуация, при которой экономика страны подчинена развитию экономики другой страны."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Dependency theory"@en;
+   skos:altLabel "Economic dependence"@en;
+   skos:altLabel "Dependencia económica"@es;
+   skos:altLabel "Teoría de la dependencia"@es;
+   skos:altLabel "Théorie de la dépendance"@fr;
+   skos:altLabel "Теория зависимости"@ru;
+   skos:altLabel "Экономическая зависимость"@ru;
+   skos:broader unescothes:C02070;
+   skos:related unescothes:C01035;
+   skos:related unescothes:C01922;
+   skos:related unescothes:C02698.
+
+unescothes:C01009 a skos:Concept;
+   skos:prefLabel "Depository libraries"@en;
+   skos:prefLabel "Bibliothèque dépositaire"@fr;
+   skos:prefLabel "Biblioteca de depósito"@es;
+   skos:prefLabel "Депозитарные библиотеки"@ru;
+   skos:note "A 'library' receiving by law or under arrangements free copies of all or all required national publications."@en;
+   skos:note "Biblioteca que recibe gratuitamente, por ley o por medio de acuerdos, una copia de una parte o del conjunto de las publicaciones nacionales."@es;
+   skos:note "Bibliothèque désignée légalement ou au moyen d'un accord pour recevoir gratuitement une copie d'une partie ou de l'ensemble des publications nationales."@fr;
+   skos:note "Библиотека, получающая по закону или в ином порядке бесплатные экземпляры всех или всех требуемых национальных публикаций."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Copyright libraries"@en;
+   skos:altLabel "Biblioteca de depósito legal"@es;
+   skos:altLabel "Bibliothèque de dépôt"@fr;
+   skos:altLabel "Библиотеки авторских прав"@ru;
+   skos:broader unescothes:C02674;
+   skos:related unescothes:C00804;
+   skos:related unescothes:C01714;
+   skos:related unescothes:C02253.
+
+unescothes:C01010 a skos:Concept;
+   skos:prefLabel "Desalination"@en;
+   skos:prefLabel "Dessalement"@fr;
+   skos:prefLabel "Desalinización"@es;
+   skos:prefLabel "Опреснение"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C04307;
+   skos:related unescothes:C00561;
+   skos:related unescothes:C03482;
+   skos:related unescothes:C03483;
+   skos:related unescothes:C03574;
+   skos:related unescothes:C04301;
+   skos:altLabel "Dessalinisation"@fr.
+
+unescothes:C01011 a skos:Concept;
+   skos:prefLabel "Desegregation"@en;
+   skos:prefLabel "Déségrégration"@fr;
+   skos:prefLabel "Desegregación"@es;
+   skos:prefLabel "Десегрегация"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03246;
+   skos:related unescothes:C03514.
+
+unescothes:C01012 a skos:Concept;
+   skos:prefLabel "Desert science"@en;
+   skos:prefLabel "Science du désert"@fr;
+   skos:prefLabel "Ciencia del desierto"@es;
+   skos:prefLabel "Наука о пустынях"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Arid zone research"@en;
+   skos:altLabel "Ciencia de las zonas áridas"@es;
+   skos:altLabel "Recherche sur la zone aride"@fr;
+   skos:altLabel "Исследования аридных зон"@ru;
+   skos:related unescothes:C00238;
+   skos:related unescothes:C01014;
+   skos:related unescothes:C02783;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C01013 a skos:Concept;
+   skos:prefLabel "Desert soils"@en;
+   skos:prefLabel "Sol désertique"@fr;
+   skos:prefLabel "Suelo desértico"@es;
+   skos:prefLabel "Пустынные почвы"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03760;
+   skos:related unescothes:C00238;
+   skos:related unescothes:C01015;
+   skos:altLabel "Suelo árido"@es.
+
+unescothes:C01014 a skos:Concept;
+   skos:prefLabel "Desertification"@en;
+   skos:prefLabel "Désertification"@fr;
+   skos:prefLabel "Desertificación"@es;
+   skos:prefLabel "Опустынивание"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03749;
+   skos:related unescothes:C00238;
+   skos:related unescothes:C01012;
+   skos:related unescothes:C01111;
+   skos:related unescothes:C03750.
+
+unescothes:C01015 a skos:Concept;
+   skos:prefLabel "Deserts"@en;
+   skos:prefLabel "Désert"@fr;
+   skos:prefLabel "Desierto"@es;
+   skos:prefLabel "Пустыни"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C02189;
+   skos:related unescothes:C00238;
+   skos:related unescothes:C00403;
+   skos:related unescothes:C01013;
+   skos:related unescothes:C02783.
+
+unescothes:C01016 a skos:Concept;
+   skos:prefLabel "Design"@en;
+   skos:prefLabel "Conception"@fr;
+   skos:prefLabel "Diseño"@es;
+   skos:prefLabel "Проектирование"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03375;
+   skos:narrower unescothes:C03916;
+   skos:altLabel "Design"@fr.
+
+unescothes:C01017 a skos:Concept;
+   skos:prefLabel "Determinism"@en;
+   skos:prefLabel "Déterminisme"@fr;
+   skos:prefLabel "Determinismo"@es;
+   skos:prefLabel "Детерминизм"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C02970;
+   skos:related unescothes:C00531;
+   skos:related unescothes:C03192.
+
+unescothes:C01018 a skos:Concept;
+   skos:prefLabel "Developed countries"@en;
+   skos:prefLabel "Pays développé"@fr;
+   skos:prefLabel "País desarrollado"@es;
+   skos:prefLabel "Развитые страны"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Advanced industrial countries"@en;
+   skos:altLabel "AIC"@en;
+   skos:altLabel "Industrialized countries"@en;
+   skos:altLabel "País económicamente avanzado"@es;
+   skos:altLabel "País industrialmente desarrollado"@es;
+   skos:altLabel "PD"@es;
+   skos:altLabel "Primer mundo"@es;
+   skos:altLabel "Pays industriellement avancé"@fr;
+   skos:altLabel "Pays industriellement développé"@fr;
+   skos:altLabel "PD"@fr;
+   skos:altLabel "Промышленно развитые страны"@ru;
+   skos:altLabel "ПРС (промышленно развитые страны)"@ru;
+   skos:altLabel "Индустриальные страны"@ru;
+   skos:related unescothes:C01967;
+   skos:related unescothes:C01991;
+   skos:related unescothes:C02718;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C01019 a skos:Concept;
+   skos:prefLabel "Developing countries"@en;
+   skos:prefLabel "Pays en développement"@fr;
+   skos:prefLabel "País en desarrollo"@es;
+   skos:prefLabel "Развивающиеся страны"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Third world"@en;
+   skos:altLabel "País en vías de desarrollo"@es;
+   skos:altLabel "País subdesarrollado"@es;
+   skos:altLabel "Tercer mundo"@es;
+   skos:altLabel "Pays en voie de développement"@fr;
+   skos:altLabel "PED"@fr;
+   skos:altLabel "Tiers-monde"@fr;
+   skos:altLabel "Страны 'третьего мира'"@ru;
+   skos:narrower unescothes:C02246;
+   skos:related unescothes:C01021;
+   skos:related unescothes:C01030;
+   skos:related unescothes:C01032;
+   skos:related unescothes:C01148;
+   skos:related unescothes:C03401;
+   skos:related unescothes:C04172;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C01020 a skos:Concept;
+   skos:prefLabel "Development administration"@en;
+   skos:prefLabel "Administration du développement"@fr;
+   skos:prefLabel "Administración del desarrollo"@es;
+   skos:prefLabel "Управление развитием"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:narrower unescothes:C01022;
+   skos:narrower unescothes:C01026;
+   skos:related unescothes:C01027;
+   skos:related unescothes:C03203;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C01021 a skos:Concept;
+   skos:prefLabel "Development aid"@en;
+   skos:prefLabel "Aide au développement"@fr;
+   skos:prefLabel "Ayuda al desarrollo"@es;
+   skos:prefLabel "Помощь в развитии"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Development assistance"@en;
+   skos:altLabel "Development cooperation"@en;
+   skos:altLabel "Apoyo al desarrollo"@es;
+   skos:altLabel "Asistencia al desarrollo"@es;
+   skos:altLabel "Assistance au développement"@fr;
+   skos:altLabel "Содействие развитию"@ru;
+   skos:altLabel "Сотрудничество в области развития"@ru;
+   skos:narrower unescothes:C00379;
+   skos:narrower unescothes:C01146;
+   skos:narrower unescothes:C01563;
+   skos:narrower unescothes:C02607;
+   skos:narrower unescothes:C03151;
+   skos:narrower unescothes:C03979;
+   skos:related unescothes:C01019;
+   skos:related unescothes:C01027;
+   skos:related unescothes:C01029;
+   skos:related unescothes:C01030;
+   skos:related unescothes:C01032;
+   skos:related unescothes:C01148;
+   skos:related unescothes:C01580;
+   skos:related unescothes:C02067;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C01022 a skos:Concept;
+   skos:prefLabel "Development banks"@en;
+   skos:prefLabel "Banque de développement"@fr;
+   skos:prefLabel "Banco de desarrollo"@es;
+   skos:prefLabel "Банки развития"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01020;
+   skos:related unescothes:C00088;
+   skos:related unescothes:C01029.
+
+unescothes:C01023 a skos:Concept;
+   skos:prefLabel "Development education"@en;
+   skos:prefLabel "Éducation sur le développement"@fr;
+   skos:prefLabel "Educación sobre el desarrollo"@es;
+   skos:prefLabel "Образование в области развития"@ru;
+   skos:note "Education on the issues of concern in the development process addressed to youth and adults in developed countries."@en;
+   skos:note "Educación sobre cuestiones relativas al proceso de desarrollo dirigidas a jóvenes y adultos de los países desarrollados."@es;
+   skos:note "Education sur les questions concernant le processus de développement à l'intention des jeunes et des adultes des pays développés."@fr;
+   skos:note "Образование по вопросам процесса развития, затрагивающим интересы молодежи и взрослого населения развитых стран."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03726;
+   skos:related unescothes:C01148;
+   skos:related unescothes:C02071;
+   skos:related unescothes:C02083.
+
+unescothes:C01024 a skos:Concept;
+   skos:prefLabel "Development indicators"@en;
+   skos:prefLabel "Indicateur de développement"@fr;
+   skos:prefLabel "Indicadores de desarrollo"@es;
+   skos:prefLabel "Индикаторы развития"@ru;
+   skos:note "Numerical data used as benchmarks in the formulation and monitoring of development policy."@en;
+   skos:note "Datos numéricos empleados en la formulación y la supervisión de las políticas de desarrollo."@es;
+   skos:note "Données numériques utilisées dans la formulation et le suivi des politiques de développement."@fr;
+   skos:note "Цифровые показатели, используемые в качестве ориентиров при разработке и реализации политики в области развития."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01029;
+   skos:related unescothes:C01032.
+
+unescothes:C01025 a skos:Concept;
+   skos:prefLabel "Development models"@en;
+   skos:prefLabel "Modèle de développement"@fr;
+   skos:prefLabel "Modelo de desarrollo"@es;
+   skos:prefLabel "Модели развития"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Development patterns"@en;
+   skos:altLabel "Esquema de desarrollo"@es;
+   skos:altLabel "Pattern de développement"@fr;
+   skos:altLabel "Schéma de développement"@fr;
+   skos:altLabel "Схемы развития"@ru;
+   skos:broader unescothes:C01032;
+   skos:related unescothes:C01145;
+   skos:related unescothes:C03645.
+
+unescothes:C01026 a skos:Concept;
+   skos:prefLabel "Development personnel"@en;
+   skos:prefLabel "Personnel affecté au développement"@fr;
+   skos:prefLabel "Personal de áreas de desarrollo"@es;
+   skos:prefLabel "Персонал по оказанию содействия и помощи"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01020;
+   skos:narrower unescothes:C00780;
+   skos:narrower unescothes:C01472;
+   skos:related unescothes:C03979.
+
+unescothes:C01027 a skos:Concept;
+   skos:prefLabel "Development planning"@en;
+   skos:prefLabel "Planification du développement"@fr;
+   skos:prefLabel "Planificación del desarrollo"@es;
+   skos:prefLabel "Планирование развития"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "National planning"@en;
+   skos:altLabel "Planificación nacional"@es;
+   skos:altLabel "Planification nationale"@fr;
+   skos:altLabel "Национальное планирование"@ru;
+   skos:broader unescothes:C01029;
+   skos:narrower unescothes:C01028;
+   skos:narrower unescothes:C02786;
+   skos:related unescothes:C00680;
+   skos:related unescothes:C00758;
+   skos:related unescothes:C00927;
+   skos:related unescothes:C01020;
+   skos:related unescothes:C01021;
+   skos:related unescothes:C01033;
+   skos:related unescothes:C01165;
+   skos:related unescothes:C01196;
+   skos:related unescothes:C03318;
+   skos:related unescothes:C03503;
+   skos:related unescothes:C03534;
+   skos:related unescothes:C03705.
+
+unescothes:C01028 a skos:Concept;
+   skos:prefLabel "Development plans"@en;
+   skos:prefLabel "Plan de développement"@fr;
+   skos:prefLabel "Plan de desarrollo"@es;
+   skos:prefLabel "Планы развития"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "National plans"@en;
+   skos:altLabel "Plan nacional"@es;
+   skos:altLabel "Plan national"@fr;
+   skos:altLabel "Национальные планы"@ru;
+   skos:broader unescothes:C01027.
+
+unescothes:C01029 a skos:Concept;
+   skos:prefLabel "Development policy"@en;
+   skos:prefLabel "Politique de développement"@fr;
+   skos:prefLabel "Política de desarrollo"@es;
+   skos:prefLabel "Политика в области развития"@ru;
+   skos:note "A definite course or method of action selected from among development alternatives. Use more specific descriptors where appropriate."@en;
+   skos:note "Orientación o plan de acción definido elegido entre diferentes estrategias de desarrollo. Utilizar un descriptor más preciso cuando sea necesario."@es;
+   skos:note "Orientation ou plan d'action défini choisi parmi différentes stratégies de développement. Utiliser un descripteur plus précis quand c'est opportun."@fr;
+   skos:note "Определенный курс или метод действий, выбранный из альтернатив развития. В необходимых случаях используйте более точный дескриптор."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01148;
+   skos:narrower unescothes:C01024;
+   skos:narrower unescothes:C01027;
+   skos:narrower unescothes:C01030;
+   skos:narrower unescothes:C01033;
+   skos:narrower unescothes:C02032;
+   skos:narrower unescothes:C03291;
+   skos:related unescothes:C00102;
+   skos:related unescothes:C00696;
+   skos:related unescothes:C00908;
+   skos:related unescothes:C01021;
+   skos:related unescothes:C01022;
+   skos:related unescothes:C01166;
+   skos:related unescothes:C01267;
+   skos:related unescothes:C01344;
+   skos:related unescothes:C01359;
+   skos:related unescothes:C01395;
+   skos:related unescothes:C01716;
+   skos:related unescothes:C01842;
+   skos:related unescothes:C01961;
+   skos:related unescothes:C02014;
+   skos:related unescothes:C02181;
+   skos:related unescothes:C03083;
+   skos:related unescothes:C03544;
+   skos:related unescothes:C03706;
+   skos:related unescothes:C04091.
+
+unescothes:C01030 a skos:Concept;
+   skos:prefLabel "Development programmes"@en;
+   skos:prefLabel "Programme de développement"@fr;
+   skos:prefLabel "Programas de desarrollo"@es;
+   skos:prefLabel "Программы развития"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01029;
+   skos:narrower unescothes:C00827;
+   skos:narrower unescothes:C01031;
+   skos:related unescothes:C00698;
+   skos:related unescothes:C00909;
+   skos:related unescothes:C01019;
+   skos:related unescothes:C01021;
+   skos:related unescothes:C03085;
+   skos:related unescothes:C03171;
+   skos:related unescothes:C03708.
+
+unescothes:C01031 a skos:Concept;
+   skos:prefLabel "Development projects"@en;
+   skos:prefLabel "Projet de développement"@fr;
+   skos:prefLabel "Proyecto de desarrollo"@es;
+   skos:prefLabel "Проекты развития"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01030;
+   skos:narrower unescothes:C01498;
+   skos:related unescothes:C03003;
+   skos:related unescothes:C03176.
+
+unescothes:C01032 a skos:Concept;
+   skos:prefLabel "Development research"@en;
+   skos:prefLabel "Recherche sur le développement"@fr;
+   skos:prefLabel "Investigación sobre el desarrollo"@es;
+   skos:prefLabel "Исследования в области развития"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01035;
+   skos:narrower unescothes:C01025;
+   skos:related unescothes:C01019;
+   skos:related unescothes:C01021;
+   skos:related unescothes:C01024;
+   skos:related unescothes:C01034.
+
+unescothes:C01033 a skos:Concept;
+   skos:prefLabel "Development strategies"@en;
+   skos:prefLabel "Stratégie de développement"@fr;
+   skos:prefLabel "Estrategia de desarrollo"@es;
+   skos:prefLabel "Стратегии развития"@ru;
+   skos:note "The coordinated package of programmes and projects dictated by development policy, which aims to achieve a particular kind of development."@en;
+   skos:note "Conjunto coordinado de programas y proyectos dictados por una política de desarrollo encaminados a la realización de un modelo particular de desarrollo."@es;
+   skos:note "Ensemble coordonné de programmes et projets défini par une politique de développement, et qui vise la réalisation d'un modèle particulier de développement."@fr;
+   skos:note "Связанный пакет программ и проектов, выработанный в рамках определенной политики и нацеленный на достижение конкретного вида развития."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01029;
+   skos:narrower unescothes:C00344;
+   skos:narrower unescothes:C00500;
+   skos:narrower unescothes:C01352;
+   skos:narrower unescothes:C01845;
+   skos:narrower unescothes:C02040;
+   skos:narrower unescothes:C02916;
+   skos:narrower unescothes:C03603;
+   skos:narrower unescothes:C03904;
+   skos:narrower unescothes:C04334;
+   skos:related unescothes:C01027;
+   skos:related unescothes:C03503;
+   skos:related unescothes:C03848.
+
+unescothes:C01034 a skos:Concept;
+   skos:prefLabel "Development styles"@en;
+   skos:prefLabel "Type de développement"@fr;
+   skos:prefLabel "Estilos de desarrollo"@es;
+   skos:prefLabel "Стили развития"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01035;
+   skos:related unescothes:C01032.
+
+unescothes:C01035 a skos:Concept;
+   skos:prefLabel "Development theory"@en;
+   skos:prefLabel "Théorie du développement"@fr;
+   skos:prefLabel "Teoría del desarrollo"@es;
+   skos:prefLabel "Теория развития"@ru;
+   skos:note "A highly interdisciplinary field involving all the social sciences, in addition to economics, also sociology and anthropology, demography, geography, health research, education, agricultural and other natural sciences, etc."@en;
+   skos:note "Concepción interdisciplinaria que incluye, además de la economía, también la sociología, la antropología, la demografía, la geografía, la investigación sanitaria, la educación, la agricultura y otras ciencias naturales."@es;
+   skos:note "Conception interdisciplinaire impliquant, au-delà de l'économie, toutes les sciences sociales, sociologie, anthropologie, démographie, géographie, recherche en santé, éducation, agriculture et autres sciences naturelles, etc."@fr;
+   skos:note "Область междисциплинарных исследований, включающая наряду с экономикой все общественные науки, такие как социология, демография, образование, а также антропологию, географию, исследования в области здравоохранения, сельское хозяйство и другие естественные науки."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01148;
+   skos:narrower unescothes:C01032;
+   skos:narrower unescothes:C01034;
+   skos:related unescothes:C00720;
+   skos:related unescothes:C01008;
+   skos:related unescothes:C01159;
+   skos:related unescothes:C01179;
+   skos:related unescothes:C02420;
+   skos:related unescothes:C02563;
+   skos:related unescothes:C04172.
+
+unescothes:C01036 a skos:Concept;
+   skos:prefLabel "Developmental psychology"@en;
+   skos:prefLabel "Psychologie du développement"@fr;
+   skos:prefLabel "Psicología del desarrollo"@es;
+   skos:prefLabel "Эволюционная психология"@ru;
+   skos:note "Study of the changes in cognitive, motivational, psychophysiological, and social functioning that occur throughout the human life span."@en;
+   skos:note "Estudio del desarrollo humano y particularmente de todos los factores que conforman el comportamiento a lo largo de la vida."@es;
+   skos:note "Étude du développement humain et plus particulièrement les facteurs qui façonnent le comportement tout au long de la vie."@fr;
+   skos:note "Изучение изменений в познавательных, мотивационных, психофизиологических и социальных функциях, происходящих на протяжении человеческой жизни."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Genetic psychology"@en;
+   skos:altLabel "Individual development"@en;
+   skos:altLabel "Desarrollo individual"@es;
+   skos:altLabel "Psicología genética"@es;
+   skos:altLabel "Développement individuel"@fr;
+   skos:altLabel "Psychologie développementale"@fr;
+   skos:altLabel "Psychologie génétique"@fr;
+   skos:altLabel "Генетическая психология"@ru;
+   skos:altLabel "Индивидуальное развитие"@ru;
+   skos:narrower unescothes:C01335;
+   skos:narrower unescothes:C02477;
+   skos:narrower unescothes:C02585;
+   skos:narrower unescothes:C02949;
+   skos:related unescothes:C00049;
+   skos:related unescothes:C00056;
+   skos:related unescothes:C00575;
+   skos:related unescothes:C01271;
+   skos:related unescothes:C02240;
+   skos:related unescothes:C02244;
+   skos:related unescothes:C02599;
+   skos:related unescothes:C02996;
+   skos:related unescothes:C03195;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C01037 a skos:Concept;
+   skos:prefLabel "Dialects"@en;
+   skos:prefLabel "Dialecte"@fr;
+   skos:prefLabel "Dialecto"@es;
+   skos:prefLabel "Диалекты"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00658;
+   skos:narrower unescothes:C00836;
+   skos:related unescothes:C02673;
+   skos:related unescothes:C04242.
+
+unescothes:C01038 a skos:Concept;
+   skos:prefLabel "Dictatorship"@en;
+   skos:prefLabel "Dictature"@fr;
+   skos:prefLabel "Dictadura"@es;
+   skos:prefLabel "Диктатура"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03060;
+   skos:related unescothes:C00997;
+   skos:related unescothes:C01493;
+   skos:related unescothes:C02696;
+   skos:related unescothes:C02843;
+   skos:related unescothes:C04081.
+
+unescothes:C01039 a skos:Concept;
+   skos:prefLabel "Dictionaries"@en;
+   skos:prefLabel "Dictionnaire"@fr;
+   skos:prefLabel "Diccionario"@es;
+   skos:prefLabel "Словари"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03302;
+   skos:narrower unescothes:C01706;
+   skos:related unescothes:C01348;
+   skos:related unescothes:C02271;
+   skos:related unescothes:C04022.
+
+unescothes:C01040 a skos:Concept;
+   skos:prefLabel "Dietetics"@en;
+   skos:prefLabel "Diététique"@fr;
+   skos:prefLabel "Dietética"@es;
+   skos:prefLabel "Диететика"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Diet therapy"@en;
+   skos:altLabel "Dieta"@es;
+   skos:altLabel "Régimen alimenticio"@es;
+   skos:altLabel "Diète thérapeutique"@fr;
+   skos:altLabel "Régime"@fr;
+   skos:altLabel "Régime alimentaire"@fr;
+   skos:altLabel "Диетотерапия"@ru;
+   skos:broader unescothes:C03917;
+   skos:related unescothes:C01562;
+   skos:related unescothes:C02780;
+   skos:related unescothes:C04049.
+
+unescothes:C01041 a skos:Concept;
+   skos:prefLabel "Diffusion"@en;
+   skos:prefLabel "Diffusion"@fr;
+   skos:prefLabel "Difusión"@es;
+   skos:prefLabel "Диффузия"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C02990.
+
+unescothes:C01042 a skos:Concept;
+   skos:prefLabel "Diffusion of technology"@en;
+   skos:prefLabel "Diffusion de la technologie"@fr;
+   skos:prefLabel "Difusión de tecnologías"@es;
+   skos:prefLabel "Распространение технологий"@ru;
+   skos:note "Transfer of a new technology from the first commercial user to a number of competing users."@en;
+   skos:note "Transferencia de una nueva tecnología del primer utilizador comercial a un cierto número de usuarios concurrentes."@es;
+   skos:note "Transfert d'une nouvelle technologie du premier utilisateur commercial à un certain nombre d'utilisateurs concurrents."@fr;
+   skos:note "Передача новой технологии от первого коммерческого пользователя к нескольким конкурирующим."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Diffusion of innovations"@en;
+   skos:altLabel "Difusión de innovación"@es;
+   skos:altLabel "Diffusion de l'innovation"@fr;
+   skos:altLabel "Распространение инноваций"@ru;
+   skos:broader unescothes:C03993;
+   skos:narrower unescothes:C02160;
+   skos:related unescothes:C03370;
+   skos:related unescothes:C03557.
+
+unescothes:C01043 a skos:Concept;
+   skos:prefLabel "Digestive systems"@en;
+   skos:prefLabel "Système digestif"@fr;
+   skos:prefLabel "Sistema digestivo"@es;
+   skos:prefLabel "Пищеварительные системы"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00150;
+   skos:altLabel "Appareil digestif"@fr.
+
+unescothes:C01044 a skos:Concept;
+   skos:prefLabel "Digital art"@en;
+   skos:prefLabel "Art numérique"@fr;
+   skos:prefLabel "Arte digital"@es;
+   skos:prefLabel "Цифровое искусство"@ru;
+   skos:note "Art created using digital technologies."@en;
+   skos:note "Creación artística mediante tecnologías digitales."@es;
+   skos:note "Art réalisé à l'aide de dispositifs numériques."@fr;
+   skos:note "Искусство, создаваемое с помощью цифровых технологий."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cyber art"@en;
+   skos:altLabel "Electronic art"@en;
+   skos:altLabel "Media art"@en;
+   skos:altLabel "Arte electrónico"@es;
+   skos:altLabel "Arte numérico"@es;
+   skos:altLabel "Ciber arte"@es;
+   skos:altLabel "Art électronique"@fr;
+   skos:altLabel "Art médiatique"@fr;
+   skos:altLabel "Cyberart"@fr;
+   skos:altLabel "Кибер-искусство"@ru;
+   skos:altLabel "Электронное искусство"@ru;
+   skos:altLabel "Медийное искусство"@ru;
+   skos:broader unescothes:C00786;
+   skos:related unescothes:C00735;
+   skos:related unescothes:C00739.
+
+unescothes:C01045 a skos:Concept;
+   skos:prefLabel "Digital computers"@en;
+   skos:prefLabel "Calculateur numérique"@fr;
+   skos:prefLabel "Ordenador digital"@es;
+   skos:prefLabel "Цифровые компьютеры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00757.
+
+unescothes:C01046 a skos:Concept;
+   skos:prefLabel "Digital divide"@en;
+   skos:prefLabel "Fossé numérique"@fr;
+   skos:prefLabel "Brecha digital"@es;
+   skos:prefLabel "Цифровое разделение"@ru;
+   skos:note "Disparities in access to, and use of information and communication technologies such as Internet, between as well as within countries."@en;
+   skos:note "Irregularidades en el acceso y en el empleo de las tecnologías de la información y de la comunicación, como Internet, tanto entre diferentes países como dentro de un mismo país."@es;
+   skos:note "Inégalité d'accès et d'utilisation des technologies de l'information et de la communication telles qu'Internet, aussi bien entre les pays qu'à l'intérieur des pays."@fr;
+   skos:note "Различия в доступе и использовании информационных и коммуникационных технологий, таких как Интернет, отмечаемые как между отдельными странами, так и между отдельными регионами в пределах одной страны."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Digital gap"@en;
+   skos:altLabel "Fractura digital"@es;
+   skos:altLabel "Écart numérique"@fr;
+   skos:altLabel "Fracture numérique"@fr;
+   skos:altLabel "Inégalité numérique"@fr;
+   skos:altLabel "Цифровой разрыв"@ru;
+   skos:broader unescothes:C03989;
+   skos:related unescothes:C00020;
+   skos:related unescothes:C00680;
+   skos:related unescothes:C01978;
+   skos:related unescothes:C01995;
+   skos:related unescothes:C02091.
+
+unescothes:C01047 a skos:Concept;
+   skos:prefLabel "Digital heritage"@en;
+   skos:prefLabel "Patrimoine numérique"@fr;
+   skos:prefLabel "Patrimonio digital"@es;
+   skos:prefLabel "Цифровое наследие"@ru;
+   skos:note "Preservation of materials with educational, cultural and scientific content through digitization."@en;
+   skos:note "Conservación de material educativo, cultural y científico a través de la digitalización."@es;
+   skos:note "Conservation de matériel à contenu éducatif, culturel et scientifique, au moyen de la numérisation."@fr;
+   skos:note "Сохранение материалов, имеющих образовательное, культурное или научное значение, с помощью цифровых технологий."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01087;
+   skos:related unescothes:C01049.
+
+unescothes:C01048 a skos:Concept;
+   skos:prefLabel "Digital libraries"@en;
+   skos:prefLabel "Bibliothèque numérique"@fr;
+   skos:prefLabel "Biblioteca digital"@es;
+   skos:prefLabel "Цифровые библиотеки"@ru;
+   skos:note "Organized collections of information resources in digital or electronic format along with the services designed to help users identify and use those collections."@en;
+   skos:note "Bibliotecas donde las colecciones están en formato digital o electrónico y puestas a disposición del público a través de sistemas de búsqueda apropiados."@es;
+   skos:note "Bibliothèque dont les collections sont traitées en format numérique ou électronique, et mises à la disposition des usagers au moyen de systèmes de recherche appropriés."@fr;
+   skos:note "Организованные собрания информационных ресурсов в электронном или цифровом формате вместе с услугами, предназначенными помочь пользователям находить и использовать эти ресурсы."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Electronic libraries"@en;
+   skos:altLabel "Virtual libraries"@en;
+   skos:altLabel "Biblioteca electrónica"@es;
+   skos:altLabel "Biblioteca virtual"@es;
+   skos:altLabel "Bibliothèque électronique"@fr;
+   skos:altLabel "Bibliothèque virtuelle"@fr;
+   skos:altLabel "Электронные библиотеки"@ru;
+   skos:altLabel "Виртуальные библиотеки"@ru;
+   skos:broader unescothes:C02276;
+   skos:related unescothes:C01049;
+   skos:related unescothes:C02831.
+
+unescothes:C01049 a skos:Concept;
+   skos:prefLabel "Digitization"@en;
+   skos:prefLabel "Numérisation"@fr;
+   skos:prefLabel "Digitalización"@es;
+   skos:prefLabel "Оцифровка"@ru;
+   skos:note "Conversion of paper image or any other traditional document support into electronic image."@en;
+   skos:note "Conversión a imagen electrónica de una imagen en papel o en otro soporte tradicional."@es;
+   skos:note "Conversion d'image sur papier ou sur tout autre support traditionnel de documents, en image électronique."@fr;
+   skos:note "Перевод изображения на бумажном носителе или иного вида традиционной документальной поддержки в электронный формат."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Digital technology"@en;
+   skos:altLabel "Tecnología digital"@es;
+   skos:altLabel "Tecnología numérica"@es;
+   skos:altLabel "Technologie numérique"@fr;
+   skos:altLabel "Цифровая технология"@ru;
+   skos:broader unescothes:C00965;
+   skos:related unescothes:C01047;
+   skos:related unescothes:C01048;
+   skos:related unescothes:C01084;
+   skos:related unescothes:C01326;
+   skos:related unescothes:C01628.
+
+unescothes:C01050 a skos:Concept;
+   skos:prefLabel "Diplomacy"@en;
+   skos:prefLabel "Diplomatie"@fr;
+   skos:prefLabel "Diplomacia"@es;
+   skos:prefLabel "Дипломатия"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Preventive diplomacy"@en;
+   skos:altLabel "Diplomacia preventiva"@es;
+   skos:altLabel "Diplomatie préventive"@fr;
+   skos:altLabel "Превентивная дипломатия"@ru;
+   skos:broader unescothes:C01585;
+   skos:narrower unescothes:C01052;
+   skos:narrower unescothes:C01432;
+   skos:related unescothes:C00135;
+   skos:related unescothes:C00767;
+   skos:related unescothes:C02928;
+   skos:related unescothes:C02931.
+
+unescothes:C01051 a skos:Concept;
+   skos:prefLabel "Diplomas"@en;
+   skos:prefLabel "Diplôme"@fr;
+   skos:prefLabel "Diploma"@es;
+   skos:prefLabel "Дипломы"@ru;
+   skos:note "Certificates of higher education with less weight than a degree."@en;
+   skos:note "Certificado de educación superior de menor valor que un título univeristario."@es;
+   skos:note "Certificat de l'éducation supérieure ayant moins de valeur qu'un degré universitaire."@fr;
+   skos:note "Свидетельства о высшем образовании, имеющие меньшую ценность, чем научные степени."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Educational certificates"@en;
+   skos:altLabel "Leaving certificates"@en;
+   skos:altLabel "Acreditación de estudios"@es;
+   skos:altLabel "Certificado de estudios"@es;
+   skos:altLabel "Attestation d'études"@fr;
+   skos:altLabel "Brevet d'études"@fr;
+   skos:altLabel "Certificat d'études"@fr;
+   skos:altLabel "Аттестаты об образовании"@ru;
+   skos:altLabel "Свидетельства об окончании учебного учреждения"@ru;
+   skos:broader unescothes:C01274;
+   skos:related unescothes:C00992;
+   skos:related unescothes:C01409.
+
+unescothes:C01052 a skos:Concept;
+   skos:prefLabel "Diplomatic immunity"@en;
+   skos:prefLabel "Immunité diplomatique"@fr;
+   skos:prefLabel "Inmunidad diplomática"@es;
+   skos:prefLabel "Дипломатический иммунитет"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01050.
+
+unescothes:C01053 a skos:Concept;
+   skos:prefLabel "Directories"@en;
+   skos:prefLabel "Répertoire"@fr;
+   skos:prefLabel "Directorio"@es;
+   skos:prefLabel "Адресные справочники"@ru;
+   skos:note "A list of persons or organizations systematically or alphabetically arranged giving some information about the single units, usually at least the addresses."@en;
+   skos:note "Lista de personas o de organismos presentados de manera sistemática o por orden alfabético que incluye informaciones de cada una de las unidades. Habitualmente incluye al menos la dirección."@es;
+   skos:note "Liste de personnes ou d'organismes présentés de manière systématique ou par ordre alphabétique, fournissant des informations sur chacun des éléments inclus, habituellement au moins l'adresse."@fr;
+   skos:note "Перечни лиц или организаций, систематизированные по алфавиту или иному признаку и предоставляющие определенную информацию по каждому элементу, обычно как минимум адрес."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03578;
+   skos:narrower unescothes:C01751;
+   skos:related unescothes:C03302.
+
+unescothes:C01054 a skos:Concept;
+   skos:prefLabel "Disabilities"@en;
+   skos:prefLabel "Invalidité"@fr;
+   skos:prefLabel "Incapacidad"@es;
+   skos:prefLabel "Умственные и физические недостатки"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Handicaps"@en;
+   skos:altLabel "Physical handicaps"@en;
+   skos:altLabel "Deficiencia física"@es;
+   skos:altLabel "Invalidez"@es;
+   skos:altLabel "Déficience physique"@fr;
+   skos:altLabel "Handicap"@fr;
+   skos:altLabel "Handicap physique"@fr;
+   skos:altLabel "Умственная и/или физическая отсталость"@ru;
+   skos:altLabel "Физические недостатки"@ru;
+   skos:broader unescothes:C02921;
+   skos:narrower unescothes:C00418;
+   skos:narrower unescothes:C00976;
+   skos:related unescothes:C02476.
+
+unescothes:C01055 a skos:Concept;
+   skos:prefLabel "Disabled children"@en;
+   skos:prefLabel "Enfant handicapé"@fr;
+   skos:prefLabel "Niño impedido"@es;
+   skos:prefLabel "Дети-инвалиды"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Handicapped children"@en;
+   skos:altLabel "Niño inválido"@es;
+   skos:altLabel "Niño minusválido"@es;
+   skos:altLabel "Enfant invalide"@fr;
+   skos:altLabel "Дети с умственной или физической отсталостью"@ru;
+   skos:broader unescothes:C01056;
+   skos:related unescothes:C01456;
+   skos:related unescothes:C01924;
+   skos:related unescothes:C03799.
+
+unescothes:C01056 a skos:Concept;
+   skos:prefLabel "Disabled persons"@en;
+   skos:prefLabel "Handicapé"@fr;
+   skos:prefLabel "Impedido"@es;
+   skos:prefLabel "Инвалиды"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Handicapped"@en;
+   skos:altLabel "Incapacitado"@es;
+   skos:altLabel "Inválido"@es;
+   skos:altLabel "Minusválido"@es;
+   skos:altLabel "Invalide"@fr;
+   skos:altLabel "Лица с умственной или физической отсталостью"@ru;
+   skos:broader unescothes:C01059;
+   skos:narrower unescothes:C01055;
+   skos:narrower unescothes:C01057;
+   skos:narrower unescothes:C02481;
+   skos:narrower unescothes:C02612;
+   skos:narrower unescothes:C02992;
+   skos:related unescothes:C01304;
+   skos:related unescothes:C01456;
+   skos:related unescothes:C02462;
+   skos:related unescothes:C03422;
+   skos:related unescothes:C03799.
+
+unescothes:C01057 a skos:Concept;
+   skos:prefLabel "Disabled war veterans"@en;
+   skos:prefLabel "Invalide de guerre"@fr;
+   skos:prefLabel "Inválido de guerra"@es;
+   skos:prefLabel "Военные ветераны-инвалиды"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "War handicapped"@en;
+   skos:altLabel "Minusválido de guerra"@es;
+   skos:altLabel "Handicapé de guerre"@fr;
+   skos:altLabel "Инвалиды войны"@ru;
+   skos:broader unescothes:C01056;
+   skos:related unescothes:C01866;
+   skos:related unescothes:C02938;
+   skos:related unescothes:C04277;
+   skos:related unescothes:C04282.
+
+unescothes:C01058 a skos:Concept;
+   skos:prefLabel "Disadvantaged children"@en;
+   skos:prefLabel "Enfant défavorisé"@fr;
+   skos:prefLabel "Niño desfavorecido"@es;
+   skos:prefLabel "Неблагополучные дети"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Marginalized children"@en;
+   skos:altLabel "Socially disadvantaged children"@en;
+   skos:altLabel "Underprivileged children"@en;
+   skos:altLabel "Infancia desfavorecida"@es;
+   skos:altLabel "Niño marginalizado"@es;
+   skos:altLabel "Niño socialmente desfavorecido"@es;
+   skos:altLabel "Niño vulnerable"@es;
+   skos:altLabel "Enfance malheureuse"@fr;
+   skos:altLabel "Enfant démuni"@fr;
+   skos:altLabel "Enfant marginalisé"@fr;
+   skos:altLabel "Enfant socialement défavorisé"@fr;
+   skos:altLabel "Маргинализированные дети"@ru;
+   skos:altLabel "Социально неблагополучные дети"@ru;
+   skos:altLabel "Дети из малоимущих семей"@ru;
+   skos:broader unescothes:C01059;
+   skos:narrower unescothes:C00001;
+   skos:narrower unescothes:C02866;
+   skos:narrower unescothes:C03850;
+   skos:related unescothes:C00570;
+   skos:related unescothes:C01061;
+   skos:related unescothes:C03378.
+
+unescothes:C01059 a skos:Concept;
+   skos:prefLabel "Disadvantaged groups"@en;
+   skos:prefLabel "Défavorisé"@fr;
+   skos:prefLabel "Grupo desfavorecido"@es;
+   skos:prefLabel "Неблагополучные группы"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Groups of concern"@en;
+   skos:altLabel "Socially disadvantaged"@en;
+   skos:altLabel "Underprivileged groups"@en;
+   skos:altLabel "Vulnerable groups"@en;
+   skos:altLabel "Grupo desamparado"@es;
+   skos:altLabel "Grupo sin privilegios"@es;
+   skos:altLabel "Grupo vulnerable"@es;
+   skos:altLabel "Medio socialmente desfavorecido"@es;
+   skos:altLabel "Groupe démuni"@fr;
+   skos:altLabel "Groupe vulnérable"@fr;
+   skos:altLabel "Milieu socialement défavorisé"@fr;
+   skos:altLabel "Группы риска"@ru;
+   skos:altLabel "Социально неблагополучные группы"@ru;
+   skos:altLabel "Неимущие слои"@ru;
+   skos:altLabel "Незащищенные группы"@ru;
+   skos:narrower unescothes:C01056;
+   skos:narrower unescothes:C01058;
+   skos:narrower unescothes:C01061;
+   skos:narrower unescothes:C01299;
+   skos:narrower unescothes:C01304;
+   skos:narrower unescothes:C01652;
+   skos:narrower unescothes:C03069;
+   skos:narrower unescothes:C03149;
+   skos:narrower unescothes:C04178;
+   skos:related unescothes:C03307;
+   skos:related unescothes:C03690;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C01060 a skos:Concept;
+   skos:prefLabel "Disadvantaged schools"@en;
+   skos:prefLabel "École défavorisée"@fr;
+   skos:prefLabel "Escuela desfavorecida"@es;
+   skos:prefLabel "Отстающие школы"@ru;
+   skos:note "Schools where activities, facilities or resources do not meet the basic educational needs of students."@en;
+   skos:note "Escuelas cuyas actividades, facilidades y recursos no son suficientes para cubrir las necesidades básicas de los estudiantes."@es;
+   skos:note "École dont les activités, les équipements ou les ressources ne répondent pas aux besoins éducatifs essentiels des élèves."@fr;
+   skos:note "Школы, чья деятельность, техническая база или ресурсы не соответствуют базовым учебным потребностям учащихся."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03531;
+   skos:related unescothes:C01268;
+   skos:related unescothes:C01299.
+
+unescothes:C01061 a skos:Concept;
+   skos:prefLabel "Disadvantaged youth"@en;
+   skos:prefLabel "Jeune défavorisé"@fr;
+   skos:prefLabel "Joven desfavorecido"@es;
+   skos:prefLabel "Неблагополучная молодежь"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Socially disadvantaged youth"@en;
+   skos:altLabel "Underprivileged youth"@en;
+   skos:altLabel "Joven desaventajado"@es;
+   skos:altLabel "Joven socialmente desfavorecido"@es;
+   skos:altLabel "Juventud desfavorecida"@es;
+   skos:altLabel "Jeune démuni"@fr;
+   skos:altLabel "Jeune socialement défavorisé"@fr;
+   skos:altLabel "Социально неблагополучная молодежь"@ru;
+   skos:altLabel "Молодежь из малоимущих семей"@ru;
+   skos:broader unescothes:C01059;
+   skos:related unescothes:C01058;
+   skos:related unescothes:C02147.
+
+unescothes:C01062 a skos:Concept;
+   skos:prefLabel "Disappearing cultures"@en;
+   skos:prefLabel "Culture en voie de disparition"@fr;
+   skos:prefLabel "Cultura en vías de desaparición"@es;
+   skos:prefLabel "Исчезающие культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00922;
+   skos:related unescothes:C00861;
+   skos:related unescothes:C00867;
+   skos:related unescothes:C01063;
+   skos:related unescothes:C02037.
+
+unescothes:C01063 a skos:Concept;
+   skos:prefLabel "Disappearing languages"@en;
+   skos:prefLabel "Langue en voie de disparition"@fr;
+   skos:prefLabel "Lengua en vía de desaparición"@es;
+   skos:prefLabel "Исчезающие языки"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Endangered languages"@en;
+   skos:altLabel "Threatened languages"@en;
+   skos:altLabel "Lengua amenazada"@es;
+   skos:altLabel "Lengua en peligro"@es;
+   skos:altLabel "Lengua en vías de extinción"@es;
+   skos:altLabel "Langue en danger"@fr;
+   skos:altLabel "Langue en voie d'extinction"@fr;
+   skos:altLabel "Langue menacée"@fr;
+   skos:altLabel "Умирающие языки"@ru;
+   skos:altLabel "Языки, находящиеся под угрозой исчезновения"@ru;
+   skos:broader unescothes:C02212;
+   skos:related unescothes:C01062;
+   skos:related unescothes:C02037;
+   skos:related unescothes:C02304.
+
+unescothes:C01064 a skos:Concept;
+   skos:prefLabel "Disarmament"@en;
+   skos:prefLabel "Désarmement"@fr;
+   skos:prefLabel "Desarme"@es;
+   skos:prefLabel "Разоружение"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C02925;
+   skos:narrower unescothes:C00245;
+   skos:narrower unescothes:C02744;
+   skos:related unescothes:C00246;
+   skos:related unescothes:C02082;
+   skos:related unescothes:C04313.
+
+unescothes:C01065 a skos:Concept;
+   skos:prefLabel "Disarmament education"@en;
+   skos:prefLabel "Éducation pour le désarmement"@fr;
+   skos:prefLabel "Educación para el desarme"@es;
+   skos:prefLabel "Образование в области разоружения"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C02926;
+   skos:related unescothes:C02083;
+   skos:related unescothes:C02586;
+   skos:related unescothes:C04398.
+
+unescothes:C01066 a skos:Concept;
+   skos:prefLabel "Disaster prevention"@en;
+   skos:prefLabel "Prévention des catastrophes"@fr;
+   skos:prefLabel "Prevención de desastres"@es;
+   skos:prefLabel "Предупреждение стихийных бедствий"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Disaster mitigation"@en;
+   skos:altLabel "Disaster preparedness"@en;
+   skos:altLabel "Disaster reduction"@en;
+   skos:altLabel "Risk assessment"@en;
+   skos:altLabel "Atenuación de desastres"@es;
+   skos:altLabel "Evaluación de riesgos"@es;
+   skos:altLabel "Prevención de riesgos"@es;
+   skos:altLabel "Reducción de desastres"@es;
+   skos:altLabel "Appréciation des risques"@fr;
+   skos:altLabel "Atténuation des dégâts"@fr;
+   skos:altLabel "Réduction des désastres"@fr;
+   skos:altLabel "Смягчение последствий стихийных бедствий"@ru;
+   skos:altLabel "Готовность к стихийным бедствиям"@ru;
+   skos:altLabel "Снижение воздействия стихийных бедствий"@ru;
+   skos:altLabel "Оценка риска"@ru;
+   skos:broader unescothes:C03469;
+   skos:narrower unescothes:C01112;
+   skos:narrower unescothes:C01134;
+   skos:narrower unescothes:C01552;
+   skos:related unescothes:C00627;
+   skos:related unescothes:C00628;
+   skos:related unescothes:C01068;
+   skos:related unescothes:C01133;
+   skos:related unescothes:C04284.
+
+unescothes:C01067 a skos:Concept;
+   skos:prefLabel "Disaster relief"@en;
+   skos:prefLabel "Secours en cas de catastrophe"@fr;
+   skos:prefLabel "Asistencia por desastre"@es;
+   skos:prefLabel "Помощь при бедствиях"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Emergency relief"@en;
+   skos:altLabel "Asistencia de urgencia"@es;
+   skos:altLabel "Auxilio en desastres"@es;
+   skos:altLabel "Ayuda de urgencia"@es;
+   skos:altLabel "Socorro de urgencia"@es;
+   skos:altLabel "Aide d'urgence"@fr;
+   skos:altLabel "Secours aux sinistrés"@fr;
+   skos:altLabel "Secours d'urgence"@fr;
+   skos:altLabel "Помощь при чрезвычайных ситуациях"@ru;
+   skos:related unescothes:C00953;
+   skos:related unescothes:C01068;
+   skos:related unescothes:C01865;
+   skos:related unescothes:C02089;
+   skos:related unescothes:C03731;
+   skos:related unescothes:C04279;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C01068 a skos:Concept;
+   skos:prefLabel "Disasters"@en;
+   skos:prefLabel "Catastrophe"@fr;
+   skos:prefLabel "Desastre"@es;
+   skos:prefLabel "Бедствия"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:narrower unescothes:C00023;
+   skos:narrower unescothes:C00953;
+   skos:narrower unescothes:C01402;
+   skos:narrower unescothes:C02381;
+   skos:narrower unescothes:C02684;
+   skos:related unescothes:C01066;
+   skos:related unescothes:C01067;
+   skos:related unescothes:C01074;
+   skos:related unescothes:C01874;
+   skos:related unescothes:C03291;
+   skos:related unescothes:C03707;
+   skos:topConceptOf unescothes:CS000;
+   skos:altLabel "Calamidad"@es;
+   skos:altLabel "Cataclismo"@es;
+   skos:altLabel "Catástrofe"@es;
+   skos:altLabel "Siniestro"@es;
+   skos:altLabel "Calamité"@fr;
+   skos:altLabel "Désastre"@fr;
+   skos:altLabel "Fléau"@fr;
+   skos:altLabel "Sinistre"@fr.
+
+unescothes:C01069 a skos:Concept;
+   skos:prefLabel "Disc recordings"@en;
+   skos:prefLabel "Enregistrement sur disque"@fr;
+   skos:prefLabel "Grabación en disco"@es;
+   skos:prefLabel "Записи на дисках"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Compact discs"@en;
+   skos:altLabel "Records"@en;
+   skos:altLabel "CD"@es;
+   skos:altLabel "Disco compacto"@es;
+   skos:altLabel "Disco vinilo"@es;
+   skos:altLabel "Disque compact"@fr;
+   skos:altLabel "Disque vinyle"@fr;
+   skos:altLabel "Компакт-диски"@ru;
+   skos:altLabel "Грампластинки"@ru;
+   skos:broader unescothes:C03775.
+
+unescothes:C01070 a skos:Concept;
+   skos:prefLabel "Discrimination"@en;
+   skos:prefLabel "Discrimination"@fr;
+   skos:prefLabel "Discriminación"@es;
+   skos:prefLabel "Дискриминация"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C03707;
+   skos:narrower unescothes:C00078;
+   skos:narrower unescothes:C01650;
+   skos:narrower unescothes:C01825;
+   skos:related unescothes:C00184;
+   skos:related unescothes:C01406;
+   skos:related unescothes:C01859;
+   skos:related unescothes:C02843;
+   skos:related unescothes:C04386.
+
+unescothes:C01071 a skos:Concept;
+   skos:prefLabel "Discussions (teaching method)"@en;
+   skos:prefLabel "Discussion (méthode pédagogique)"@fr;
+   skos:prefLabel "Discusión (método pedagógico)"@es;
+   skos:prefLabel "Дискуссии (метод преподавания)"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Debate (teaching method)"@en;
+   skos:altLabel "Debate (método pedagógico)"@es;
+   skos:altLabel "Débat (méthode pédagogique)"@fr;
+   skos:altLabel "Диспут (метод преподавания)"@ru;
+   skos:broader unescothes:C03972;
+   skos:related unescothes:C01739;
+   skos:related unescothes:C03242;
+   skos:related unescothes:C03606.
+
+unescothes:C01072 a skos:Concept;
+   skos:prefLabel "Disease control"@en;
+   skos:prefLabel "Lutte contre les maladies"@fr;
+   skos:prefLabel "Lucha contra las enfermedades"@es;
+   skos:prefLabel "Борьба с болезнями"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01774;
+   skos:related unescothes:C01073;
+   skos:related unescothes:C01403;
+   skos:related unescothes:C02464;
+   skos:related unescothes:C03128;
+   skos:altLabel "Control de las enfermedades"@es;
+   skos:altLabel "Contrôle des maladies"@fr.
+
+unescothes:C01073 a skos:Concept;
+   skos:prefLabel "Diseases"@en;
+   skos:prefLabel "Maladie"@fr;
+   skos:prefLabel "Enfermedad"@es;
+   skos:prefLabel "Заболевания"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Illness"@en;
+   skos:altLabel "Sickness"@en;
+   skos:altLabel "Нездоровье"@ru;
+   skos:altLabel "Болезнь"@ru;
+   skos:broader unescothes:C02921;
+   skos:narrower unescothes:C00499;
+   skos:narrower unescothes:C00509;
+   skos:narrower unescothes:C01973;
+   skos:narrower unescothes:C02702;
+   skos:narrower unescothes:C02782;
+   skos:narrower unescothes:C02788;
+   skos:narrower unescothes:C03656;
+   skos:narrower unescothes:C04137;
+   skos:related unescothes:C01072;
+   skos:related unescothes:C01403;
+   skos:related unescothes:C01921;
+   skos:related unescothes:C02588;
+   skos:related unescothes:C03707;
+   skos:related unescothes:C04085.
+
+unescothes:C01074 a skos:Concept;
+   skos:prefLabel "Displaced persons"@en;
+   skos:prefLabel "Personne déplacée"@fr;
+   skos:prefLabel "Persona desplazada"@es;
+   skos:prefLabel "Перемещенные лица"@ru;
+   skos:note "Persons who have fled or been driven from their communities to localities within their home country. For persons forced to leave their home country, use 'refugees'."@en;
+   skos:note "Persona que ha huído o ha sido conducida fuera de su comunidad a una localidad situada al interior de su país natal. Para referirse a una persona forzada a abandonar su país, utilizar 'refugiado'."@es;
+   skos:note "Personne qui a fui ou qui a été conduite hors de sa communauté vers une localité située à l'intérieur de son pays natal. Pour une personne forcée à quitter son pays, utiliser 'réfugié'."@fr;
+   skos:note "Лица, бежавшие или вынужденно покинувшие места своего проживания и переселившиеся в другие районы в пределах своей родины. По отношению к лицам, вынужденным покинуть пределы своей родины, используйте термин 'Беженцы'."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "IDP"@en;
+   skos:altLabel "Internally displaced persons"@en;
+   skos:altLabel "Desplazados"@es;
+   skos:altLabel "Перемещенные лица (в пределах страны)"@ru;
+   skos:broader unescothes:C02525;
+   skos:related unescothes:C01068;
+   skos:related unescothes:C01865;
+   skos:related unescothes:C02061;
+   skos:related unescothes:C04282.
+
+unescothes:C01075 a skos:Concept;
+   skos:prefLabel "Dissemination of culture"@en;
+   skos:prefLabel "Diffusion de la culture"@fr;
+   skos:prefLabel "Difusión de la cultura"@es;
+   skos:prefLabel "Распространение культуры"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Cultural communication"@en;
+   skos:altLabel "Cultural diffusion"@en;
+   skos:altLabel "Comunicación cultural"@es;
+   skos:altLabel "Difusión cultural"@es;
+   skos:altLabel "Communication culturelle"@fr;
+   skos:altLabel "Diffusion culturelle"@fr;
+   skos:altLabel "Культурные связи"@ru;
+   skos:altLabel "Культурный диффузионизм"@ru;
+   skos:broader unescothes:C00908;
+   skos:related unescothes:C00850;
+   skos:related unescothes:C00851;
+   skos:related unescothes:C00856;
+   skos:related unescothes:C00873;
+   skos:related unescothes:C00923;
+   skos:related unescothes:C00999;
+   skos:related unescothes:C01076;
+   skos:related unescothes:C01979.
+
+unescothes:C01076 a skos:Concept;
+   skos:prefLabel "Dissemination of knowledge"@en;
+   skos:prefLabel "Diffusion des connaissances"@fr;
+   skos:prefLabel "Difusión de conocimientos"@es;
+   skos:prefLabel "Распространение знаний"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01979;
+   skos:related unescothes:C00424;
+   skos:related unescothes:C01075;
+   skos:related unescothes:C02064.
+
+unescothes:C01077 a skos:Concept;
+   skos:prefLabel "Distance education"@en;
+   skos:prefLabel "Enseignement à distance"@fr;
+   skos:prefLabel "Educación a distancia"@es;
+   skos:prefLabel "Дистанционное образование"@ru;
+   skos:note "Education imparted at a distance through the use of information/communication technology: radio, TV, the telephone, correspondence, e-mail, videoconferencing, audioconferencing, cd-roms, or online."@en;
+   skos:note "Educación impartida a distancia utilizando las tecnologías de la información/comunicación: radio, televisión, teléfono, correspondencia, correo electrónico, teleconferencia, cd-roms, o en línea."@es;
+   skos:note "Education transmise à distance utilisant les technologies de l'information et de la communication: radio, télévision, téléphone, correspondance, courrier électronique, téléconférence, cédéroms, ou en ligne."@fr;
+   skos:note "Образование, полученное на расстоянии посредством использования информационных и/или коммуникационных технологий: радио, ТВ, телефона, почты, электронная почты, видеоконференций, аудиоконференций, СД-РОМов, режима онлайн."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Distance study"@en;
+   skos:altLabel "Distributed education"@en;
+   skos:altLabel "Distributed learning"@en;
+   skos:altLabel "Open learning systems"@en;
+   skos:altLabel "Enseñanza a distancia"@es;
+   skos:altLabel "Formación a distancia"@es;
+   skos:altLabel "Teleformación"@es;
+   skos:altLabel "Formation à distance"@fr;
+   skos:altLabel "Formation distancielle"@fr;
+   skos:altLabel "Téléformation"@fr;
+   skos:altLabel "Дистанционное обучение"@ru;
+   skos:altLabel "Системы открытого образования"@ru;
+   skos:altLabel "Системы открытого обучения"@ru;
+   skos:altLabel "Открытые системы обучения"@ru;
+   skos:broader unescothes:C02242;
+   skos:narrower unescothes:C00811;
+   skos:narrower unescothes:C01324.
+
+unescothes:C01078 a skos:Concept;
+   skos:prefLabel "Diversification of education"@en;
+   skos:prefLabel "Diversification de l'éducation"@fr;
+   skos:prefLabel "Diversificación de la educación"@es;
+   skos:prefLabel "Диверсификация образования"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01222;
+   skos:related unescothes:C01266;
+   skos:related unescothes:C01277.
+
+unescothes:C01079 a skos:Concept;
+   skos:prefLabel "Diving equipment"@en;
+   skos:prefLabel "Équipement de plongée"@fr;
+   skos:prefLabel "Equipo de buceo"@es;
+   skos:prefLabel "Оборудование для подводного погружения"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C02810;
+   skos:related unescothes:C00989;
+   skos:altLabel "Equipo de inmersión"@es;
+   skos:altLabel "Equipo de submarinismo"@es.
+
+unescothes:C01080 a skos:Concept;
+   skos:prefLabel "Division of labour"@en;
+   skos:prefLabel "Division du travail"@fr;
+   skos:prefLabel "División del trabajo"@es;
+   skos:prefLabel "Разделение труда"@ru;
+   skos:note "The process whereby labour is allocated to the activity in which it is most productive."@en;
+   skos:note "Proceso por el cual una mano de obra es ubicada en la actividad para la que resulta más productiva."@es;
+   skos:note "Processus par lequel une main-d'oeuvre est affectée à l'activité dans laquelle elle est la plus productive."@fr;
+   skos:note "Процесс, в рамках которого труд используется в том виде деятельности, в котором он наиболее производителен."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C02177;
+   skos:narrower unescothes:C01651;
+   skos:related unescothes:C01178;
+   skos:related unescothes:C02069;
+   skos:related unescothes:C02182.
+
+unescothes:C01081 a skos:Concept;
+   skos:prefLabel "Djibouti"@en;
+   skos:prefLabel "Djibouti"@fr;
+   skos:prefLabel "Yibuti"@es;
+   skos:prefLabel "Джибути"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Afars and Issas"@en;
+   skos:altLabel "Djibuti"@es;
+   skos:altLabel "Jibuti"@es;
+   skos:altLabel "Afars et Issas"@fr;
+   skos:altLabel "Афары и исса"@ru;
+   skos:broader unescothes:C00202;
+   skos:broader unescothes:C01136;
+   skos:broader unescothes:C01616;
+   skos:broader unescothes:C01830;
+   skos:broader unescothes:C02118.
+
+unescothes:C01082 a skos:Concept;
+   skos:prefLabel "Doctoral degrees"@en;
+   skos:prefLabel "Doctorat"@fr;
+   skos:prefLabel "Grado de doctor"@es;
+   skos:prefLabel "Докторские степени"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Ph.D. degrees"@en;
+   skos:altLabel "Doctorado"@es;
+   skos:altLabel "Ph.D."@fr;
+   skos:altLabel "Степени доктора философии"@ru;
+   skos:broader unescothes:C00992;
+   skos:related unescothes:C00323;
+   skos:related unescothes:C02426.
+
+unescothes:C01083 a skos:Concept;
+   skos:prefLabel "Document delivery"@en;
+   skos:prefLabel "Fourniture de documents"@fr;
+   skos:prefLabel "Suministro de documentos"@es;
+   skos:prefLabel "Доставка документов"@ru;
+   skos:note "Providing users of information with the documents that they request."@en;
+   skos:note "Fourniture à l'utilisateur d'information des documents qu'il demande."@fr;
+   skos:note "Предоставление информационным пользователям требуемых документов."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Document supply"@en;
+   skos:altLabel "Entrega de documentos"@es;
+   skos:altLabel "Obtención de documentos"@es;
+   skos:altLabel "Reparto de documentos"@es;
+   skos:altLabel "Livraison de documents"@fr;
+   skos:altLabel "Obtention de documents"@fr;
+   skos:altLabel "Remise de documents"@fr;
+   skos:altLabel "Предоставление документов"@ru;
+   skos:broader unescothes:C01990;
+   skos:related unescothes:C00424;
+   skos:related unescothes:C01979;
+   skos:related unescothes:C02060;
+   skos:related unescothes:C02064;
+   skos:related unescothes:C02281;
+   skos:related unescothes:C02943.
+
+unescothes:C01084 a skos:Concept;
+   skos:prefLabel "Document preservation"@en;
+   skos:prefLabel "Conservation des documents"@fr;
+   skos:prefLabel "Conservación de documentos"@es;
+   skos:prefLabel "Сохранение документов"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Book conservation"@en;
+   skos:altLabel "Book preservation"@en;
+   skos:altLabel "Document maintenance"@en;
+   skos:altLabel "Document restoration"@en;
+   skos:altLabel "Conservación de libros"@es;
+   skos:altLabel "Preservación de documentos"@es;
+   skos:altLabel "Restauración de documentos"@es;
+   skos:altLabel "Conservation des livres"@fr;
+   skos:altLabel "Préservation des documents"@fr;
+   skos:altLabel "Restauration des documents"@fr;
+   skos:altLabel "Restauration des livres"@fr;
+   skos:altLabel "Sauvegarde des documents"@fr;
+   skos:altLabel "Сохранение книг"@ru;
+   skos:altLabel "Длительное сохранение книг"@ru;
+   skos:altLabel "Поддержание документов"@ru;
+   skos:altLabel "Реставрация документов"@ru;
+   skos:broader unescothes:C00912;
+   skos:related unescothes:C00229;
+   skos:related unescothes:C01049;
+   skos:related unescothes:C01087;
+   skos:related unescothes:C01089;
+   skos:related unescothes:C02282;
+   skos:related unescothes:C02387;
+   skos:related unescothes:C03275.
+
+unescothes:C01085 a skos:Concept;
+   skos:prefLabel "Documentary analysis"@en;
+   skos:prefLabel "Analyse documentaire"@fr;
+   skos:prefLabel "Análisis documental"@es;
+   skos:prefLabel "Документальный анализ"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Information analysis"@en;
+   skos:altLabel "Análisis de la información"@es;
+   skos:altLabel "Analyse de l'information"@fr;
+   skos:altLabel "Информационный анализ"@ru;
+   skos:broader unescothes:C01985;
+   skos:narrower unescothes:C00006;
+   skos:narrower unescothes:C01932;
+   skos:related unescothes:C00525.
+
+unescothes:C01086 a skos:Concept;
+   skos:prefLabel "Documentary films"@en;
+   skos:prefLabel "Film documentaire"@fr;
+   skos:prefLabel "Documental"@es;
+   skos:prefLabel "Документальные фильмы"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01526;
+   skos:related unescothes:C01231;
+   skos:related unescothes:C01801.
+
+unescothes:C01087 a skos:Concept;
+   skos:prefLabel "Documentary heritage"@en;
+   skos:prefLabel "Patrimoine documentaire"@fr;
+   skos:prefLabel "Patrimonio documental"@es;
+   skos:prefLabel "Документальное наследие"@ru;
+   skos:note "Valuable archive holdings and library collections of the world."@en;
+   skos:note "Fondos de archivos y recursos documentales de valor en todo el mundo."@es;
+   skos:note "Fonds d'archives et ressources documentaires de valeur dans le monde."@fr;
+   skos:note "Ценные фонды архивов и собрания библиотек во всем мире."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00883;
+   skos:narrower unescothes:C01047;
+   skos:related unescothes:C00229;
+   skos:related unescothes:C00301;
+   skos:related unescothes:C01084;
+   skos:related unescothes:C01089;
+   skos:related unescothes:C02282;
+   skos:related unescothes:C02387;
+   skos:related unescothes:C03206;
+   skos:related unescothes:C03275;
+   skos:related unescothes:C04257.
+
+unescothes:C01088 a skos:Concept;
+   skos:prefLabel "Documentation"@en;
+   skos:prefLabel "Documentation"@fr;
+   skos:prefLabel "Documentación"@es;
+   skos:prefLabel "Документирование"@ru;
+   skos:note "The continuous and systematic processing of documents or data for specialized information users."@en;
+   skos:note "Tratamiento continuo y sistemático de documentos o de datos para los usuarios de información especializada."@es;
+   skos:note "Traitement continu et systématique de documents ou de données pour des utilisateurs d'information spécialisée."@fr;
+   skos:note "Непрерывный и систематический процесс обработки документов или данных для информационных пользователей."@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C01988;
+   skos:related unescothes:C00525;
+   skos:related unescothes:C01932;
+   skos:related unescothes:C01985;
+   skos:related unescothes:C02286.
+
+unescothes:C01089 a skos:Concept;
+   skos:prefLabel "Documents"@en;
+   skos:prefLabel "Document"@fr;
+   skos:prefLabel "Documento"@es;
+   skos:prefLabel "Документы"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Information bearing materials"@en;
+   skos:altLabel "Information materials"@en;
+   skos:altLabel "Recorded information"@en;
+   skos:altLabel "Source materials"@en;
+   skos:altLabel "Información consignada"@es;
+   skos:altLabel "Material de información"@es;
+   skos:altLabel "Unidad de información"@es;
+   skos:altLabel "Information consignée"@fr;
+   skos:altLabel "Information enregistrée"@fr;
+   skos:altLabel "Matériel d'information"@fr;
+   skos:altLabel "Source"@fr;
+   skos:altLabel "Материалы, содержащие информацию"@ru;
+   skos:altLabel "Информационные материалы"@ru;
+   skos:altLabel "Записанная информация"@ru;
+   skos:altLabel "Исходные материалы"@ru;
+   skos:narrower unescothes:C00429;
+   skos:narrower unescothes:C02344;
+   skos:narrower unescothes:C02387;
+   skos:narrower unescothes:C02577;
+   skos:narrower unescothes:C02738;
+   skos:narrower unescothes:C02822;
+   skos:narrower unescothes:C03132;
+   skos:narrower unescothes:C04117;
+   skos:related unescothes:C01084;
+   skos:related unescothes:C01087;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C01090 a skos:Concept;
+   skos:prefLabel "Domestic animals"@en;
+   skos:prefLabel "Animal domestique"@fr;
+   skos:prefLabel "Animal doméstico"@es;
+   skos:prefLabel "Домашние животные"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C00172;
+   skos:related unescothes:C00170;
+   skos:related unescothes:C02327.
+
+unescothes:C01091 a skos:Concept;
+   skos:prefLabel "Domestic appliances"@en;
+   skos:prefLabel "Appareil électroménager"@fr;
+   skos:prefLabel "Electrodoméstico"@es;
+   skos:prefLabel "Домашние приборы"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Household appliances"@en;
+   skos:altLabel "Aparato electrodoméstico"@es;
+   skos:altLabel "Appareil ménager"@fr;
+   skos:altLabel "Équipement ménager"@fr;
+   skos:altLabel "Бытовые приборы"@ru;
+   skos:related unescothes:C01312;
+   skos:topConceptOf unescothes:CS000.
+
+unescothes:C01092 a skos:Concept;
+   skos:prefLabel "Domestic trade"@en;
+   skos:prefLabel "Commerce intérieur"@fr;
+   skos:prefLabel "Comercio interno"@es;
+   skos:prefLabel "Внутренняя торговля"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C04089;
+   skos:related unescothes:C03619;
+   skos:altLabel "Comercio interior"@es;
+   skos:altLabel "Échanges intérieurs"@fr.
+
+unescothes:C01093 a skos:Concept;
+   skos:prefLabel "Domestic violence"@en;
+   skos:prefLabel "Violence domestique"@fr;
+   skos:prefLabel "Violencia doméstica"@es;
+   skos:prefLabel "Домашнее насилие"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:broader unescothes:C04251;
+   skos:related unescothes:C00570;
+   skos:related unescothes:C01485;
+   skos:related unescothes:C02903;
+   skos:altLabel "Violencia conyugal"@es;
+   skos:altLabel "Violencia en el hogar"@es;
+   skos:altLabel "Violencia en medio familiar"@es;
+   skos:altLabel "Violencia familiar"@es;
+   skos:altLabel "Violence au foyer"@fr;
+   skos:altLabel "Violence en milieu familial"@fr;
+   skos:altLabel "Violence familiale"@fr.
+
+unescothes:C01094 a skos:Concept;
+   skos:prefLabel "Domestic workers"@en;
+   skos:prefLabel "Employé de maison"@fr;
+   skos:prefLabel "Trabajador doméstico"@es;
+   skos:prefLabel "Домашние работники"@ru;
+   skos:inScheme unescothes:CS000;
+   skos:altLabel "Household workers"@en;
+   skos:altLabel "Housekeepers"@en;
+   skos:altLabel "Servants"@en;
+   skos:altLabel "Ayuda doméstica"@es;
+   skos:altLabel "Ayuda familiar"@es;
+   skos:altLabel "Empleado doméstico"@es;
+   skos:altLabel "Sirviente"@es;
+   skos:altLabel "Aide domestique"@fr;
+   skos:altLabel "Aide familiale"@fr;
+   skos:altLabel "Aide ménagère"@fr;
+   skos:altLabel "Bonne"@fr;
+   skos:altLabel "Domestique"@fr;
+   skos:altLabel "Gouvernante"@fr;
+   skos:altLabel "Serviteur"@fr;
+   skos:altLabel "Travailleur domestique"@fr;
+   skos:altLabel "Работники домашнего хозяйства"@ru;
+   skos:altLabel "Помощники по хозяйству"@ru;
+   skos:altLabel "Слуги"@ru;
+   skos:broader unescothes:C04364;
+   skos:related unescothes:C01976;
+   skos:related unescothes:C03619.

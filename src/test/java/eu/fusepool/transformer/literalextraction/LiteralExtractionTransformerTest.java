@@ -12,9 +12,16 @@ import java.net.ServerSocket;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.Set;
 
 import javax.activation.MimeType;
@@ -28,8 +35,6 @@ import org.apache.clerezza.rdf.core.UriRef;
 import org.apache.clerezza.rdf.core.impl.PlainLiteralImpl;
 import org.apache.clerezza.rdf.core.impl.TripleImpl;
 import org.apache.clerezza.rdf.core.serializedform.Parser;
-import org.apache.clerezza.rdf.ontologies.DCTERMS;
-import org.apache.clerezza.rdf.ontologies.SKOS04;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpStatus;
 import org.junit.Assert;
@@ -82,16 +87,24 @@ public class LiteralExtractionTransformerTest {
     //TODO: currently this uses a stanbol chain ... we need to write a dummy
     //      transformer that can be called by the literal extraction transformer
     //      for testing purpose
-    private static final String UNIT_TEST_TRANSFORMER = "http://localhost:8080/transformers/chain/dbpedia-fst-linking";
+    private static String UNIT_TEST_TRANSFORMER;
 
     @BeforeClass
     public static void setUp() throws Exception {
-        //init the transformer
-        final int port = findFreePort();
-        BASE_URI = "http://localhost:" + port + "/";
+        //init the transformer server for the LiteralExtractionTransformer
+        final int mainPort = findFreePort();
+        BASE_URI = "http://localhost:" + mainPort + "/";
         BASE_URI_REF = new UriRef(BASE_URI);
-        TransformerServer server = new TransformerServer(port, true);
+        TransformerServer server = new TransformerServer(mainPort, true);
         server.start(new LiteralExtractionTransformer());
+        log.info(" - literal extractor transformer URI: ", BASE_URI);
+        
+        //init the transfomer server for the DummyTransformer used by this unit test
+        final int dummyPort = findFreePort();
+        UNIT_TEST_TRANSFORMER = "http://localhost:" + dummyPort + "/";
+        log.info(" - unit test transformer URI: ", UNIT_TEST_TRANSFORMER);
+        TransformerServer dummyServer = new TransformerServer(dummyPort, true);
+        dummyServer.start(new DummyTransformer());
         
         //init the CSV content test data
         ClassLoader cl = LiteralExtractionTransformerTest.class.getClassLoader();
@@ -146,14 +159,81 @@ public class LiteralExtractionTransformerTest {
                 Arrays.asList(PARM_TRANSFORMER,UNIT_TEST_TRANSFORMER),
                 TURTLE + ";charset=UTF-8", RDF_DATASET_CONTENTS.get(0), contentLocation, acceptType);
         Graph graph = parser.parse(result.asInputStream(), acceptType);
-        log.info("Extraction Results");
+        assertExtractionResults(graph);
+    }
+    
+    @Test
+    public void testConcurrentPosts() throws Exception {
+        final String contentLocation = "http://www.test.org/fusepool/transformer/literalExtraction/";
+        final String acceptType = TURTLE;
+        log.info("> test concurrent LiteralExtractionTransformer requests");
+        ExecutorService tp = Executors.newFixedThreadPool(RDF_DATASET_FILES.length);
+        List<Future<ResponseBodyData>> results = new ArrayList<>(RDF_DATASET_FILES.length);
+        for(final byte[] data : RDF_DATASET_CONTENTS){
+            results.add(tp.submit(new Callable<ResponseBodyData>() {
+                @Override
+                public ResponseBodyData call() throws Exception {
+                    return validateAsyncTransformerRequest(BASE_URI,
+                            Arrays.asList(PARM_TRANSFORMER,UNIT_TEST_TRANSFORMER),
+                            TURTLE + ";charset=UTF-8", RDF_DATASET_CONTENTS.get(0), 
+                            contentLocation, acceptType);
+                }
+            }));
+        }
+        //now wait for all the results to be available
+        for(Future<ResponseBodyData> result : results){
+            ResponseBodyData data = result.get();
+            Graph graph = parser.parse(data.asInputStream(), acceptType);
+            assertExtractionResults(graph);
+        }
+    }
+    
+    /**
+     * This Method assert the extracted results as expected based on the
+     * implementation of the {@link DummyTransformer}. This is one referenced
+     * Entity and one assigned Topic for each Concept with a skos:note value
+     * longer as 50chars in the vocabulary. Also those referenced resources are
+     * expected to use the same URI as the subject as prefix and the the 
+     * {@link DummyTransformer#ENTITY_SUFFIX} or {@link DummyTransformer#TOPIC_SUFFIX}
+     * as suffix.
+     * @param graph the graph with the transformation results returned by the
+     * {@link LiteralExtractionTransformer}.
+     */
+    private void assertExtractionResults(Graph graph) {
         Iterator<Triple> it = graph.filter(null, FAM.entity_reference, null);
+        log.debug("Assert Extraction Results");
+        Map<String, String> entities = new HashMap<>();
+        Map<String,String> topics = new HashMap<>();
         while(it.hasNext()){
-            log.info(" - {}",it.next());
+            Triple t = it.next();
+            assertTrue(t.getSubject() instanceof UriRef);
+            assertTrue(t.getObject() instanceof UriRef);
+            //put the data to a map to ensure that every concept in the vocabulary
+            //has only a single related entity (as ensured by the DummyTransformer)
+            Assert.assertNull("Subject "+ t.getSubject() + " has multiple related Entities",
+                    entities.put(((UriRef)t.getSubject()).getUnicodeString(), 
+                    ((UriRef)t.getObject()).getUnicodeString()));
+            log.debug(" - {}",it.next());
+        }
+        for(Entry<String, String> e : entities.entrySet()){
+            assertTrue(e.getValue().startsWith(e.getKey()));
+            assertTrue(e.getValue().endsWith(DummyTransformer.ENTITY_SUFFIX));
         }
         it = graph.filter(null, FAM.topic_reference, null);
         while(it.hasNext()){
-            log.info(" - {}",it.next());
+            Triple t = it.next();
+            assertTrue(t.getSubject() instanceof UriRef);
+            assertTrue(t.getObject() instanceof UriRef);
+            //put the data to a map to ensure that every concept in the vocabulary
+            //has only a single related entity (as ensured by the DummyTransformer)
+            Assert.assertNull("Subject "+ t.getSubject() + " has multiple assigned Topics",
+                    topics.put(((UriRef)t.getSubject()).getUnicodeString(), 
+                    ((UriRef)t.getObject()).getUnicodeString()));
+            log.debug(" - {}",it.next());
+        }
+        for(Entry<String, String> e : topics.entrySet()){
+            assertTrue(e.getValue().startsWith(e.getKey()));
+            assertTrue(e.getValue().endsWith(DummyTransformer.TOPIC_SUFFIX));
         }
     }
     

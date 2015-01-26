@@ -30,7 +30,7 @@ public class Main {
         options = new Options();
         options.addOption("h", "help", false, "display this help and exit");
         options.addOption("p","port",true, 
-            String.format("the port for the Any23 transformer (default: %s)",
+            String.format("the port for the literal extraction transformer (default: %s)",
                 DEFAULT_PORT));
         options.addOption("t", "thread-pool", true, "The number of threads used"
                 + "to process requests (default: "
@@ -40,7 +40,7 @@ public class Main {
 
     
     public static void main(String[] args) throws Exception {
-        log.info("> Literal Extraction Transforme Server");
+        log.info("> Literal Extraction Transformer Server");
         CommandLineParser parser = new PosixParser();
         CommandLine line = parser.parse(options, args);
         args = line.getArgs();

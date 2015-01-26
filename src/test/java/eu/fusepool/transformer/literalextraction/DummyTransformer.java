@@ -19,9 +19,7 @@ import org.apache.clerezza.rdf.core.serializedform.SupportedFormat;
 
 import eu.fusepool.p3.transformer.HttpRequestEntity;
 import eu.fusepool.p3.transformer.SyncTransformer;
-import eu.fusepool.p3.transformer.Transformer;
 import eu.fusepool.p3.transformer.commons.Entity;
-import eu.fusepool.p3.transformer.commons.util.InputStreamEntity;
 import eu.fusepool.p3.vocab.FAM;
 
 public class DummyTransformer implements SyncTransformer {

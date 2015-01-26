@@ -1,6 +1,8 @@
 package eu.fusepool.transformer.literalextraction;
 
-import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARM_TRANSFORMER;
+import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_ENTITY_PREDICATE;
+import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_TOPIC_PREDICATE;
+import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_TRANSFORMER;
 import static org.apache.clerezza.rdf.core.serializedform.SupportedFormat.TURTLE;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -35,6 +37,7 @@ import org.apache.clerezza.rdf.core.UriRef;
 import org.apache.clerezza.rdf.core.impl.PlainLiteralImpl;
 import org.apache.clerezza.rdf.core.impl.TripleImpl;
 import org.apache.clerezza.rdf.core.serializedform.Parser;
+import org.apache.clerezza.rdf.ontologies.DCTERMS;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpStatus;
 import org.junit.Assert;
@@ -120,12 +123,12 @@ public class LiteralExtractionTransformerTest {
     }
 
     @Test
-    public void turtleOnGet() {
+    public void turtleOnGet() throws Exception {
         String accept = "text/turtle";
         Response response = RestAssured.given().header("Accept", accept)
                 .expect().statusCode(HttpStatus.SC_OK)
                 .header("Content-Type", accept).when().get(BASE_URI);
-        
+        log.info(IOUtils.toString(response.getBody().asInputStream()));
         Graph graph = parser.parse(
                 response.getBody().asInputStream(), 
                 response.getContentType());
@@ -156,10 +159,27 @@ public class LiteralExtractionTransformerTest {
         String acceptType = TURTLE;
         
         ResponseBodyData result = validateAsyncTransformerRequest(BASE_URI,
-                Arrays.asList(PARM_TRANSFORMER,UNIT_TEST_TRANSFORMER),
+                Arrays.asList(PARAM_TRANSFORMER,UNIT_TEST_TRANSFORMER),
                 TURTLE + ";charset=UTF-8", RDF_DATASET_CONTENTS.get(0), contentLocation, acceptType);
         Graph graph = parser.parse(result.asInputStream(), acceptType);
         assertExtractionResults(graph);
+    }
+
+    @Test
+    public void testCustomResultPredicates() throws Exception {
+        log.info("> test LiteralExtractionTransformer");
+        String contentLocation = "http://www.test.org/fusepool/transformer/literalExtraction/";
+        String acceptType = TURTLE;
+        UriRef entityPredicate = DCTERMS.references;
+        UriRef topicPredicate = DCTERMS.subject;
+        
+        ResponseBodyData result = validateAsyncTransformerRequest(BASE_URI,
+                Arrays.asList(PARAM_TRANSFORMER,UNIT_TEST_TRANSFORMER,
+                        PARAM_ENTITY_PREDICATE, entityPredicate.getUnicodeString(),
+                        PARAM_TOPIC_PREDICATE, topicPredicate.getUnicodeString()),
+                TURTLE + ";charset=UTF-8", RDF_DATASET_CONTENTS.get(0), contentLocation, acceptType);
+        Graph graph = parser.parse(result.asInputStream(), acceptType);
+        assertExtractionResults(graph, entityPredicate, topicPredicate);
     }
     
     @Test
@@ -174,7 +194,7 @@ public class LiteralExtractionTransformerTest {
                 @Override
                 public ResponseBodyData call() throws Exception {
                     return validateAsyncTransformerRequest(BASE_URI,
-                            Arrays.asList(PARM_TRANSFORMER,UNIT_TEST_TRANSFORMER),
+                            Arrays.asList(PARAM_TRANSFORMER,UNIT_TEST_TRANSFORMER),
                             TURTLE + ";charset=UTF-8", RDF_DATASET_CONTENTS.get(0), 
                             contentLocation, acceptType);
                 }
@@ -200,7 +220,10 @@ public class LiteralExtractionTransformerTest {
      * {@link LiteralExtractionTransformer}.
      */
     private void assertExtractionResults(Graph graph) {
-        Iterator<Triple> it = graph.filter(null, FAM.entity_reference, null);
+        assertExtractionResults(graph, FAM.entity_reference, FAM.topic_reference);
+    }
+    private void assertExtractionResults(Graph graph, UriRef entityPredicate, UriRef topicPredicate) {
+        Iterator<Triple> it = graph.filter(null, entityPredicate, null);
         log.debug("Assert Extraction Results");
         Map<String, String> entities = new HashMap<>();
         Map<String,String> topics = new HashMap<>();
@@ -219,7 +242,7 @@ public class LiteralExtractionTransformerTest {
             assertTrue(e.getValue().startsWith(e.getKey()));
             assertTrue(e.getValue().endsWith(DummyTransformer.ENTITY_SUFFIX));
         }
-        it = graph.filter(null, FAM.topic_reference, null);
+        it = graph.filter(null, topicPredicate, null);
         while(it.hasNext()){
             Triple t = it.next();
             assertTrue(t.getSubject() instanceof UriRef);

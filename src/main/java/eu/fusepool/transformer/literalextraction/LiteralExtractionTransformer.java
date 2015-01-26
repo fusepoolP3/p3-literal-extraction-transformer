@@ -29,6 +29,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import javax.activation.MimeType;
 import javax.activation.MimeTypeParseException;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.clerezza.rdf.core.Graph;
 import org.apache.clerezza.rdf.core.Language;
@@ -47,6 +48,7 @@ import org.apache.clerezza.rdf.core.serializedform.SupportedFormat;
 import org.apache.clerezza.rdf.ontologies.RDFS;
 import org.apache.clerezza.rdf.ontologies.SKOS04;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -114,7 +116,10 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
     public static final Set<MimeType> INPUT_FORMATS;
     public static final Set<MimeType> OUTPUT_FORMATS;
 
-    public static final String PARM_TRANSFORMER = "transformer";
+    public static final String PARAM_TRANSFORMER = "transformer";
+    public static final String PARAM_LITERAL_PREDICATE = "lit-pred";
+    public static final String PARAM_ENTITY_PREDICATE = "entity-pred";
+    public static final String PARAM_TOPIC_PREDICATE = "topic-pred";
     
     static {
         Set<MimeType> formats = new HashSet<MimeType>();
@@ -226,9 +231,10 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
         parser.parse(dataset, entity.getData(), entity.getType().toString());
         //get the transformer to forward requests to from the query parameter
         //2nd get the parsed transformer
-        String transformerUri = entity.getRequest().getParameter(PARM_TRANSFORMER);
+        HttpServletRequest request = entity.getRequest();
+        String transformerUri = request.getParameter(PARAM_TRANSFORMER);
         if(transformerUri == null){
-            throw new IllegalArgumentException("The required " + PARM_TRANSFORMER 
+            throw new IllegalArgumentException("The required " + PARAM_TRANSFORMER 
                     + "is not present in the request!");
         } else {
             transformerUri = URLDecoder.decode(transformerUri, UTF8.name());
@@ -243,7 +249,36 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
             throw new IllegalArgumentException("The parsed Transformer " + transformerUri 
                     + "does not support the required output MimeType "+ TURTLE + "!");
         }
-        LiteralExtractonJob job = new LiteralExtractonJob(requestId, transformer, dataset, predicates);
+        //look for configured literal property URLs
+        String[] literalPredicates = request.getParameterValues(PARAM_LITERAL_PREDICATE);
+        Set<UriRef> literalPredUris = null;
+        if(literalPredicates != null){
+            literalPredUris = new HashSet<>();
+            for(String literalPredicate : literalPredicates){
+                if(!StringUtils.isBlank(literalPredicate)){
+                    literalPredUris.add(new UriRef(URLDecoder.decode(literalPredicate, UTF8.name())));
+                }
+            }
+        }
+        if(literalPredUris == null || literalPredUris.isEmpty()){ //if no valid are configured 
+            literalPredUris = predicates; //use the default
+        }
+        log.info(" - literal predicates: {}",literalPredUris);
+        LiteralExtractonJob job = new LiteralExtractonJob(requestId, transformer, dataset, literalPredUris);
+        //look for a custom referenced entity predicate
+        String entityPredicate = request.getParameter(PARAM_ENTITY_PREDICATE);
+        if(!StringUtils.isBlank(entityPredicate)){
+            job.setReferencedEntityPredicate(new UriRef(
+                    URLDecoder.decode(entityPredicate, UTF8.name())));
+        }
+        log.info(" - referenced entity predicate: {}",job.getReferencedEntityPredicate());
+        //look for a custom assigned topic predicate
+        String topicPredicate = request.getParameter(PARAM_TOPIC_PREDICATE);
+        if(!StringUtils.isBlank(topicPredicate)){
+            job.setAssigendTopicPredicate(new UriRef(
+                    URLDecoder.decode(topicPredicate, UTF8.name())));
+        }
+        log.info(" - assigned topic predicate: {}",job.getAssigendTopicPredicate());
         DatasetProcessingTask datasetTask = new DatasetProcessingTask(job);
         requestLock.writeLock().lock();
         try {

@@ -1,0 +1,12 @@
+language: java
+before_install: mvn install -DskipTests=true -DfinalName=literal-extraction-transformer-$TRAVIS_TAG
+deploy:
+  provider: releases
+  api_key:
+    secure: l4YV46Sj9oKiaLpBMceTt9mazOZfVR2uB1uTET4kjHn7oNqSx2LZbBLv6LduiwEEDJq+a5IDluKfa0+kJVeW0+QiqNKyGUL8HKl8mCDtfX53ft0CBbiUbchyRASMTwtdvVUWSU7nWIzlDAIZQy+/VCLcUcAek732jxtOcfkTcqY=
+  file: target/literal-extraction-transformer-$TRAVIS_TAG.jar
+  skip_cleanup: true
+  on:
+    repo: fusepoolP3/p3-literal-extraction-transformer
+    tags: true
+    all_branches: true

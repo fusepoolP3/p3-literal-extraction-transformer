@@ -18,7 +18,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Properties;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ForkJoinPool;
@@ -140,35 +139,43 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
      */
     private ForkJoinPool datasetExecutor;
     
-    private Properties config;
-    
     int poolSize = POOL_SIZE;
-
-    private Set<UriRef> predicates;
-
-    
-    public LiteralExtractionTransformer() {
-        this(new Properties(System.getProperties()));
-    }
-    
     /**
-     * Constructor that allows to customize the Any23 configuration. override/extend parameters of the Any23
-     * default configuration
-     * @param config the configuration
+     * Read only list with the configured literal predicates
      */
-    public LiteralExtractionTransformer(Properties config) {
-        this(config,null);
-    }
+    protected final Set<UriRef> predicates;
+
     /**
-     * 
-     * @param config TODO: currently not used
-     * @param predicates the literal predicates or <code>null</code> to use the
+     * Creates a Literal Extraction Transformer with the 
      * {@link Defaults#DEFAULT_LITERAL_PREDICATES}
      */
-    public LiteralExtractionTransformer(Properties config, Set<UriRef> predicates) {
+    public LiteralExtractionTransformer() {
+        this(null);
+    }
+    
+    /**
+     * Creates a Literal Extraction Transformer for a given set of 
+     * literal predicates.
+     * @param predicates the literal predicates or <code>null</code> to use the
+     * {@link Defaults#DEFAULT_LITERAL_PREDICATES}. MUST NOT be empty or contain
+     * the <code>null</code> element.
+     * @throws IllegalArgumentException if the parsed set of literal predicates
+     * is empty or contains the <code>null</code> element.
+     */
+    public LiteralExtractionTransformer(Set<UriRef> predicates) {
         log.info("> create {} transformer ",getClass().getSimpleName());
-        this.config = config == null ? new Properties(System.getProperties()) : config;
-        this.predicates = predicates;
+        if(predicates != null){
+            if(predicates.isEmpty()){
+                throw new IllegalArgumentException("The parsed set of Literal Predicates MUST NOT be empty!");
+            }
+            if(predicates.contains(null)){
+                throw new IllegalArgumentException("The parsed set of Literal Predicates MUST NOT contain the NULL element!");
+            }
+            this.predicates = Collections.unmodifiableSet(new HashSet<>(predicates));
+        } else {
+            this.predicates = Defaults.DEFAULT_LITERAL_PREDICATES;
+        }
+        log.debug(" - literal predicates: {}", predicates);
         
     }
 
@@ -223,6 +230,7 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
         //syncronously check the request
         //first parse the parsed RDF
         MGraph dataset = new SimpleMGraph();
+        log.info(" - supported formats: ", parser.getSupportedFormats());
         parser.parse(dataset, entity.getData(), entity.getType().toString());
         //get the transformer to forward requests to from the query parameter
         //2nd get the parsed transformer
@@ -339,8 +347,10 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
 
     
     
-    class DatasetProcessingTask extends RecursiveAction{
+    class DatasetProcessingTask extends RecursiveAction {
         
+        private static final long serialVersionUID = 1L;
+
         private final LiteralExtractonJob job;
         
         public DatasetProcessingTask(LiteralExtractonJob job) {
@@ -474,6 +484,8 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
     
     
     class LiteralExtractionTask extends RecursiveAction{
+
+        private static final long serialVersionUID = 1L;
 
         private final LiteralExtractonJob job;
         private final NonLiteral subject;

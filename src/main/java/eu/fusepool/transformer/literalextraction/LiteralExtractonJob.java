@@ -1,5 +1,6 @@
 package eu.fusepool.transformer.literalextraction;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.Set;
 
@@ -12,9 +13,10 @@ import org.apache.clerezza.rdf.core.impl.SimpleMGraph;
 
 import eu.fusepool.p3.transformer.client.Transformer;
 
-class LiteralExtractonJob {
+class LiteralExtractonJob implements Serializable {
 
-    
+    private static final long serialVersionUID = 3842095678526255415L;
+
     protected final String requestId;
 
     protected final Transformer transformer;

@@ -395,8 +395,10 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                 long start = System.currentTimeMillis();
                 invokeAll(extractionTasks);
                 long dur = System.currentTimeMillis() - start;
-                log.info(" ... invoked {} in {}ms ({}ms avrg", new Object[]{
-                        extractionTasks.size(), dur, (dur*100/extractionTasks.size())/100f});
+                if(!extractionTasks.isEmpty()){
+                    log.info(" ... invoked {} in {}ms ({}ms avrg", new Object[]{
+                            extractionTasks.size(), dur, (dur*100/extractionTasks.size())/100f});
+                }
                 //TODO, create Entity with the updated graph
                 resultEntity = new TmpFileEntity(job.requestId, TURTLE_UTF8);
                 OutputStream out = resultEntity.getWriter();

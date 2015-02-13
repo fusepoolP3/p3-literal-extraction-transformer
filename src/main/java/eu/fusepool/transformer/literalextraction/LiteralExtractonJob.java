@@ -1,9 +1,13 @@
 package eu.fusepool.transformer.literalextraction;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Locale;
 import java.util.Set;
 
+import org.apache.clerezza.rdf.core.Language;
 import org.apache.clerezza.rdf.core.MGraph;
 import org.apache.clerezza.rdf.core.TripleCollection;
 import org.apache.clerezza.rdf.core.UriRef;
@@ -28,6 +32,8 @@ class LiteralExtractonJob implements Serializable {
     
     protected UriRef referencedEntityPredicate;
     protected UriRef assigendTopicPredicate;
+
+    private Set<String> activeLanguages;
     
     LiteralExtractonJob(String requestId, Transformer transformer, MGraph graph) {
         this(requestId,transformer,graph,graph,null);
@@ -110,5 +116,45 @@ class LiteralExtractonJob implements Serializable {
         return new StringBuilder(getClass().getSimpleName()).append("[id: ")
                 .append(requestId).append(']').toString();
     }
-    
+    /**
+     * Sets the active languages. If the parsed set is <code>null</code>, is
+     * empty or contains the <code>null</code> value all languages will be set
+     * active. Otherwise only the set of contained languages will be processed.
+     * Parsed languages are trimmed.
+     * @param activeLanguages the set of active languages
+     */
+    public void setActiveLanguages(Collection<String> activeLanguages) {
+        if(activeLanguages == null || activeLanguages.isEmpty()
+                || activeLanguages.contains(null)){
+            this.activeLanguages = null;
+        } else {
+            Set<String> langs = new HashSet<>();
+            for(String lang : activeLanguages){
+                //convert to lower case as language codes are case insensitive
+                langs.add(lang.trim().toLowerCase(Locale.ROOT));
+            }
+            this.activeLanguages = Collections.unmodifiableSet(langs);
+        }
+    }
+    /**
+     * Checks if the parsed language is active for this job.
+     * @param language the language to check. <code>null</code> language will 
+     * always be accepted (interpreted as language unknown - so it might be
+     * one of the accepted).
+     * @return if the language is active (should be processed)
+     */
+    public boolean isActiveLanguage(Language language){
+        if(activeLanguages == null || language == null){
+            return true; //all allowed
+        } else {
+            return activeLanguages.contains(language.toString().trim().toLowerCase(Locale.ROOT));
+        }
+    }
+    /**
+     * Getter for the read-only set of active languages
+     * @return the active languages or <code>null</code> if all are active
+     */
+    public Set<String> getActiveLanguages() {
+        return activeLanguages;
+    }
 }

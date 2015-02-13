@@ -1,6 +1,7 @@
 package eu.fusepool.transformer.literalextraction;
 
 import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_ENTITY_PREDICATE;
+import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_LANGUAGE;
 import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_TOPIC_PREDICATE;
 import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_TRANSFORMER;
 import static org.apache.clerezza.rdf.core.serializedform.SupportedFormat.TURTLE;
@@ -181,6 +182,23 @@ public class LiteralExtractionTransformerTest {
         assertExtractionResults(graph, entityPredicate, topicPredicate);
     }
     
+    @Test
+    public void testSpecificLanguages() throws Exception {
+        log.info("> test LiteralExtractionTransformer");
+        String contentLocation = "http://www.test.org/fusepool/transformer/literalExtraction/";
+        String acceptType = TURTLE;
+        UriRef entityPredicate = DCTERMS.references;
+        UriRef topicPredicate = DCTERMS.subject;
+        
+        ResponseBodyData result = validateAsyncTransformerRequest(BASE_URI,
+                Arrays.asList(PARAM_TRANSFORMER,UNIT_TEST_TRANSFORMER,
+                        PARAM_LANGUAGE, "en",
+                        PARAM_LANGUAGE, "ES"),
+                TURTLE + ";charset=UTF-8", RDF_DATASET_CONTENTS.get(0), contentLocation, acceptType);
+        Graph graph = parser.parse(result.asInputStream(), acceptType);
+        assertExtractionResults(graph, entityPredicate, topicPredicate);
+    }
+
     @Test
     public void testConcurrentPosts() throws Exception {
         final String contentLocation = "http://www.test.org/fusepool/transformer/literalExtraction/";

@@ -11,11 +11,13 @@ import java.net.URISyntaxException;
 import java.net.URLDecoder;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -114,6 +116,8 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
     public static final String PARAM_LITERAL_PREDICATE = "lit-pred";
     public static final String PARAM_ENTITY_PREDICATE = "entity-pred";
     public static final String PARAM_TOPIC_PREDICATE = "topic-pred";
+    public static final String PARAM_LANGUAGE = "lang";
+    
     
     static {
         Set<MimeType> formats = new HashSet<MimeType>();
@@ -282,6 +286,15 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                     URLDecoder.decode(topicPredicate, UTF8.name())));
         }
         log.info(" - assigned topic predicate: {}",job.getAssigendTopicPredicate());
+        String[] languages = request.getParameterValues(PARAM_LANGUAGE);
+        if(languages != null && languages.length > 0){
+            job.setActiveLanguages(Arrays.asList(languages));
+        }
+        log.info(" - active Languages: {}",
+                job.getActiveLanguages() == null ? "all"
+                        : job.getActiveLanguages());
+        
+        
         DatasetProcessingTask datasetTask = new DatasetProcessingTask(job);
         requestLock.writeLock().lock();
         try {
@@ -371,15 +384,21 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                         if(t.getObject() instanceof PlainLiteral){
                             PlainLiteral text = (PlainLiteral)t.getObject();
                             //TODO: make min literal size configurable
-                            if(text.getLexicalForm().length() > 50){
-                                //create a new extraction job
-                                ResourceText key = new ResourceText(t.getSubject(),text.getLanguage());
-                                StringBuilder textBuilder = resourceTexts.get(key);
-                                if(textBuilder == null){
-                                    resourceTexts.put(key, new StringBuilder(text.getLexicalForm()));
-                                } else { //append
-                                    textBuilder.append("\n\n").append(text.getLexicalForm());
+                            if(job.isActiveLanguage(text.getLanguage())){
+                                if(text.getLexicalForm().length() > 50){
+                                    //create a new extraction job
+                                    ResourceText key = new ResourceText(t.getSubject(),text.getLanguage());
+                                    StringBuilder textBuilder = resourceTexts.get(key);
+                                    if(textBuilder == null){
+                                        resourceTexts.put(key, new StringBuilder(text.getLexicalForm()));
+                                    } else { //append
+                                        textBuilder.append("\n\n").append(text.getLexicalForm());
+                                    }
+                                } else {
+                                    log.trace(" ignore {} because label length < 50",t);
                                 }
+                            } else {
+                                log.trace(" ignore {} because labels language {} is not active", text.getLanguage());
                             }
                         }
                     }

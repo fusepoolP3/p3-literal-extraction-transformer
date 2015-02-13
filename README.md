@@ -101,6 +101,10 @@ information from. If not present the defaults will be used.
 to add entities extracted from the textual description to the dataset.
 * __topic-pred__ _(`0..1`, default: `fam:topic-reference`)_: The predicate used
 to add topics assigned based on the textual description to the dataset 
+* __lang__ _(`0..n`, default: any)_: Allows to explicitly define the set of
+processed languages. If missing all languages will be processed. _NOTE_ that literals
+without language tag will also be processed as their language is assumed to be
+unknown (to be determined by a language detection feature of the called transformer).
 
 ### Asynchronous Transformation Requests
 

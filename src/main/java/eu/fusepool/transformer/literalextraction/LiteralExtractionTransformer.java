@@ -606,6 +606,7 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                 log.trace(" ... completed");
             } catch (RuntimeException e){ //while transforming the entity
                 Throwable cause = e.getCause();
+                log.warn("Unable to extract Entities for subject: {}", subject);
                 if(cause instanceof IOException){
                    log.warn("Unable to extract information for " + subject
                            + " using " + job + "(message: " 
@@ -613,7 +614,9 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                 } else {
                     log.warn("Unable to extract information for " + subject
                             + " using " + job, e);
-                    throw e;
+                    log.warn("  - text: {}", text);
+                    log.warn("  - lang: {}",lang);
+                    //throw e;
                 }
             } catch (IOException e) { //while reading results from stream
                 log.warn("Unable to read extraction results for " + subject

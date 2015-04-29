@@ -218,7 +218,7 @@
     <dependency>
       <groupId>org.eclipse.jetty</groupId>
       <artifactId>jetty-server</artifactId>
-      <version>9.2.0.RC0</version>
+      <version>9.2.10.v20150310</version>
     </dependency>
     <dependency>
       <groupId>eu.fusepool.p3</groupId>
@@ -228,7 +228,7 @@
     <dependency>
       <groupId>eu.fusepool.p3</groupId>
       <artifactId>accept-header-utils</artifactId>
-      <version>1.0.0</version>
+      <version>1.0.1</version>
     </dependency>
     <dependency>
       <groupId>eu.fusepool.p3</groupId>

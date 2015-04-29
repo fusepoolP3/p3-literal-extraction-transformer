@@ -24,7 +24,7 @@ public class Main {
     private static final Logger log = LoggerFactory.getLogger(Main.class);
     
     private static final Options options;
-    private static final int DEFAULT_PORT = 8080;
+    private static final int DEFAULT_PORT = 8305;
     
     static {
         options = new Options();
@@ -32,10 +32,12 @@ public class Main {
         options.addOption("p","port",true, 
             String.format("the port for the literal extraction transformer (default: %s)",
                 DEFAULT_PORT));
+        options.addOption("P","Port",true, 
+                String.format("the port for the literal extraction transformer (default: %s)",
+                    DEFAULT_PORT));
         options.addOption("t", "thread-pool", true, "The number of threads used"
                 + "to process requests (default: "
                 + LiteralExtractionTransformer.POOL_SIZE + ").");
- 
     }
 
     
@@ -49,8 +51,8 @@ public class Main {
             System.exit(0);
         }
         int port = -1;
-        if(line.hasOption('p')){
-            String portStr = line.getOptionValue('p');
+        if(line.hasOption('p') || line.hasOption('P')){
+            String portStr = line.getOptionValue('P',line.getOptionValue('p'));
             try {
                 port = Integer.parseInt(portStr);
                 if(port <= 0){

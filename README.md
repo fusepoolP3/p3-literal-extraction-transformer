@@ -45,11 +45,11 @@ The command line tool provides the following configuration parameters:
     usage: java -Xmx{size} -jar {jar-name} [options]
     Literal Extraction Transformer:
 
-         -h,--help                display this help and exit
-         -p,--port <arg>          the port for the Any23 transformer (default:
-                                  8080)
-         -t,--thread-pool <arg>   The number of threads usedto process requests
-                                  (default: 10).
+         -h,--help                     display this help and exit
+         -P, -p, --Port, --port <arg>  the port for the Any23 transformer (default:
+                                       8305)
+         -t,--thread-pool <arg>        The number of threads usedto process requests
+                                       (default: 10).
     provided by Fusepool P3
 
 ### Memory Requirements
@@ -67,11 +67,11 @@ communication is expected as specified by the Fusepool.
 
 The capabilities of a transformer can be requested by a simple GET request at 
 the base URI. The following listing shows the response of the Literal Extraction
-Transformer running at localhost at port `8087`
+Transformer running at localhost at port `8305`
 
-    curl http://localhost:8087/
+    curl http://localhost:8305/
 
-    <http://localhost:8087/>
+    <http://localhost:8305/>
         <http://vocab.fusepool.info/transformer#supportedInputFormat>
             "text/turtle"^^<http://www.w3.org/2001/XMLSchema#string> , 
             "application/rdf+xml"^^<http://www.w3.org/2001/XMLSchema#string> , 
@@ -112,10 +112,10 @@ A typical request will look like the follows
 
     curl -v -X "POST" -H "Content-Type: text/turtle;charset=UTF-8" \
         -T "myDataset.ttl" \
-        "http://localhost:8087/?transformer=http%3A%2F%2Flocalhost%3A8088%2F"
+        "http://localhost:8305/?transformer=http%3A%2F%2Flocalhost%3A8088%2F"
 
 This will send the RDF data contained in the `myDataset.ttl` file to the 
-LiteralExtraction transformer running at `http://localhost:8087`. Literals of
+LiteralExtraction transformer running at `http://localhost:8305`. Literals of
 this dataset will be analysed by using a transformer running at 
 `http://localhost:8088/`. For Literal predicates, the referenced entity predicate
 and assigend topic predicate the default values will be used.
@@ -136,7 +136,7 @@ and the `Location` of the accepted Job
 The returned location can be used by the client to request the status of the job and
 to retrieve the final result as soon as it is available. 
 
-    curl http://localhost:8087/job/1678699a-ed36-4282-aaf8-1823aea19970
+    curl http://localhost:8305/job/1678699a-ed36-4282-aaf8-1823aea19970
 
 As soon as the extraction is finished for all resources in the parsed dataset the
 enriched RDF data are returned as `text/trutle`.

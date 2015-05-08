@@ -90,8 +90,8 @@ content in a temporary file.
 
 The Literal Extraction Trnasformer supports the following request parameter
 
-* __transformer__ _(`1..1`)_: The URI of the trnasformer used to extract information from
-long linteral value. The parsed transformer needs to accept `text/plain` and 
+* __transformer__ _(`1..1`)_: The URI of the transformer used to extract information from
+long linteral value. The passed transformer needs to accept `text/plain` and 
 support `text/turtle` as response format. If this is not the case the request
 will not be accepted.
 * __lit-pred__ _(`0..n`, default: `rdfs:comment`, `skos:note`, `skos:definition`, 
@@ -104,7 +104,7 @@ to add topics assigned based on the textual description to the dataset
 * __lang__ _(`0..n`, default: any)_: Allows to explicitly define the set of
 processed languages. If missing all languages will be processed. _NOTE_ that literals
 without language tag will also be processed as their language is assumed to be
-unknown (to be determined by a language detection feature of the called transformer).
+unknown (to be determined by a language detection feature of the called transformer).p
 
 ### Asynchronous Transformation Requests
 

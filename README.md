@@ -1,8 +1,8 @@
-# Literal Extraction Transformer
+# Literal Extraction Transformer [![Build Status](https://travis-ci.org/fusepoolP3/p3-literal-extraction-transformer.svg)](https://travis-ci.org/fusepoolP3/p3-literal-extraction-transformer)
 
 The Literals Extraction Transformer provides a [Fusepool P3](http://p3.fusepool.eu/) 
 [Transformer](https://github.com/fusepoolP3/overall-architecture/blob/master/transformer-api.md) 
-implementation for enriching a RDF dataset with iformation extracted from long
+implementation for enriching a RDF dataset with information extracted from long
 literals. A typical example is to extract the spatial context and near points of
 interest from the textual description of an entity. So might the textual description
 of a station or hotel mention the nearest bus stop. But this also works for other
@@ -17,14 +17,14 @@ The Literal Extraction Transformer implements the following workflow:
     * collect `[{subject},{lang}]` -> `{literal}` pairs
 * send transformation requests for the collected textual descriptions to the 
 configured Information Extraction Transformer.
-    * The configured Information Extraction Transformer need to accept `text/plain` 
-    and input and return [Fusepool Annotation Model](https://github.com/fusepoolP3/overall-architecture/blob/master/wp3/fp-anno-model/fp-anno-model.md) 
+    * The configured Information Extraction Transformer needs to accept `text/plain` 
+    as input and return [Fusepool Annotation Model](https://github.com/fusepoolP3/overall-architecture/blob/master/wp3/fp-anno-model/fp-anno-model.md) 
     (FAM) data as RDF.
 * process extraction results for referenced entities and assigned topics and adds
 them as triples to the dataset.
 
 The Literals Extraction Transformer will generate multiple transformation
-request to the configured Literal Extraction Transformer. As this process in 
+requests to the configured Literal Extraction Transformer. As this process in 
 expected to require considerable processing time the Literal Extraction Transformer 
 uses the asynchronous Transformer workflow.
 
@@ -43,31 +43,33 @@ will run the Literal Extraction Transformer on port `8080`
 The command line tool provides the following configuration parameters:
 
     usage: java -Xmx{size} -jar {jar-name} [options]
-    Literal Extraction Transformer:
+    Literal Extracttion Transformer:
 
-         -h,--help                     display this help and exit
-         -P, -p, --Port, --port <arg>  the port for the Any23 transformer (default:
-                                       8305)
-         -t,--thread-pool <arg>        The number of threads usedto process requests
-                                       (default: 10).
+     -h,--help                display this help and exit
+     -P,--Port <arg>          the port for the literal extraction transformer
+                              (default: 8305)
+     -p,--port <arg>          the port for the literal extraction transformer
+                              (default: 8305)
+     -t,--thread-pool <arg>   The number of threads usedto process requests
+                              (default: 10).
     provided by Fusepool P3
 
 ### Memory Requirements
 
-The Transformer holds the parsed dataset in an in-memory graph until processing is completed. After completion the data as serialized to a temporary file and kept their for the user to request them. The transformer itself only needs a very little memory so the maximum assigned memory only depends on the number and the size of parsed datasets.
+The Transformer holds the parsed dataset in an in-memory graph until processing is completed. After completion the data as serialized to a temporary file and kept there for the user to request them. The transformer itself only needs a very little memory so the maximum assigned memory only depends on the number and the size of parsed datasets.
 
 Usage:
 -----
 
 As the Literal Extraction transformer implements the [Fusepool Transfomer API]
 (https://github.com/fusepoolP3/overall-architecture/blob/master/transformer-api.md) 
-communication is expected as specified by the Fusepool.
+communication is expected to follow this specification.
 
 ### Supported Input/Output Formats
 
 The capabilities of a transformer can be requested by a simple GET request at 
 the base URI. The following listing shows the response of the Literal Extraction
-Transformer running at localhost at port `8305`
+Transformer running at localhost at port 8305:
 
     curl http://localhost:8305/
 
@@ -88,10 +90,10 @@ content in a temporary file.
 
 ### Request Parameters
 
-The Literal Extraction Trnasformer supports the following request parameter
+The Literal Extraction Transformer supports the following request parameters:
 
 * __transformer__ _(`1..1`)_: The URI of the transformer used to extract information from
-long linteral value. The passed transformer needs to accept `text/plain` and 
+the long literal value. The passed transformer needs to accept `text/plain` and 
 support `text/turtle` as response format. If this is not the case the request
 will not be accepted.
 * __lit-pred__ _(`0..n`, default: `rdfs:comment`, `skos:note`, `skos:definition`, 
@@ -104,7 +106,7 @@ to add topics assigned based on the textual description to the dataset
 * __lang__ _(`0..n`, default: any)_: Allows to explicitly define the set of
 processed languages. If missing all languages will be processed. _NOTE_ that literals
 without language tag will also be processed as their language is assumed to be
-unknown (to be determined by a language detection feature of the called transformer).p
+unknown (to be determined by a language detection feature of the called transformer).
 
 ### Asynchronous Transformation Requests
 
@@ -114,13 +116,13 @@ A typical request will look like the follows
         -T "myDataset.ttl" \
         "http://localhost:8305/?transformer=http%3A%2F%2Flocalhost%3A8088%2F"
 
-This will send the RDF data contained in the `myDataset.ttl` file to the 
+This will send the RDF data contained in the `myDataset.ttl`-file to the 
 LiteralExtraction transformer running at `http://localhost:8305`. Literals of
 this dataset will be analysed by using a transformer running at 
 `http://localhost:8088/`. For Literal predicates, the referenced entity predicate
 and assigend topic predicate the default values will be used.
 
-NOTE that the "Content-Location" header is not used by the Literal Extraction
+NOTE: the "Content-Location" header is not used by the Literal Extraction
 Transformer implementation.
 
 As the Literal Extraction Transformer is asynchronous it will validate the
@@ -144,7 +146,7 @@ enriched RDF data are returned as `text/trutle`.
 Example
 -------
 
-This example aims to visualize the enrichment of an RDF dataset processed by the Literal Extraction Transformer.
+This example shows the enrichment of an RDF dataset processed by the Literal Extraction Transformer.
 
 Lets assume a small dataset consisting of two RDFS resources
 
@@ -167,8 +169,4 @@ The Literal Extraction Transformer will now extract entities from the `rdfs:comm
         fam:entity-reference dbr:Italy, dbr:Tuscany, dbr:Poppi, dbr:Poppi_Castle;
         fam:topic-reference  dbc:Tuscany .
 
-The above listing shows that the Information Extraction Transformer called by the Literal Extraction Transformer was able to extract four entities (Italy, Tuscany, Poppi and the Castle of Poppi) and a two Topics (Tuscany, Castles) from the `rdfs:comment` of the resource `:res-1`. Those information extraction results where used to enrich the original dataset. By default `fam:entity-reference` is used to link extracted entities and `fam:topic-reference` for assigned topics. However this can be customized by parsing different properties in the transformation request.
-
-    
-    
-
+The above listing shows that the Information Extraction Transformer called by the Literal Extraction Transformer was able to extract four entities (Italy, Tuscany, Poppi and the Castle of Poppi) and a two Topics (Tuscany, Castles) from the `rdfs:comment` of the resource `:res-1`. Those information extraction results where used to enrich the original dataset. By default `fam:entity-reference` is used to link extracted entities and `fam:topic-reference` for assigned topics. However this can be customized by sending different properties in the transformation request.

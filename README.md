@@ -28,10 +28,27 @@ requests to the configured Literal Extraction Transformer. As this process is
 expected to require considerable processing time the Literal Extraction Transformer 
 uses the asynchronous Transformer workflow.
 
-Installation:
------
+## Try it out
 
-This module builds a runnable jar. After the build succeeds you can find the
+First, obtain the latest [release](https://github.com/fusepoolP3/p3-literal-extraction-transformer/releases/latest).
+
+Next, start the transformer:
+
+    java -jar literal-extraction-transformer-*.jar
+
+To obtain the supported input/output-formats of the transformer, query it with the curl-utility:
+
+    curl http://localhost:8305
+
+For advanced testing of the transformer, refer to the section "Usage" just below.
+
+## Compiling and Running
+
+Compile the transformer using maven:
+
+    mvn install
+
+This will build a runnable jar. After the build succeeds you can find the
 runable jar in the ´/target´ folder.
 
 Calling
@@ -58,8 +75,7 @@ The command line tool provides the following configuration parameters:
 
 The Transformer holds the parsed dataset in an in-memory graph until processing is completed. After completion the data as serialized to a temporary file and kept there for the user to request them. The transformer itself only needs a very little memory so the maximum assigned memory only depends on the number and the size of parsed datasets.
 
-Usage:
------
+## Usage
 
 As the Literal Extraction transformer implements the [Fusepool Transfomer API]
 (https://github.com/fusepoolP3/overall-architecture/blob/master/transformer-api.md) 
@@ -143,8 +159,7 @@ to retrieve the final result as soon as it is available.
 As soon as the extraction is finished for all resources in the parsed dataset the
 enriched RDF data are returned as `text/trutle`.
 
-Example
--------
+## Example
 
 This example shows the enrichment of an RDF dataset processed by the Literal Extraction Transformer.
 

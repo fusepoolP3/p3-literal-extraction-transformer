@@ -1,12 +1,12 @@
 # Literal Extraction Transformer [![Build Status](https://travis-ci.org/fusepoolP3/p3-literal-extraction-transformer.svg)](https://travis-ci.org/fusepoolP3/p3-literal-extraction-transformer)
 
-The Literals Extraction Transformer provides a [Fusepool P3](http://p3.fusepool.eu/) 
+The Literal Extraction Transformer provides a [Fusepool P3](http://p3.fusepool.eu/) 
 [Transformer](https://github.com/fusepoolP3/overall-architecture/blob/master/transformer-api.md) 
 implementation for enriching a RDF dataset with information extracted from long
 literals. A typical example is to extract the spatial context and near points of
 interest from the textual description of an entity. So might the textual description
 of a station or hotel mention the nearest bus stop. But this also works for other
-domain like to extract the musical artist, the orchestra and conductor based
+domains like extracting musical artists, the orchestra or conductor based
 on the description of a concert; Points of Interest mentioned in the description
 of a hiking tour ...
 
@@ -20,11 +20,11 @@ configured Information Extraction Transformer.
     * The configured Information Extraction Transformer needs to accept `text/plain` 
     as input and return [Fusepool Annotation Model](https://github.com/fusepoolP3/overall-architecture/blob/master/wp3/fp-anno-model/fp-anno-model.md) 
     (FAM) data as RDF.
-* process extraction results for referenced entities and assigned topics and adds
+* process extraction results for referenced entities and assigned topics and add
 them as triples to the dataset.
 
 The Literals Extraction Transformer will generate multiple transformation
-requests to the configured Literal Extraction Transformer. As this process in 
+requests to the configured Literal Extraction Transformer. As this process is
 expected to require considerable processing time the Literal Extraction Transformer 
 uses the asynchronous Transformer workflow.
 

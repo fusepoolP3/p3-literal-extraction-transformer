@@ -11,7 +11,6 @@ import java.util.Set;
 import org.apache.clerezza.rdf.core.UriRef;
 import org.apache.clerezza.rdf.ontologies.FOAF;
 import org.apache.clerezza.rdf.ontologies.RDFS;
-import org.apache.clerezza.rdf.ontologies.SKOS;
 import org.apache.clerezza.rdf.ontologies.SKOS04;
 
 import eu.fusepool.p3.vocab.FAM;

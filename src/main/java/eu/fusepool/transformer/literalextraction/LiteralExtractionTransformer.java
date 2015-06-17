@@ -14,10 +14,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -31,8 +31,8 @@ import javax.activation.MimeType;
 import javax.activation.MimeTypeParseException;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.clerezza.rdf.core.Graph;
 import org.apache.clerezza.rdf.core.Language;
+import org.apache.clerezza.rdf.core.Literal;
 import org.apache.clerezza.rdf.core.MGraph;
 import org.apache.clerezza.rdf.core.NonLiteral;
 import org.apache.clerezza.rdf.core.PlainLiteral;
@@ -43,8 +43,11 @@ import org.apache.clerezza.rdf.core.impl.TripleImpl;
 import org.apache.clerezza.rdf.core.serializedform.Parser;
 import org.apache.clerezza.rdf.core.serializedform.Serializer;
 import org.apache.clerezza.rdf.core.serializedform.SupportedFormat;
+import org.apache.clerezza.rdf.ontologies.RDF;
+import org.apache.clerezza.rdf.utils.GraphNode;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.stanbol.commons.indexedgraph.IndexedMGraph;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -116,6 +119,12 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
     public static final String PARAM_LITERAL_PREDICATE = "lit-pred";
     public static final String PARAM_ENTITY_PREDICATE = "entity-pred";
     public static final String PARAM_TOPIC_PREDICATE = "topic-pred";
+    /**
+     * Suffix for the parameters used to configure the Named Entity Predicates.
+     * The full parameter is the name of the {@link NamedEntityTypeEnum} member
+     * plus this suffix (e.g. <code>pers-ne-pred</code>);
+     */
+    public static final String PARAM_NAMED_ENTITY_PREDICATE_SUFFIX = "-ne-pred";
     public static final String PARAM_LANGUAGE = "lang";
     
     
@@ -232,10 +241,12 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
         log.info(" - mime: {}",entity.getType());
         log.info(" - contentLoc: {}",entity.getContentLocation());
         //syncronously check the request
-        //first parse the parsed RDF
-        MGraph dataset = new SimpleMGraph();
+        //first parse the parsed RDF (in a fast in-memory model)
+        MGraph dataset = new IndexedMGraph();
         log.info(" - supported formats: ", parser.getSupportedFormats());
+        long start = System.currentTimeMillis();
         parser.parse(dataset, entity.getData(), entity.getType().toString());
+        log.debug(" - parsed {} triples in {}ms", dataset.size(), System.currentTimeMillis() - start);
         //get the transformer to forward requests to from the query parameter
         //2nd get the parsed transformer
         HttpServletRequest request = entity.getRequest();
@@ -285,6 +296,37 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
             job.setAssigendTopicPredicate(new UriRef(
                     URLDecoder.decode(topicPredicate, UTF8.name())));
         }
+        //look for custom named entity predicates
+        Enumeration<String> parameterNames = request.getParameterNames();
+        while(parameterNames.hasMoreElements()){
+            String parameterName = parameterNames.nextElement();
+            if(parameterName.endsWith(PARAM_NAMED_ENTITY_PREDICATE_SUFFIX)){
+                String neName = parameterName.substring(0,parameterName.length() - 
+                        PARAM_NAMED_ENTITY_PREDICATE_SUFFIX.length()).toUpperCase();
+                NamedEntityTypeEnum neType;
+                try {
+                    neType = NamedEntityTypeEnum.valueOf(neName);
+                } catch(IllegalArgumentException e){
+                    log.warn("unknown named entity type {}. Value of Parameter {} is ignored!",
+                            neName,parameterName);
+                    continue;
+                }
+                String nePredicate = URLDecoder.decode(request.getParameter(parameterName),UTF8.name());
+                try {
+                    URI uri = new URI(nePredicate);
+                    if(!uri.isAbsolute()){
+                        log.warn("Unable to set named entity predicate for type {} to '{}' "
+                                + "because the parsed URI is not absolute!");
+                    } else {
+                        log.info(" - set Named Entity Predicate for {} to {}", neType,nePredicate);
+                        job.setNamedEntityTypePredicate(neType, new UriRef(nePredicate));
+                    }
+                } catch(URISyntaxException e){
+                    log.warn("Unable to set named entity predicate for type " + neType
+                            +" to '" + nePredicate + "' because the parsed value is not a valid URI!",e);
+                }
+            }
+        }
         log.info(" - assigned topic predicate: {}",job.getAssigendTopicPredicate());
         String[] languages = request.getParameterValues(PARAM_LANGUAGE);
         if(languages != null && languages.length > 0){
@@ -302,12 +344,12 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                     new Object[]{requestId, transformerUri});
             datasetExecutor.submit(datasetTask);
             activeRequests.add(requestId);
-            //TODO: we need 
         } finally {
             requestLock.writeLock().unlock();
         }
     }
 
+    
     @Override
     public boolean isActive(String requestId) {
         requestLock.readLock().lock();
@@ -569,10 +611,11 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                 Entity response = job.transformer.transform(entity, TURTLE_UTF8);
                 log.debug(" ... processed in {}ms", System.currentTimeMillis()-start);
                 //(1) parse TURTLE results
-                Graph famResults = parser.parse(response.getData(), SupportedFormat.TURTLE);
+                MGraph famResults = new IndexedMGraph();
+                parser.parse(famResults, response.getData(), SupportedFormat.TURTLE);
                 //(2) get Informations form the FAM enhancements
                 //TODO: Improve processing of FAM results
-                SimpleMGraph extractionResults = new SimpleMGraph();
+                MGraph extractionResults = new IndexedMGraph();
                 //for now we are only interested in linked entities
                 log.debug("  - Extraction Results: ");
                 Iterator<Triple> it = famResults.filter(null, FAM.entity_reference, null);
@@ -581,7 +624,7 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                     if(t.getObject() instanceof UriRef){
                         NonLiteral entityAnno = t.getSubject();
                         UriRef refEntity = (UriRef)t.getObject();
-                        log.debug("      > entity {} for {}", refEntity, subject);
+                        log.debug("      > entity {} for fam:EntityAnnotation {}", refEntity, entityAnno);
                         extractionResults.add(new TripleImpl(subject,job.getReferencedEntityPredicate(), refEntity));
                     }
                 }
@@ -591,9 +634,48 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                     if(t.getObject() instanceof UriRef){
                         NonLiteral topicAnno = t.getSubject();
                         UriRef refTopic = (UriRef)t.getObject();
-                        log.debug("      > topic {} for {}", refTopic, subject);
+                        log.debug("      > topic {} for fam:TopicAnnotation {}", refTopic, topicAnno);
                         extractionResults.add(new TripleImpl(subject,job.getAssigendTopicPredicate(), refTopic));
                     }
+                }
+                it = famResults.filter(null, RDF.type, FAM.EntityMention);
+                while(it.hasNext()){
+                    Triple t = it.next();
+                    GraphNode ema = new GraphNode(t.getSubject(), famResults);
+                    log.trace("> process fam:EntityMention {}",ema.getNode());
+                    Iterator<Literal> entityMentions = ema.getLiterals(FAM.entity_mention);
+                    if(!entityMentions.hasNext()){
+                        log.warn("fam:EntityMention {} is missing the required property {}. "
+                                + "Will ignore this mention", ema.getNode(), FAM.entity_mention);
+                        continue;
+                    }
+                    Set<UriRef> nePredicates = new HashSet<>();
+                    Iterator<UriRef> entityTypes = ema.getUriRefObjects(FAM.entity_type);
+                    while(entityTypes.hasNext()){
+                        UriRef entityType = entityTypes.next();
+                        UriRef nePredicate = job.getNamedEntityPredicate(entityType);
+                        if(nePredicate != null){
+                            log.trace(" - add named entity predicate {} for type fam:entity-type {}",
+                                    nePredicate, entityType);
+                            nePredicates.add(nePredicate);
+                        }
+                    }
+                    if(nePredicates.isEmpty()){
+                        UriRef defaultNePredicate = job.getNamedEntityPredicate(null);
+                        if(defaultNePredicate != null){
+                            log.trace(" - add default named entity predicate {}", defaultNePredicate);
+                            nePredicates.add(defaultNePredicate);
+                        }
+                    }
+                    while(entityMentions.hasNext()){
+                        Literal mention = entityMentions.next();
+                        for(UriRef nePredicate : nePredicates){
+                            log.debug("      > Named Entity {} with type {} for fam:EntityMention {}",
+                                    new Object[]{mention, nePredicate, ema.getNode()});
+                            extractionResults.add(new TripleImpl(subject, nePredicate, mention));
+                        }
+                    }
+                    
                 }
                 //we need to add them (while within a write lock
                 job.results.getLock().writeLock().lock();

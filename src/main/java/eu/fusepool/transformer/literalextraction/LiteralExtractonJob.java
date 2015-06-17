@@ -3,8 +3,10 @@ package eu.fusepool.transformer.literalextraction;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 
 import org.apache.clerezza.rdf.core.Language;
@@ -32,6 +34,9 @@ class LiteralExtractonJob implements Serializable {
     
     protected UriRef referencedEntityPredicate;
     protected UriRef assigendTopicPredicate;
+    
+    protected Map<NamedEntityTypeEnum,UriRef> namedEntityTypePredicates = new HashMap<>(
+            Defaults.DEFAULT_NAMED_ENTITY_TYPE_PREDICATES);
 
     private Set<String> activeLanguages;
     
@@ -78,6 +83,30 @@ class LiteralExtractonJob implements Serializable {
     public void setAssigendTopicPredicate(UriRef assigendTopicPredicate) {
         this.assigendTopicPredicate = assigendTopicPredicate;
     }
+    
+    public void setNamedEntityTypePredicate(NamedEntityTypeEnum type, UriRef predicate){
+        if(type == null){
+            type = NamedEntityTypeEnum.UNK;
+        }
+        if(predicate == null){
+            namedEntityTypePredicates.remove(type);
+        } else {
+            namedEntityTypePredicates.put(type, predicate);
+        }
+    }
+    
+    public UriRef getNamedEntityPredicate(UriRef namedEntityType){
+        NamedEntityTypeEnum type = Defaults.DEFAULT_NAMED_ENTITY_TYPE_MAPPINGS.get(namedEntityType);
+        if(type == null){
+            type = NamedEntityTypeEnum.UNK;
+        }
+        UriRef predicate = namedEntityTypePredicates.get(type);
+        if(predicate == null && type != NamedEntityTypeEnum.UNK){
+            predicate = namedEntityTypePredicates.get(NamedEntityTypeEnum.UNK);
+        }
+        return predicate;//may be null if mappings for this type are deactivated
+    }
+    
 
     public Transformer getTransformer() {
         return transformer;

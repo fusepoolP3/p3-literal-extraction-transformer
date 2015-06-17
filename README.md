@@ -112,6 +112,10 @@ The Literal Extraction Transformer supports the following request parameters:
 the long literal value. The passed transformer needs to accept `text/plain` and 
 support `text/turtle` as response format. If this is not the case the request
 will not be accepted.
+* __lang__ _(`0..n`, default: any)_: Allows to explicitly define the set of
+processed languages. If missing all languages will be processed. _NOTE_ that literals
+without language tag will also be processed as their language is assumed to be
+unknown (to be determined by a language detection feature of the called transformer).p
 * __lit-pred__ _(`0..n`, default: `rdfs:comment`, `skos:note`, `skos:definition`, 
 `schema:description`)_: The URIs of predicates of literals used to extract
 information from. If not present the defaults will be used.
@@ -119,17 +123,30 @@ information from. If not present the defaults will be used.
 to add entities extracted from the textual description to the dataset.
 * __topic-pred__ _(`0..1`, default: `fam:topic-reference`)_: The predicate used
 to add topics assigned based on the textual description to the dataset 
-* __lang__ _(`0..n`, default: any)_: Allows to explicitly define the set of
-processed languages. If missing all languages will be processed. _NOTE_ that literals
-without language tag will also be processed as their language is assumed to be
-unknown (to be determined by a language detection feature of the called transformer).
+* __{ne-type}-ne-pred__ _(since v. 1.1.0)_: Allow to define the predicates used to link extracted 
+Named Entities. Four different named entity types (`{ne-type}`) are supported; plus
+an additional predicate used for named entities with no (or an unkown) type. Named
+Entities are represented by the [FAM](https://github.com/fusepoolP3/overall-architecture/blob/master/wp3/fp-anno-model/fp-anno-model.md)
+by `fam:EntityMention` annotation. The named entity is the value of the 
+`fam:entity-mention` property. The type of the named entity is the value of the 
+`fam:entity-type` property.
+    * __pers-ne-pred__ _(`0..1`, default: `fam:preson-ne-reference`)_: The predicate used
+    to link to named entities with one of the following types: `dbo:Person`, `schema:Person`, `nerd:Person` and `foaf:Person`
+    * __org-ne-pred__ _(`0..1`, default: `fam:organization-ne-reference`)_: The predicate used
+    to link to named entities with one of the following types: `dbo:Organisation`, `schema:Organization`, `nerd:Organization` and `foaf:Organization`
+    * __loc-ne-pred__ _(`0..1`, default: `fam:location-ne-reference`)_: The predicate used
+    to link to named entities with one of the following types: `dbo:Place`, `schema:Place`, `nerd:Location` and `geonames:Feature`
+    * __misc-ne-pred__ _(`0..1`, default: `fam:location-ne-reference`)_: The predicate used
+    to link to named entities with one of the following types: `skos:Concept` and `schema:Intangible`
+    * __unk-ne-pred__ _(`0..1`, default: `fam:named-entity-reference`)_: The predicate used
+    to link to named entities with none or an unknown (other as the one listed above) type.
 
 ### Asynchronous Transformation Requests
 
 A typical request will look like the follows
 
     curl -v -X "POST" -H "Content-Type: text/turtle;charset=UTF-8" \
-        -T "myDataset.ttl" \
+        --data-binary "@myDataset.ttl" \
         "http://localhost:8305/?transformer=http%3A%2F%2Flocalhost%3A8088%2F"
 
 This will send the RDF data contained in the `myDataset.ttl`-file to the 
@@ -182,6 +199,23 @@ The Literal Extraction Transformer will now extract entities from the `rdfs:comm
     :res-1 rdfs:label "Poppi Castle"@en;
         rdfs:comment "Poppi Castle is a medieval castle in Poppi, Tuscany, Italy, formerly the property of the noble family of the Conti Guidi";
         fam:entity-reference dbr:Italy, dbr:Tuscany, dbr:Poppi, dbr:Poppi_Castle;
-        fam:topic-reference  dbc:Tuscany .
+        fam:topic-reference  dbc:Tuscany ;
+        fam:person-ne-reference "Poppi Castle"@en ;
+        fam:location-ne-reference "Poppi"@en .
 
-The above listing shows that the Information Extraction Transformer called by the Literal Extraction Transformer was able to extract four entities (Italy, Tuscany, Poppi and the Castle of Poppi) and a two Topics (Tuscany, Castles) from the `rdfs:comment` of the resource `:res-1`. Those information extraction results where used to enrich the original dataset. By default `fam:entity-reference` is used to link extracted entities and `fam:topic-reference` for assigned topics. However this can be customized by sending different properties in the transformation request.
+The above listing shows that the Information Extraction Transformer called by the 
+Literal Extraction Transformer was able to extract four entities (Italy, Tuscany, 
+Poppi and the Castle of Poppi) and a two Topics (Tuscany, Castles) from 
+the `rdfs:comment` of the resource `:res-1`. Those information extraction results where used to enrich the original dataset. 
+By default `fam:entity-reference` is used to link extracted entities and 
+`fam:topic-reference` for assigned topics. However this can be customized by 
+parsing different properties in the transformation request.
+
+_Since version 1.1.0_ also Named Entities are supported. The above Example shows
+that the Person `Poppi Castle` (a false positive) and the place `Poppi` are detected
+as named entities by the English ixa nerc model for the this sentence. 
+
+Named Entity Recognition support is e.g. provided by the 
+[Fusepool Apache Stanbol Launcher](https://github.com/fusepoolP3/p3-stanbol-launcher).
+To use the IXA NERC models you need to include the preconfigured `ixa-nerc` engine
+in the Enhancement Chain for the transformer configured to the Literal Extraction Transformer.

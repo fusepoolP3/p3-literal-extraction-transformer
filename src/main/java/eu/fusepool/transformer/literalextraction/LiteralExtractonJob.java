@@ -1,5 +1,10 @@
 package eu.fusepool.transformer.literalextraction;
 
+import static eu.fusepool.transformer.literalextraction.Defaults.DEFAULT_LITERAL_PREDICATES;
+import static eu.fusepool.transformer.literalextraction.Defaults.DEFAULT_ENTITY_PREDICATE;
+import static eu.fusepool.transformer.literalextraction.Defaults.DEFAULT_TOPIC_PREDICATE;
+import static eu.fusepool.transformer.literalextraction.Defaults.DEFAULT_SENTIMENT_PREDICATE;
+
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
@@ -32,13 +37,19 @@ class LiteralExtractonJob implements Serializable {
     protected final TripleCollection dataset;
     protected final LockableMGraph results;
     
-    protected UriRef referencedEntityPredicate;
-    protected UriRef assigendTopicPredicate;
+    protected UriRef entityPredicate;
+    protected UriRef topicPredicate;
+    
+    protected UriRef keywordPredicate;
+    
+    protected UriRef sentimentPredicate;
     
     protected Map<NamedEntityTypeEnum,UriRef> namedEntityTypePredicates = new HashMap<>(
             Defaults.DEFAULT_NAMED_ENTITY_TYPE_PREDICATES);
 
     private Set<String> activeLanguages;
+
+    private Integer minLiteralLength;
     
     LiteralExtractonJob(String requestId, Transformer transformer, MGraph graph) {
         this(requestId,transformer,graph,graph,null);
@@ -63,28 +74,54 @@ class LiteralExtractonJob implements Serializable {
         assert literalPredicates == null || (!literalPredicates.isEmpty() &&
                 !literalPredicates.contains(null));
         this.literalPredicates = Collections.unmodifiableSet(
-                literalPredicates == null ? Defaults.DEFAULT_LITERAL_PREDICATES : literalPredicates);
+                literalPredicates == null ? DEFAULT_LITERAL_PREDICATES : literalPredicates);
     }
 
     public UriRef getReferencedEntityPredicate() {
-        return referencedEntityPredicate == null ? Defaults.DEFAULT_REFERENCED_ENTITY_PREDICATE :
-            referencedEntityPredicate;
+        return entityPredicate == null ? DEFAULT_ENTITY_PREDICATE : entityPredicate;
     }
 
-    public void setReferencedEntityPredicate(UriRef referencedEntityPredicate) {
-        this.referencedEntityPredicate = referencedEntityPredicate;
+    void setReferencedEntityPredicate(UriRef referencedEntityPredicate) {
+        this.entityPredicate = referencedEntityPredicate;
     }
 
     public UriRef getAssigendTopicPredicate() {
-        return assigendTopicPredicate == null ? Defaults.DEFAULT_ASSIGNED_TOPIC_REFERENCE :
-            assigendTopicPredicate;
+        return topicPredicate == null ? DEFAULT_TOPIC_PREDICATE : topicPredicate;
     }
 
-    public void setAssigendTopicPredicate(UriRef assigendTopicPredicate) {
-        this.assigendTopicPredicate = assigendTopicPredicate;
+    void setAssigendTopicPredicate(UriRef assigendTopicPredicate) {
+        this.topicPredicate = assigendTopicPredicate;
     }
     
-    public void setNamedEntityTypePredicate(NamedEntityTypeEnum type, UriRef predicate){
+    public UriRef getKeywordPredicate() {
+        return keywordPredicate == null ? Defaults.DEFAULT_KEYWORD_PREDICATE : keywordPredicate;
+    }
+    
+    void setKeywordPredicate(UriRef keywordPredicate) {
+        this.keywordPredicate = keywordPredicate;
+    }
+    
+    public UriRef getSentimentPredicate() {
+        return sentimentPredicate == null ? DEFAULT_SENTIMENT_PREDICATE : sentimentPredicate;
+    }
+    
+    void setSentimentPredicate(UriRef sentimentPredicate) {
+        this.sentimentPredicate = sentimentPredicate;
+    }
+    
+    public int getMinLiteralLentth() {
+        return minLiteralLength == null ? Defaults.DEFAULT_MIN_LITERAL_LENGTH : minLiteralLength;
+    }
+
+    /**
+     * Setter for the minimal literal length.
+     * @param minLiteralLength The minimal literal length. <code>null</code> to set the default.
+     */
+    void setMinLiteralLength(Integer minLiteralLength) {
+        this.minLiteralLength = minLiteralLength;
+    }
+    
+    void setNamedEntityTypePredicate(NamedEntityTypeEnum type, UriRef predicate){
         if(type == null){
             type = NamedEntityTypeEnum.UNK;
         }

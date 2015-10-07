@@ -1,5 +1,11 @@
 package eu.fusepool.transformer.literalextraction;
 
+import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.FAM_COUNT;
+import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.FAM_DOCUMENT_SENTIMENT_ANNOTATION;
+import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.FAM_KEYWORD;
+import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.FAM_KEYWORD_ANNOTATION;
+import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.FAM_SENTIMENT;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -12,10 +18,14 @@ import javax.activation.MimeTypeParseException;
 
 import org.apache.clerezza.rdf.core.MGraph;
 import org.apache.clerezza.rdf.core.UriRef;
+import org.apache.clerezza.rdf.core.impl.PlainLiteralImpl;
 import org.apache.clerezza.rdf.core.impl.SimpleMGraph;
 import org.apache.clerezza.rdf.core.impl.TripleImpl;
+import org.apache.clerezza.rdf.core.impl.TypedLiteralImpl;
 import org.apache.clerezza.rdf.core.serializedform.Serializer;
 import org.apache.clerezza.rdf.core.serializedform.SupportedFormat;
+import org.apache.clerezza.rdf.ontologies.RDF;
+import org.apache.clerezza.rdf.ontologies.XSD;
 
 import eu.fusepool.p3.transformer.HttpRequestEntity;
 import eu.fusepool.p3.transformer.SyncTransformer;
@@ -28,6 +38,10 @@ public class DummyTransformer implements SyncTransformer {
     protected static final String TOPIC_SUFFIX = "dummyTopic";
     protected static final String ENTITY_ANNO_SUFFIX = "entityAnno";
     protected static final String TOPIC_ANNO_SUFFIX = "topicAnno";
+    protected static final String NAMED_ENTITY_ANNO_SUFFIX = "NeAnno";
+    protected static final String KEYWORD_ANNO_SUFFIX = "keywordAnno";
+    protected static final String SENTIMENT_ANNO_SUFFIX = "sentimentAnno";
+    
     private static final String DEFAULT_BASE_URI = "http://www.test.org/fusepool/literalExtractionTransformer/dummyTransformer#";
     private final static MimeType TURTLE;
     private final static MimeType TEXT_PLAIN;
@@ -61,12 +75,10 @@ public class DummyTransformer implements SyncTransformer {
     public Entity transform(HttpRequestEntity entity) throws IOException {
         final MGraph graph = new SimpleMGraph();
         //create the FAM enhancements
-        //NOTE: for now we are only creating two triples referring a dummy
-        //      Entity and Topic as the LiteralExtractionTransformer does not
-        //      use more information of the FAM.
-        //      As the LiteralExtractionTransfomer improves this DummyTransformer
-        //      will also need to be improved to create a more complete FAM
-        //      annotations.
+        //NOTE: for now we are only creating some FAM triples as expected by the
+        //      LiteralExtractionTransformer. One could also use a real example
+        //      output of a Transformer supporting FAM.
+        
         String baseUri;
         if(entity.getContentLocation() != null){
             baseUri = entity.getContentLocation().toString()+"-";
@@ -80,6 +92,31 @@ public class DummyTransformer implements SyncTransformer {
         UriRef topicEnhancement = new UriRef(DEFAULT_BASE_URI + TOPIC_ANNO_SUFFIX);
         UriRef dummyTopic = new UriRef(baseUri + TOPIC_SUFFIX);
         graph.add(new TripleImpl(topicEnhancement, FAM.topic_reference, dummyTopic));
+        
+        UriRef personEnhancement = new UriRef(DEFAULT_BASE_URI + NamedEntityTypeEnum.PERS + NAMED_ENTITY_ANNO_SUFFIX);
+        graph.add(new TripleImpl(personEnhancement, RDF.type, FAM.EntityMention));
+        graph.add(new TripleImpl(personEnhancement, FAM.entity_mention, new PlainLiteralImpl("Max Mustermann")));
+        graph.add(new TripleImpl(personEnhancement, FAM.entity_type, new UriRef("http://schema.org/Person")));
+
+        UriRef orgEnhancement = new UriRef(DEFAULT_BASE_URI + NamedEntityTypeEnum.ORG + NAMED_ENTITY_ANNO_SUFFIX);
+        graph.add(new TripleImpl(orgEnhancement, RDF.type, FAM.EntityMention));
+        graph.add(new TripleImpl(orgEnhancement, FAM.entity_mention, new PlainLiteralImpl("Audi")));
+        graph.add(new TripleImpl(orgEnhancement, FAM.entity_type, new UriRef("http://schema.org/Organization")));
+
+        UriRef placeEnhancement = new UriRef(DEFAULT_BASE_URI + NamedEntityTypeEnum.LOC + NAMED_ENTITY_ANNO_SUFFIX);
+        graph.add(new TripleImpl(placeEnhancement, RDF.type, FAM.EntityMention));
+        graph.add(new TripleImpl(placeEnhancement, FAM.entity_mention, new PlainLiteralImpl("Linz")));
+        graph.add(new TripleImpl(placeEnhancement, FAM.entity_type, new UriRef("http://schema.org/Place")));
+
+        UriRef keywordEnhancement = new UriRef(DEFAULT_BASE_URI + KEYWORD_ANNO_SUFFIX);
+        graph.add(new TripleImpl(keywordEnhancement, RDF.type, FAM_KEYWORD_ANNOTATION));
+        graph.add(new TripleImpl(keywordEnhancement, FAM_KEYWORD, new PlainLiteralImpl("Bruck an der Donau")));
+        graph.add(new TripleImpl(keywordEnhancement, FAM_COUNT, new TypedLiteralImpl("3", XSD.int_)));
+        graph.add(new TripleImpl(keywordEnhancement, FAM_COUNT, new TypedLiteralImpl("0.87", XSD.double_)));
+
+        UriRef sentimentEnhancement = new UriRef(DEFAULT_BASE_URI + KEYWORD_ANNO_SUFFIX);
+        graph.add(new TripleImpl(sentimentEnhancement, RDF.type, FAM_DOCUMENT_SENTIMENT_ANNOTATION));
+        graph.add(new TripleImpl(sentimentEnhancement, FAM_SENTIMENT, new TypedLiteralImpl("0.87", XSD.double_)));
         
         return new Entity() {
             

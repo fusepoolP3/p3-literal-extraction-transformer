@@ -37,6 +37,7 @@ import org.apache.clerezza.rdf.core.MGraph;
 import org.apache.clerezza.rdf.core.NonLiteral;
 import org.apache.clerezza.rdf.core.PlainLiteral;
 import org.apache.clerezza.rdf.core.Triple;
+import org.apache.clerezza.rdf.core.TypedLiteral;
 import org.apache.clerezza.rdf.core.UriRef;
 import org.apache.clerezza.rdf.core.impl.TripleImpl;
 import org.apache.clerezza.rdf.core.serializedform.Parser;
@@ -82,6 +83,38 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
     public static final MimeType OUTPUT;
 
 
+    //new FAM classes
+    //NOTE: we can not use newer version of the p3-vocap because we need to use the old Clerezza version
+    private static final String NS_FAM = "http://vocab.fusepool.info/fam#";
+    /**
+     * Marks the sentiment for the document as a whole. 
+     * A <code>rdfs:subClassOf</code> {@link #FAM_SENTIMENT_ANNOTATION}
+     */
+    public static final UriRef FAM_DOCUMENT_SENTIMENT_ANNOTATION = new UriRef(NS_FAM + "DocumentSentimentAnnotation");
+    /**
+     * The <code>fam:sentiment</code> value as a <code>xsd:double</code> in the range
+     * [-1..1].
+     */
+    public static final UriRef FAM_SENTIMENT = new UriRef(NS_FAM + "sentiment");
+    /**
+     * A keyword detected in the processed document.
+     */
+    public static final UriRef FAM_KEYWORD_ANNOTATION = new UriRef(NS_FAM + "KeywordAnnotation");
+    /**
+     * The keyword
+     */
+    public static final UriRef FAM_KEYWORD = new UriRef(NS_FAM + "keyword");
+    /**
+     * the metric for the extracted keyword a <code>xsd:double</code> in the range [0..1]
+     */
+    public static final UriRef FAM_METRIC = new UriRef(NS_FAM + "metric");
+    /**
+     * the number of times the keyword appears in the text. For multi-word keywords
+     * this number migt include mentions of sub sections. An <code>xsd:int</code> 
+     * <code>&gt;= 1</code>.
+     */
+    public static final UriRef FAM_COUNT = new UriRef(NS_FAM + "count");
+    
     Parser parser = Parser.getInstance();
     Serializer serializer = Serializer.getInstance();
     
@@ -118,6 +151,8 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
     public static final String PARAM_LITERAL_PREDICATE = "lit-pred";
     public static final String PARAM_ENTITY_PREDICATE = "entity-pred";
     public static final String PARAM_TOPIC_PREDICATE = "topic-pred";
+    public static final String PARAM_KEYWORD_PREDICATE = "keyword-pred";
+    public static final String PARAM_SENTIMENT_PREDICATE = "sentiment-pred";
     /**
      * Suffix for the parameters used to configure the Named Entity Predicates.
      * The full parameter is the name of the {@link NamedEntityTypeEnum} member
@@ -125,6 +160,7 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
      */
     public static final String PARAM_NAMED_ENTITY_PREDICATE_SUFFIX = "-ne-pred";
     public static final String PARAM_LANGUAGE = "lang";
+    public static final String PARAM_MIN_LITERAL_LENGTH = "min-lit-len";
     
     
     static {
@@ -295,6 +331,30 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
             job.setAssigendTopicPredicate(new UriRef(
                     URLDecoder.decode(topicPredicate, UTF8.name())));
         }
+        //lookup a custom assigned keyword predicate
+        String keywordPredicate = request.getParameter(PARAM_KEYWORD_PREDICATE);
+        if(!StringUtils.isBlank(keywordPredicate)){
+            job.setKeywordPredicate(new UriRef(
+                    URLDecoder.decode(keywordPredicate, UTF8.name())));
+        }
+        //lookup a custom assigned sentiment predicate
+        String sentimentPredicate = request.getParameter(PARAM_SENTIMENT_PREDICATE);
+        if(!StringUtils.isBlank(sentimentPredicate)){
+            job.setSentimentPredicate(new UriRef(
+                    URLDecoder.decode(sentimentPredicate, UTF8.name())));
+        }
+        //check if a custom minimal literal length is configured
+        String minLitLen = request.getParameter(PARAM_MIN_LITERAL_LENGTH);
+        if(!StringUtils.isBlank(sentimentPredicate)){
+            try {
+                job.setMinLiteralLength(Integer.valueOf(minLitLen));
+            } catch (NumberFormatException e){
+                log.warn("Unable to prase integer {} from configured value '{}'! "
+                        + "Will use the default {} instead.", new Object[]{
+                        PARAM_MIN_LITERAL_LENGTH, minLitLen, Defaults.DEFAULT_MIN_LITERAL_LENGTH});
+            }
+        }
+
         //look for custom named entity predicates
         Enumeration<String> parameterNames = request.getParameterNames();
         while(parameterNames.hasMoreElements()){
@@ -424,9 +484,9 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                         Triple t = it.next();
                         if(t.getObject() instanceof PlainLiteral){
                             PlainLiteral text = (PlainLiteral)t.getObject();
-                            //TODO: make min literal size configurable
                             if(job.isActiveLanguage(text.getLanguage())){
-                                if(text.getLexicalForm().length() > 50){
+                                if(!text.getLexicalForm().isEmpty() && 
+                                        text.getLexicalForm().length() >= job.getMinLiteralLentth()){
                                     //create a new extraction job
                                     ResourceText key = new ResourceText(t.getSubject(),text.getLanguage());
                                     StringBuilder textBuilder = resourceTexts.get(key);
@@ -459,7 +519,6 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                     log.info(" ... invoked {} in {}ms ({}ms avrg", new Object[]{
                             extractionTasks.size(), dur, (dur*100/extractionTasks.size())/100f});
                 }
-                //TODO, create Entity with the updated graph
                 resultEntity = new TmpFileEntity(job.requestId, TURTLE_UTF8);
                 OutputStream out = resultEntity.getWriter();
                 try {
@@ -613,10 +672,10 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                 MGraph famResults = new IndexedMGraph();
                 parser.parse(famResults, response.getData(), SupportedFormat.TURTLE);
                 //(2) get Informations form the FAM enhancements
-                //TODO: Improve processing of FAM results
                 MGraph extractionResults = new IndexedMGraph();
                 //for now we are only interested in linked entities
                 log.debug("  - Extraction Results: ");
+                // - referenced Entities
                 Iterator<Triple> it = famResults.filter(null, FAM.entity_reference, null);
                 while(it.hasNext()){
                     Triple t = it.next();
@@ -627,6 +686,7 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                         extractionResults.add(new TripleImpl(subject,job.getReferencedEntityPredicate(), refEntity));
                     }
                 }
+                // - assigned topics
                 it = famResults.filter(null, FAM.topic_reference, null);
                 while(it.hasNext()){
                     Triple t = it.next();
@@ -637,6 +697,7 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                         extractionResults.add(new TripleImpl(subject,job.getAssigendTopicPredicate(), refTopic));
                     }
                 }
+                // - Named Entities
                 it = famResults.filter(null, RDF.type, FAM.EntityMention);
                 while(it.hasNext()){
                     Triple t = it.next();
@@ -676,6 +737,34 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                     }
                     
                 }
+                // - extracted keywords
+                it = famResults.filter(null, RDF.type, FAM_KEYWORD_ANNOTATION);
+                while(it.hasNext()){
+                    GraphNode ka = new GraphNode(it.next().getSubject(),famResults);
+                    Iterator<Literal> keywords = ka.getLiterals(FAM_KEYWORD);
+                    //TODO: maybe allow to filter based on metric and count
+                    while(keywords.hasNext()){
+                        extractionResults.add(new TripleImpl(subject, 
+                                job.getKeywordPredicate(), keywords.next()));
+                    }
+                    
+                }
+                // - detected sentiment
+                it = famResults.filter(null, RDF.type, FAM_DOCUMENT_SENTIMENT_ANNOTATION);
+                if(it.hasNext()){ //only the first
+                    GraphNode ka = new GraphNode(it.next().getSubject(),famResults);
+                    Iterator<Literal> sentiments = ka.getLiterals(FAM_SENTIMENT);
+                    //TODO: maybe allow to filter based on metric and count
+                    if(sentiments.hasNext()){ //only the first
+                        Literal sentiment = sentiments.next();
+                        if(sentiment instanceof TypedLiteral){
+                            extractionResults.add(new TripleImpl(subject, 
+                                    job.getSentimentPredicate(), sentiment));
+                        }
+                    }
+                    
+                }
+                
                 //we need to add them (while within a write lock
                 job.results.getLock().writeLock().lock();
                 try {

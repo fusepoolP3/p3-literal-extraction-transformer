@@ -1,7 +1,10 @@
 package eu.fusepool.transformer.literalextraction;
 
 import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_ENTITY_PREDICATE;
+import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_KEYWORD_PREDICATE;
 import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_LANGUAGE;
+import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_NAMED_ENTITY_PREDICATE_SUFFIX;
+import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_SENTIMENT_PREDICATE;
 import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_TOPIC_PREDICATE;
 import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_TRANSFORMER;
 import static org.apache.clerezza.rdf.core.serializedform.SupportedFormat.TURTLE;
@@ -15,6 +18,7 @@ import java.net.ServerSocket;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -32,14 +36,19 @@ import javax.activation.MimeType;
 import org.apache.clerezza.rdf.core.Graph;
 import org.apache.clerezza.rdf.core.Language;
 import org.apache.clerezza.rdf.core.Literal;
+import org.apache.clerezza.rdf.core.LiteralFactory;
+import org.apache.clerezza.rdf.core.PlainLiteral;
 import org.apache.clerezza.rdf.core.Resource;
 import org.apache.clerezza.rdf.core.Triple;
+import org.apache.clerezza.rdf.core.TypedLiteral;
 import org.apache.clerezza.rdf.core.UriRef;
 import org.apache.clerezza.rdf.core.impl.PlainLiteralImpl;
 import org.apache.clerezza.rdf.core.impl.TripleImpl;
 import org.apache.clerezza.rdf.core.serializedform.Parser;
 import org.apache.clerezza.rdf.ontologies.DCTERMS;
+import org.apache.clerezza.rdf.ontologies.XSD;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpStatus;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -54,7 +63,6 @@ import com.jayway.restassured.specification.RequestSpecification;
 import com.jayway.restassured.specification.ResponseSpecification;
 
 import eu.fusepool.p3.transformer.server.TransformerServer;
-import eu.fusepool.p3.vocab.FAM;
 import eu.fusepool.p3.vocab.TRANSFORMER;
 
 public class LiteralExtractionTransformerTest {
@@ -92,6 +100,22 @@ public class LiteralExtractionTransformerTest {
     //      transformer that can be called by the literal extraction transformer
     //      for testing purpose
     private static String UNIT_TEST_TRANSFORMER;
+    
+    public static final Map<String,UriRef> DEFAULT_PREDICATES;
+    static {
+        Map<String,UriRef> p = new HashMap<>();
+        p.put(PARAM_ENTITY_PREDICATE, Defaults.DEFAULT_ENTITY_PREDICATE);
+        p.put(PARAM_TOPIC_PREDICATE, Defaults.DEFAULT_TOPIC_PREDICATE);
+        p.put(NamedEntityTypeEnum.PERS + PARAM_NAMED_ENTITY_PREDICATE_SUFFIX, Defaults.DEFAULT_PERSON_PREDICATE);
+        p.put(NamedEntityTypeEnum.ORG + PARAM_NAMED_ENTITY_PREDICATE_SUFFIX, Defaults.DEFAULT_ORGANIZATION_PREDICATE);
+        p.put(NamedEntityTypeEnum.LOC + PARAM_NAMED_ENTITY_PREDICATE_SUFFIX, Defaults.DEFAULT_LOCATION_PREDICATE);
+        p.put(NamedEntityTypeEnum.MISC + PARAM_NAMED_ENTITY_PREDICATE_SUFFIX, Defaults.DEFAULT_OTHER_PREDICATE);
+        p.put(NamedEntityTypeEnum.UNK + PARAM_NAMED_ENTITY_PREDICATE_SUFFIX, null);
+        p.put(PARAM_KEYWORD_PREDICATE, Defaults.DEFAULT_KEYWORD_PREDICATE);
+        p.put(PARAM_SENTIMENT_PREDICATE, Defaults.DEFAULT_SENTIMENT_PREDICATE);
+        
+        DEFAULT_PREDICATES = Collections.unmodifiableMap(p);
+    }
 
     @BeforeClass
     public static void setUp() throws Exception {
@@ -178,8 +202,13 @@ public class LiteralExtractionTransformerTest {
                         PARAM_ENTITY_PREDICATE, entityPredicate.getUnicodeString(),
                         PARAM_TOPIC_PREDICATE, topicPredicate.getUnicodeString()),
                 TURTLE + ";charset=UTF-8", RDF_DATASET_CONTENTS.get(0), contentLocation, acceptType);
+        Map<String,UriRef> predicates = new HashMap<>(DEFAULT_PREDICATES);
+        predicates.put(PARAM_ENTITY_PREDICATE, entityPredicate);
+        predicates.put(PARAM_TOPIC_PREDICATE, topicPredicate);
+        
         Graph graph = parser.parse(result.asInputStream(), acceptType);
-        assertExtractionResults(graph, entityPredicate, topicPredicate);
+        
+        assertExtractionResults(graph, predicates);
     }
     
     @Test
@@ -187,8 +216,6 @@ public class LiteralExtractionTransformerTest {
         log.info("> test LiteralExtractionTransformer");
         String contentLocation = "http://www.test.org/fusepool/transformer/literalExtraction/";
         String acceptType = TURTLE;
-        UriRef entityPredicate = DCTERMS.references;
-        UriRef topicPredicate = DCTERMS.subject;
         
         ResponseBodyData result = validateAsyncTransformerRequest(BASE_URI,
                 Arrays.asList(PARAM_TRANSFORMER,UNIT_TEST_TRANSFORMER,
@@ -196,7 +223,7 @@ public class LiteralExtractionTransformerTest {
                         PARAM_LANGUAGE, "ES"),
                 TURTLE + ";charset=UTF-8", RDF_DATASET_CONTENTS.get(0), contentLocation, acceptType);
         Graph graph = parser.parse(result.asInputStream(), acceptType);
-        assertExtractionResults(graph, entityPredicate, topicPredicate);
+        assertExtractionResults(graph, DEFAULT_PREDICATES);
     }
 
     @Test
@@ -237,15 +264,17 @@ public class LiteralExtractionTransformerTest {
      * {@link LiteralExtractionTransformer}.
      */
     private void assertExtractionResults(Graph graph) {
-        assertExtractionResults(graph, FAM.entity_reference, FAM.topic_reference);
+        assertExtractionResults(graph, DEFAULT_PREDICATES);
     }
-    private void assertExtractionResults(Graph graph, UriRef entityPredicate, UriRef topicPredicate) {
+    private void assertExtractionResults(Graph graph, Map<String,UriRef> predicates) {
+        UriRef entityPredicate = predicates.get(PARAM_ENTITY_PREDICATE);
         Iterator<Triple> it = graph.filter(null, entityPredicate, null);
         log.debug("Assert Extraction Results");
         Map<String, String> entities = new HashMap<>();
         Map<String,String> topics = new HashMap<>();
         while(it.hasNext()){
             Triple t = it.next();
+            log.debug(" - {}",t);
             assertTrue(t.getSubject() instanceof UriRef);
             assertTrue(t.getObject() instanceof UriRef);
             //put the data to a map to ensure that every concept in the vocabulary
@@ -253,15 +282,17 @@ public class LiteralExtractionTransformerTest {
             Assert.assertNull("Subject "+ t.getSubject() + " has multiple related Entities",
                     entities.put(((UriRef)t.getSubject()).getUnicodeString(), 
                     ((UriRef)t.getObject()).getUnicodeString()));
-            log.debug(" - {}",it.next());
         }
         for(Entry<String, String> e : entities.entrySet()){
             assertTrue(e.getValue().startsWith(e.getKey()));
             assertTrue(e.getValue().endsWith(DummyTransformer.ENTITY_SUFFIX));
         }
+        
+        UriRef topicPredicate = predicates.get(PARAM_TOPIC_PREDICATE);
         it = graph.filter(null, topicPredicate, null);
         while(it.hasNext()){
             Triple t = it.next();
+            log.debug(" - {}",t);
             assertTrue(t.getSubject() instanceof UriRef);
             assertTrue(t.getObject() instanceof UriRef);
             //put the data to a map to ensure that every concept in the vocabulary
@@ -269,11 +300,45 @@ public class LiteralExtractionTransformerTest {
             Assert.assertNull("Subject "+ t.getSubject() + " has multiple assigned Topics",
                     topics.put(((UriRef)t.getSubject()).getUnicodeString(), 
                     ((UriRef)t.getObject()).getUnicodeString()));
-            log.debug(" - {}",it.next());
         }
         for(Entry<String, String> e : topics.entrySet()){
             assertTrue(e.getValue().startsWith(e.getKey()));
             assertTrue(e.getValue().endsWith(DummyTransformer.TOPIC_SUFFIX));
+        }
+        
+        for(NamedEntityTypeEnum net : NamedEntityTypeEnum.values()){
+            UriRef netPredicate = predicates.get(net+PARAM_NAMED_ENTITY_PREDICATE_SUFFIX);
+            if(netPredicate != null){
+                it = graph.filter(null, netPredicate, null);
+                while(it.hasNext()){
+                    Triple t = it.next();
+                    assertTrue(t.getSubject() instanceof UriRef);
+                    assertTrue(t.getObject() instanceof PlainLiteral);
+                    Assert.assertTrue(StringUtils.isNotBlank(((Literal)t.getObject()).getLexicalForm()));
+                }
+            }
+        }
+        
+        UriRef keywordPredicate = predicates.get(PARAM_KEYWORD_PREDICATE);
+        it = graph.filter(null, keywordPredicate, null);
+        while(it.hasNext()){
+            Triple t = it.next();
+            assertTrue(t.getSubject() instanceof UriRef);
+            assertTrue(t.getObject() instanceof PlainLiteral);
+            assertTrue(StringUtils.isNotBlank(((Literal)t.getObject()).getLexicalForm()));
+        }
+        
+        LiteralFactory lf = LiteralFactory.getInstance();
+        UriRef sentimentPredicate = predicates.get(PARAM_SENTIMENT_PREDICATE);
+        it = graph.filter(null, sentimentPredicate, null);
+        while(it.hasNext()){
+            Triple t = it.next();
+            assertTrue(t.getSubject() instanceof UriRef);
+            assertTrue(t.getObject() instanceof TypedLiteral);
+            TypedLiteral sentiment = (TypedLiteral)t.getObject();
+            assertEquals(XSD.double_, sentiment.getDataType());
+            double sentVal = lf.createObject(Double.class, sentiment);
+            assertTrue(-1d <= sentVal && sentVal <= 1d);
         }
     }
     

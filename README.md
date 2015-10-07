@@ -115,7 +115,8 @@ will not be accepted.
 * __lang__ _(`0..n`, default: any)_: Allows to explicitly define the set of
 processed languages. If missing all languages will be processed. _NOTE_ that literals
 without language tag will also be processed as their language is assumed to be
-unknown (to be determined by a language detection feature of the called transformer).p
+unknown (to be determined by a language detection feature of the called transformer).
+* __min-lit-len__ _(`0..1`, default: `50`)_: Allows to specify the minimal length of literals to that they are considered for information extraction.
 * __lit-pred__ _(`0..n`, default: `rdfs:comment`, `skos:note`, `skos:definition`, 
 `schema:description`)_: The URIs of predicates of literals used to extract
 information from. If not present the defaults will be used.
@@ -140,6 +141,10 @@ by `fam:EntityMention` annotation. The named entity is the value of the
     to link to named entities with one of the following types: `skos:Concept` and `schema:Intangible`
     * __unk-ne-pred__ _(`0..1`, default: `fam:named-entity-reference`)_: The predicate used
     to link to named entities with none or an unknown (other as the one listed above) type.
+* __keyword-pred__ _(`0..1`, default: `fam:keyword`)_: The predicate used
+to add keyword (and keyword phrases) extracted from the parsed text
+* __sentiment-pred__ _(`0..1`, default: `fam:sentiment`)_: The predicate used
+to add the sentiment (double value in the range `[-1..+1]`) detected for the parsed text
 
 ### Asynchronous Transformation Requests
 

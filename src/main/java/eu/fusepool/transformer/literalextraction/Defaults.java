@@ -17,15 +17,22 @@ import eu.fusepool.p3.vocab.FAM;
 
 public class Defaults {
 
+    public static final int DEFAULT_MIN_LITERAL_LENGTH = 50;
+
     private Defaults(){/* no instances allowed*/}
     
     private static final String NS_FAM = FAM.THIS_ONTOLOGY.getUnicodeString();
     
-    public static final UriRef DEFAULT_REFERENCED_ENTITY_PREDICATE = FAM.entity_reference;
-    public static final UriRef DEFAULT_ASSIGNED_TOPIC_REFERENCE = FAM.topic_reference;
+    public static final UriRef DEFAULT_ENTITY_PREDICATE = FAM.entity_reference;
+    public static final UriRef DEFAULT_TOPIC_PREDICATE = FAM.topic_reference;
     
     public static final Map<NamedEntityTypeEnum,UriRef> DEFAULT_NAMED_ENTITY_TYPE_PREDICATES;
     public static final Map<UriRef,NamedEntityTypeEnum> DEFAULT_NAMED_ENTITY_TYPE_MAPPINGS;
+    
+    public static final UriRef DEFAULT_KEYWORD_PREDICATE = new UriRef(
+            FAM.THIS_ONTOLOGY.getUnicodeString() + "keyword");
+    public static final UriRef DEFAULT_SENTIMENT_PREDICATE = new UriRef(
+            FAM.THIS_ONTOLOGY.getUnicodeString() + "sentiment");
     
     /**
      * Predicate used for Named Entities of the type Person

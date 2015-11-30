@@ -92,7 +92,6 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
     private static final String NS_FAM = "http://vocab.fusepool.info/fam#";
     /**
      * Marks the sentiment for the document as a whole. 
-     * A <code>rdfs:subClassOf</code> {@link #FAM_SENTIMENT_ANNOTATION}
      */
     public static final UriRef FAM_DOCUMENT_SENTIMENT_ANNOTATION = new UriRef(NS_FAM + "DocumentSentimentAnnotation");
     /**
@@ -240,7 +239,7 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
     }
     /**
      * Setter for the core thread pool size
-     * @param corePoolSize
+     * @param corePoolSize the core pool size
      * @throws IllegalStateException if the transformer was already started
      */
     public void setThreadPoolSize(int corePoolSize) {
@@ -251,7 +250,7 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
     }
     /**
      * Getter for the maximum thread pool size
-     * @return
+     * @return the size of the thread pool
      */
     public int getPoolSize() {
         return poolSize;
@@ -442,9 +441,9 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
     /**
      * This method checks if the required {@link MimeType} is covered by the
      * set of supported. This also considers wildcard prime/sub types.
-     * @param supported
-     * @param required
-     * @return
+     * @param supported the supported mime types
+     * @param required the required mime type
+     * @return if their is a match
      */
     public static boolean checkTypesCompatible(Set<MimeType> supported, MimeType required){
         for(MimeType t : supported){

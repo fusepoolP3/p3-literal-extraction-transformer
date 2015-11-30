@@ -48,8 +48,8 @@ public class TmpFileEntity implements Entity, Closeable {
 	/**
 	 * Creates an {@link OutputStream} for the tmp file used by this entity to
 	 * cache the data until they are requestsd
-	 * @return
-	 * @throws IOException
+	 * @return the stream used to write to the temp file
+	 * @throws IOException on any error while writing to the temp file
 	 */
 	public OutputStream getWriter() throws IOException {
 		return new XZCompressorOutputStream(new FileOutputStream(tmpFile));

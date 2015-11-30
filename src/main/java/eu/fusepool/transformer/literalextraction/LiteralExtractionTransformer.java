@@ -39,17 +39,21 @@ import org.apache.clerezza.rdf.core.PlainLiteral;
 import org.apache.clerezza.rdf.core.Triple;
 import org.apache.clerezza.rdf.core.TypedLiteral;
 import org.apache.clerezza.rdf.core.UriRef;
+import org.apache.clerezza.rdf.core.impl.PlainLiteralImpl;
 import org.apache.clerezza.rdf.core.impl.TripleImpl;
 import org.apache.clerezza.rdf.core.serializedform.Parser;
 import org.apache.clerezza.rdf.core.serializedform.Serializer;
 import org.apache.clerezza.rdf.core.serializedform.SupportedFormat;
 import org.apache.clerezza.rdf.ontologies.RDF;
+import org.apache.clerezza.rdf.ontologies.XSD;
 import org.apache.clerezza.rdf.utils.GraphNode;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.stanbol.commons.indexedgraph.IndexedMGraph;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.ibm.icu.text.MessagePatternUtil.TextNode;
 
 import eu.fusepool.p3.transformer.AsyncTransformer;
 import eu.fusepool.p3.transformer.HttpRequestEntity;
@@ -482,24 +486,32 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                 for(UriRef predicate : job.getLiteralPredicates()){
                     for(java.util.Iterator<Triple> it = job.dataset.filter(null, predicate, null); it.hasNext();){
                         Triple t = it.next();
-                        if(t.getObject() instanceof PlainLiteral){
-                            PlainLiteral text = (PlainLiteral)t.getObject();
-                            if(job.isActiveLanguage(text.getLanguage())){
-                                if(!text.getLexicalForm().isEmpty() && 
-                                        text.getLexicalForm().length() >= job.getMinLiteralLentth()){
+                        if(t.getObject() instanceof PlainLiteral || (
+                                t.getObject() instanceof TypedLiteral && 
+                                    XSD.string.equals(((TypedLiteral)t.getObject()).getDataType()))){
+                            String text = ((Literal)t.getObject()).getLexicalForm();
+                            Language lang = t.getObject() instanceof PlainLiteral ? ((PlainLiteral)t.getObject()).getLanguage() : null ;
+                            if(job.isActiveLanguage(lang)){
+                                if(StringUtils.isNotBlank(text)){
                                     //create a new extraction job
-                                    ResourceText key = new ResourceText(t.getSubject(),text.getLanguage());
+                                    ResourceText key = new ResourceText(t.getSubject(), lang);
                                     StringBuilder textBuilder = resourceTexts.get(key);
                                     if(textBuilder == null){
-                                        resourceTexts.put(key, new StringBuilder(text.getLexicalForm()));
+                                        resourceTexts.put(key, new StringBuilder(text));
                                     } else { //append
-                                        textBuilder.append("\n\n").append(text.getLexicalForm());
+                                        //if this is a long text ... add a new paragraph
+                                        if(text.length() >= job.getMinLiteralLentth()){
+                                            textBuilder.append("\n\n");
+                                        } else {//for shor tests only add a space
+                                            textBuilder.append(" ");
+                                        }
+                                        textBuilder.append(text);
                                     }
                                 } else {
                                     log.trace(" ignore {} because label length < 50",t);
                                 }
                             } else {
-                                log.trace(" ignore {} because labels language {} is not active", text.getLanguage());
+                                log.trace(" ignore {} because labels language {} is not active", text);
                             }
                         }
                     }
@@ -507,10 +519,12 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                 log.debug(" > found {} resource literals for request {}", resourceTexts.size(),job.requestId);
                 Collection<LiteralExtractionTask> extractionTasks = new ArrayList<>(resourceTexts.size());
                 for(Entry<ResourceText, StringBuilder> entry : resourceTexts.entrySet()){
-                    LiteralExtractionTask extractionTask = new LiteralExtractionTask(job,
-                            entry.getKey(). resource, entry.getValue().toString(),
-                            entry.getKey().lang);
-                    extractionTasks.add(extractionTask);
+                    if(entry.getValue().length() >= job.getMinLiteralLentth()){
+                        LiteralExtractionTask extractionTask = new LiteralExtractionTask(job,
+                                entry.getKey(). resource, entry.getValue().toString(),
+                                entry.getKey().lang);
+                        extractionTasks.add(extractionTask);
+                    } //else ignore texts shorter as the minimum literal length
                 }
                 long start = System.currentTimeMillis();
                 invokeAll(extractionTasks);

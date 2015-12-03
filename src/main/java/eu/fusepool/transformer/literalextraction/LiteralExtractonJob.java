@@ -1,5 +1,7 @@
 package eu.fusepool.transformer.literalextraction;
 
+import static eu.fusepool.transformer.literalextraction.Defaults.DEFAULT_KEYWORD_PREDICATE;
+import static eu.fusepool.transformer.literalextraction.Defaults.DEFAULT_LANGUAGE_PREDICATE;
 import static eu.fusepool.transformer.literalextraction.Defaults.DEFAULT_LITERAL_PREDICATES;
 import static eu.fusepool.transformer.literalextraction.Defaults.DEFAULT_ENTITY_PREDICATE;
 import static eu.fusepool.transformer.literalextraction.Defaults.DEFAULT_TOPIC_PREDICATE;
@@ -44,6 +46,8 @@ class LiteralExtractonJob implements Serializable {
     
     protected UriRef sentimentPredicate;
     
+    protected UriRef languagePredicate;
+
     protected Map<NamedEntityTypeEnum,UriRef> namedEntityTypePredicates = new HashMap<>(
             Defaults.DEFAULT_NAMED_ENTITY_TYPE_PREDICATES);
 
@@ -94,7 +98,7 @@ class LiteralExtractonJob implements Serializable {
     }
     
     public UriRef getKeywordPredicate() {
-        return keywordPredicate == null ? Defaults.DEFAULT_KEYWORD_PREDICATE : keywordPredicate;
+        return keywordPredicate == null ? DEFAULT_KEYWORD_PREDICATE : keywordPredicate;
     }
     
     void setKeywordPredicate(UriRef keywordPredicate) {
@@ -109,7 +113,20 @@ class LiteralExtractonJob implements Serializable {
         this.sentimentPredicate = sentimentPredicate;
     }
     
-    public int getMinLiteralLentth() {
+    public UriRef getLanguagePredicate() {
+        return languagePredicate == null ? DEFAULT_LANGUAGE_PREDICATE : languagePredicate;
+    }
+    /**
+     * The predicate used to annotate the language as detected for the text. 
+     * @param languagePredicate the language predicate or <code>null</code> to reset to
+     * the default ({@link Defaults#DEFAULT_LANGUAGE_PREDICATE})
+     */
+    void setLanguagePredicate(UriRef languagePredicate) {
+        this.languagePredicate = languagePredicate;
+    }
+
+    
+    public int getMinLiteralLength() {
         return minLiteralLength == null ? Defaults.DEFAULT_MIN_LITERAL_LENGTH : minLiteralLength;
     }
 

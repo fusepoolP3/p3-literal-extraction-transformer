@@ -6,6 +6,7 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.math.BigDecimal;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLDecoder;
@@ -33,6 +34,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.clerezza.rdf.core.Language;
 import org.apache.clerezza.rdf.core.Literal;
+import org.apache.clerezza.rdf.core.LiteralFactory;
 import org.apache.clerezza.rdf.core.MGraph;
 import org.apache.clerezza.rdf.core.NonLiteral;
 import org.apache.clerezza.rdf.core.PlainLiteral;
@@ -44,6 +46,7 @@ import org.apache.clerezza.rdf.core.impl.TripleImpl;
 import org.apache.clerezza.rdf.core.serializedform.Parser;
 import org.apache.clerezza.rdf.core.serializedform.Serializer;
 import org.apache.clerezza.rdf.core.serializedform.SupportedFormat;
+import org.apache.clerezza.rdf.ontologies.DCTERMS;
 import org.apache.clerezza.rdf.ontologies.RDF;
 import org.apache.clerezza.rdf.ontologies.XSD;
 import org.apache.clerezza.rdf.utils.GraphNode;
@@ -156,6 +159,7 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
     public static final String PARAM_TOPIC_PREDICATE = "topic-pred";
     public static final String PARAM_KEYWORD_PREDICATE = "keyword-pred";
     public static final String PARAM_SENTIMENT_PREDICATE = "sentiment-pred";
+    public static final String PARAM_LANGUAGE_PREDICATE = "lang-pred";
     /**
      * Suffix for the parameters used to configure the Named Entity Predicates.
      * The full parameter is the name of the {@link NamedEntityTypeEnum} member
@@ -334,18 +338,28 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
             job.setAssigendTopicPredicate(new UriRef(
                     URLDecoder.decode(topicPredicate, UTF8.name())));
         }
+        log.info(" - assigned topic predicate: {}",job.getAssigendTopicPredicate());
         //lookup a custom assigned keyword predicate
         String keywordPredicate = request.getParameter(PARAM_KEYWORD_PREDICATE);
         if(!StringUtils.isBlank(keywordPredicate)){
             job.setKeywordPredicate(new UriRef(
                     URLDecoder.decode(keywordPredicate, UTF8.name())));
         }
+        log.info(" - keyword predicate: {}",job.getKeywordPredicate());
         //lookup a custom assigned sentiment predicate
         String sentimentPredicate = request.getParameter(PARAM_SENTIMENT_PREDICATE);
         if(!StringUtils.isBlank(sentimentPredicate)){
             job.setSentimentPredicate(new UriRef(
                     URLDecoder.decode(sentimentPredicate, UTF8.name())));
         }
+        log.info(" - sentiment predicate: {}",job.getSentimentPredicate());
+        //lookup a custom language predicate
+        String langPredicate = request.getParameter(PARAM_LANGUAGE_PREDICATE);
+        if(!StringUtils.isBlank(langPredicate)){
+            job.setLanguagePredicate(new UriRef(
+                    URLDecoder.decode(langPredicate, UTF8.name())));
+        }
+        log.info(" - language predicate: {}",job.getLanguagePredicate());
         //check if a custom minimal literal length is configured
         String minLitLen = request.getParameter(PARAM_MIN_LITERAL_LENGTH);
         if(!StringUtils.isBlank(sentimentPredicate)){
@@ -382,6 +396,7 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                     } else {
                         log.info(" - set Named Entity Predicate for {} to {}", neType,nePredicate);
                         job.setNamedEntityTypePredicate(neType, new UriRef(nePredicate));
+                        log.info(" - {} named entity predicate: <{}>",neType, nePredicate);
                     }
                 } catch(URISyntaxException e){
                     log.warn("Unable to set named entity predicate for type " + neType
@@ -389,7 +404,6 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                 }
             }
         }
-        log.info(" - assigned topic predicate: {}",job.getAssigendTopicPredicate());
         String[] languages = request.getParameterValues(PARAM_LANGUAGE);
         if(languages != null && languages.length > 0){
             job.setActiveLanguages(Arrays.asList(languages));
@@ -499,7 +513,7 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                                         resourceTexts.put(key, new StringBuilder(text));
                                     } else { //append
                                         //if this is a long text ... add a new paragraph
-                                        if(text.length() >= job.getMinLiteralLentth()){
+                                        if(text.length() >= job.getMinLiteralLength()){
                                             textBuilder.append("\n\n");
                                         } else {//for shor tests only add a space
                                             textBuilder.append(" ");
@@ -518,7 +532,7 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                 log.debug(" > found {} resource literals for request {}", resourceTexts.size(),job.requestId);
                 Collection<LiteralExtractionTask> extractionTasks = new ArrayList<>(resourceTexts.size());
                 for(Entry<ResourceText, StringBuilder> entry : resourceTexts.entrySet()){
-                    if(entry.getValue().length() >= job.getMinLiteralLentth()){
+                    if(entry.getValue().length() >= job.getMinLiteralLength()){
                         LiteralExtractionTask extractionTask = new LiteralExtractionTask(job,
                                 entry.getKey(). resource, entry.getValue().toString(),
                                 entry.getKey().lang);
@@ -624,10 +638,7 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
         private final LiteralExtractonJob job;
         private final NonLiteral subject;
         private final String text;
-        /**
-         * NOTE: currently not used as {@link The
-         */
-        private final Language lang;
+        private Language lang;
         
         private URI contentLocation = null;
 
@@ -681,15 +692,50 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                 long start = System.currentTimeMillis();
                 Entity response = job.transformer.transform(entity, TURTLE_UTF8);
                 log.debug(" ... processed in {}ms", System.currentTimeMillis()-start);
-                //(1) parse TURTLE results
+                
+                //(0) parse TURTLE results
                 MGraph famResults = new IndexedMGraph();
                 parser.parse(famResults, response.getData(), SupportedFormat.TURTLE);
-                //(2) get Informations form the FAM enhancements
                 MGraph extractionResults = new IndexedMGraph();
+                Iterator<Triple> it;
+                //(1) detected language
+                if(lang == null){ //only if the input language is not known
+                    it = famResults.filter(null, RDF.type, FAM.LanguageAnnotation);
+                    String language = null;
+                    double conf = 0d;
+                    while(it.hasNext()){
+                        GraphNode la = new GraphNode(it.next().getSubject(), famResults);
+                        String actLang = null;
+                        Iterator<Literal> lit = la.getLiterals(DCTERMS.language);
+                        if(lit.hasNext()){
+                            actLang = lit.next().getLexicalForm();
+                        }
+                        double actConf = 0d;
+                        Iterator<Literal> cit = la.getLiterals(FAM.confidence);
+                        if(cit.hasNext()){
+                            try {
+                                actConf = new BigDecimal(cit.next().getLexicalForm()).doubleValue();
+                            } catch(NumberFormatException e) { /*ignore*/ }
+                        }
+                        if(actConf > conf && actLang != null){
+                            conf = actConf;
+                            language = actLang;
+                        }
+                            
+                    }
+                    if(language != null && conf >= 0.9){
+                        extractionResults.add(new TripleImpl(subject, job.getLanguagePredicate(), 
+                                new PlainLiteralImpl(language)));
+                        //also use this language for literals
+                        this.lang = new Language(language);
+                    } // else ignore language annotations < 0.9
+                }
+                
+                //(2) get Informations form the FAM enhancements
                 //for now we are only interested in linked entities
                 log.debug("  - Extraction Results: ");
                 // - referenced Entities
-                Iterator<Triple> it = famResults.filter(null, FAM.entity_reference, null);
+                it = famResults.filter(null, FAM.entity_reference, null);
                 while(it.hasNext()){
                     Triple t = it.next();
                     if(t.getObject() instanceof UriRef){
@@ -777,6 +823,7 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                     }
                     
                 }
+
                 
                 //we need to add them (while within a write lock
                 job.results.getLock().writeLock().lock();

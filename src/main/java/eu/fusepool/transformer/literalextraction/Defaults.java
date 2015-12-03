@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.clerezza.rdf.core.UriRef;
+import org.apache.clerezza.rdf.ontologies.DCTERMS;
 import org.apache.clerezza.rdf.ontologies.FOAF;
 import org.apache.clerezza.rdf.ontologies.RDFS;
 import org.apache.clerezza.rdf.ontologies.SKOS04;
@@ -33,6 +34,8 @@ public class Defaults {
             FAM.THIS_ONTOLOGY.getUnicodeString() + "keyword");
     public static final UriRef DEFAULT_SENTIMENT_PREDICATE = new UriRef(
             FAM.THIS_ONTOLOGY.getUnicodeString() + "sentiment");
+    
+    public static final UriRef DEFAULT_LANGUAGE_PREDICATE = DCTERMS.language;
     
     /**
      * Predicate used for Named Entities of the type Person

@@ -120,6 +120,8 @@ unknown (to be determined by a language detection feature of the called transfor
 * __lit-pred__ _(`0..n`, default: `rdfs:comment`, `skos:note`, `skos:definition`, 
 `schema:description`)_: The URIs of predicates of literals used to extract
 information from. If not present the defaults will be used.
+* __lang-pred__ _(`0..1`, default: `dct:language`)_: The predicate used to add
+the language detected for literals that had not language assigned. 
 * __entity-pred__ _(`0..1`, default: `fam:entity-reference`)_: The predicate used
 to add entities extracted from the textual description to the dataset.
 * __topic-pred__ _(`0..1`, default: `fam:topic-reference`)_: The predicate used

@@ -362,7 +362,7 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
         log.info(" - language predicate: {}",job.getLanguagePredicate());
         //check if a custom minimal literal length is configured
         String minLitLen = request.getParameter(PARAM_MIN_LITERAL_LENGTH);
-        if(!StringUtils.isBlank(sentimentPredicate)){
+        if(!StringUtils.isBlank(minLitLen)){
             try {
                 job.setMinLiteralLength(Integer.valueOf(minLitLen));
             } catch (NumberFormatException e){
@@ -371,6 +371,7 @@ public class LiteralExtractionTransformer implements AsyncTransformer, Closeable
                         PARAM_MIN_LITERAL_LENGTH, minLitLen, Defaults.DEFAULT_MIN_LITERAL_LENGTH});
             }
         }
+        log.info(" - minimum literal length: {}",job.getMinLiteralLength());
 
         //look for custom named entity predicates
         Enumeration<String> parameterNames = request.getParameterNames();

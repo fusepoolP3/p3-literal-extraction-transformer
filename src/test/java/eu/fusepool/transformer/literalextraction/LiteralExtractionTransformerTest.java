@@ -3,6 +3,7 @@ package eu.fusepool.transformer.literalextraction;
 import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_ENTITY_PREDICATE;
 import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_KEYWORD_PREDICATE;
 import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_LANGUAGE;
+import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_MIN_LITERAL_LENGTH;
 import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_NAMED_ENTITY_PREDICATE_SUFFIX;
 import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_SENTIMENT_PREDICATE;
 import static eu.fusepool.transformer.literalextraction.LiteralExtractionTransformer.PARAM_TOPIC_PREDICATE;
@@ -184,6 +185,20 @@ public class LiteralExtractionTransformerTest {
         
         ResponseBodyData result = validateAsyncTransformerRequest(BASE_URI,
                 Arrays.asList(PARAM_TRANSFORMER,UNIT_TEST_TRANSFORMER),
+                TURTLE + ";charset=UTF-8", RDF_DATASET_CONTENTS.get(0), contentLocation, acceptType);
+        Graph graph = parser.parse(result.asInputStream(), acceptType);
+        assertExtractionResults(graph);
+    }
+    
+    @Test
+    public void testMinLitLength() throws Exception {
+        log.info("> test LiteralExtractionTransformer");
+        String contentLocation = "http://www.test.org/fusepool/transformer/literalExtraction/";
+        String acceptType = TURTLE;
+        
+        ResponseBodyData result = validateAsyncTransformerRequest(BASE_URI,
+                Arrays.asList(PARAM_TRANSFORMER, UNIT_TEST_TRANSFORMER,
+                        PARAM_MIN_LITERAL_LENGTH, "1"),
                 TURTLE + ";charset=UTF-8", RDF_DATASET_CONTENTS.get(0), contentLocation, acceptType);
         Graph graph = parser.parse(result.asInputStream(), acceptType);
         assertExtractionResults(graph);
